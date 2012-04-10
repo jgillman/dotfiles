@@ -1,0 +1,38 @@
+# Remap prefix to Control + a
+set -g prefix C-a
+unbind C-b
+
+# Map Control + a then a to regular Control + a
+bind a send-prefix
+
+# Quick pane cycling
+unbind ^A
+bind ^A select-pane -t :.+
+
+set -g default-terminal "screen-256color"
+
+unbind %
+bind | split-window -h
+bind - split-window -v
+
+# THEME
+set -g status-interval 60
+set -g status-bg black
+set -g status-fg white
+set -g status-left '#[fg=green]#H'
+set -g status-right '#[fg=yellow]#(uptime | cut -d "," -f 2-)#[default]'
+
+# Highlight active window
+set-window-option -g window-status-current-bg red
+
+# Set window notifications
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Automatically set window title
+setw -g automatic-rename
+
+# pane movement
+bind-key j command-prompt -p "join pane from:"  "join-pane -s '%%'"
+bind-key s command-prompt -p "send pane to:"  "join-pane -t '%%'"
+

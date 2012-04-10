@@ -1,0 +1,27 @@
+[user]
+	name = Joel Gillman
+	email = joeltgillman@gmail.com
+
+[alias]
+	st = status
+	co = checkout
+	sp = stash pop
+	mylog = log --author=Joel
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+
+[github]
+	user = jgillman
+
+[branch "master"]
+	mergeoptions = --no-ff
