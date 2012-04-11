@@ -13,6 +13,7 @@ set nocompatible
 set backup                 " Store temporary files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set encoding=utf-8         " UTF8 or bust!
 set autoindent             " automatic indent new lines
 set smartindent            " be smart about it
 set nowrap                 " do not wrap lines
