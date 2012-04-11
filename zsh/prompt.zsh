@@ -14,9 +14,9 @@ git_dirty() {
   else
     if [[ $st == "nothing to commit (working directory clean)" ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "on %{$fg[green]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo "on %{$fg[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
@@ -36,17 +36,17 @@ need_push () {
   then
     echo " "
   else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
+    echo " with %{$fg[magenta]%}unpushed%{$reset_color%} "
   fi
 }
 
 rb_prompt(){
 	if $(which rvm &> /dev/null)
 	then
-		echo "%{$fg_bold[yellow]%}$(rvm current)%{$reset_color%}"
+		echo "%{$fg[yellow]%}$(rvm current)%{$reset_color%}"
 	elif $(which rbenv &> /dev/null)
 	then
-		echo "%{$fg_bold[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
+		echo "%{$fg[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
 	else
 		echo ""
 	fi
@@ -72,12 +72,12 @@ todo(){
 }
 
 directory_name(){
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+  echo "%{$fg[cyan]%}%1/%\/%{$reset_color%}"
 }
 
 export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
+  export RPROMPT="%{$fg[cyan]%}$(todo)%{$reset_color%}"
 }
 
 precmd() {
