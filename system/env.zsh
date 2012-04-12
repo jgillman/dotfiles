@@ -9,3 +9,5 @@ export EDITOR='vim'
 export MANPAGER="less -X"
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
+
+export LESS=-RFX
