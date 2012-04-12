@@ -5,6 +5,9 @@ unbind C-b
 # Map Control + a then a to regular Control + a
 bind a send-prefix
 
+# Use vi mode keys because I'm use to vim
+setw -g mode-keys vi
+
 # Quick pane cycling
 unbind ^A
 bind ^A select-pane -t :.+
