@@ -12,6 +12,9 @@ setw -g mode-keys vi
 unbind ^A
 bind ^A select-pane -t :.+
 
+# No delay for escapes
+set -sg escape-time 0
+
 # Always use 256 colors
 set -g default-terminal "screen-256color"
 
