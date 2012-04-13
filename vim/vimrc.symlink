@@ -27,7 +27,8 @@ set cpoptions+=$           " add the dollar character when changing a word
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 filetype plugin indent on
 
-let g:CommandTMaxFiles=20000 " double number of files scanned
+let g:CommandTMaxFiles=20000     " double number of files scanned
+let g:Powerline_symbols='fancy'  " use fancy characters for powerline
 
 
 " ----------------------------------------------------------------------------
