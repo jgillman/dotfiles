@@ -1,0 +1,11 @@
+--sort-files
+--pager=less
+--ignore-dir=bin
+--ignore-dir=build
+--ignore-dir=cgi-bin
+--ignore-dir=contrib
+--ignore-dir=ect
+--ignore-dir=sql
+--ignore-dir=test
+--ignore-dir=widgets
+--ignore-dir=xslt
