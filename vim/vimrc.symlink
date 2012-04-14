@@ -13,6 +13,7 @@ set nocompatible
 set backup                 " Store temporary files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set encoding=utf-8         " UTF8 or bust!
 set autoindent             " automatic indent new lines
 set smartindent            " be smart about it
 set nowrap                 " do not wrap lines
@@ -25,6 +26,9 @@ set virtualedit=block      " allow virtual edit in visual block ..
 set cpoptions+=$           " add the dollar character when changing a word
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 filetype plugin indent on
+
+let g:CommandTMaxFiles=20000     " double number of files scanned
+let g:Powerline_symbols='fancy'  " use fancy characters for powerline
 
 
 " ----------------------------------------------------------------------------
