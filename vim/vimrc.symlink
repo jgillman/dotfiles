@@ -31,6 +31,18 @@ let g:CommandTMaxFiles=20000     " double number of files scanned
 let g:Powerline_symbols='fancy'  " use fancy characters for powerline
 
 
+" ---------------------------------------------------------------------------
+"  Auto commands
+" ---------------------------------------------------------------------------
+" autocmd!
+" autocmd FileType text setlocal textwidth=78
+" Jump to last cursor position unless it's invalid or in an event handler
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+
+
 " ----------------------------------------------------------------------------
 "  Colors
 " ----------------------------------------------------------------------------
@@ -87,6 +99,9 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+" Insert a hash rocket with <c-l>
+" imap <c-l> <space>=><space>
+
 " stop using arrow keys
 map <Left> :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
@@ -94,6 +109,7 @@ map <Up> :echo "no!"<cr>
 map <Down> :echo "no!"<cr>
 
 " Indent if we're at the beginning of a line. Else, do completion.
+" (from Destroy All Software)
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
@@ -151,6 +167,18 @@ map ,s :call StripWhitespace ()<CR>
 " ---------------------------------------------------------------------------
 "  Extra commands, sometimes useful
 " ---------------------------------------------------------------------------
+
+" Rename current file
+function! RenameFile()
+	let old_name = expand('%')
+	let new_name = input('New file name: ', expand('%'))
+	if new_name != '' && new_name != old_name
+		exec ':saveas ' . new_name
+		exec ':silent !rm ' . old_name
+		redraw!
+	endif
+endfunction
+map <leader>n :call RenameFile()<cr>
 
 " Open a split for each dirty file in git
 function! OpenChangedFiles()
