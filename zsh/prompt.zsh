@@ -41,10 +41,7 @@ need_push () {
 }
 
 rb_prompt(){
-	if $(`which rvm` &> /dev/null)
-	then
-		echo "%{$fg[yellow]%}$(rvm current)%{$reset_color%}"
-	elif $(`which rbenv` &> /dev/null)
+	if $(which rbenv &> /dev/null)
 	then
 		echo "%{$fg[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
 	else
