@@ -6,8 +6,8 @@ unbind C-b
 bind a send-prefix
 
 # Use vi mode keys because I'm use to vim
-set -g mode-keys vi
-set -g status-keys vi
+# set -g mode-keys vi
+# set -g status-keys vi
 
 # Quick pane cycling
 unbind ^A
