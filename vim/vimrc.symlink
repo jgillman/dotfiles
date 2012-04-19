@@ -93,6 +93,10 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" Use c-n and c-p to cycle buffers
+nnoremap <c-n> :bnext<cr>
+nnoremap <c-p> :bprevious<cr>
+
 " sane movement with wrap turned on
 nnoremap j gj
 nnoremap k gk
@@ -100,7 +104,7 @@ vnoremap j gj
 vnoremap k gk
 
 " Insert a hash rocket with <c-l>
-" imap <c-l> <space>=><space>
+imap <c-l> <space>=><space>
 
 " stop using arrow keys
 map <Left> :echo "no!"<cr>
