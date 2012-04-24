@@ -11,6 +11,9 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
 
+# Start a webserver in the current dir
+alias serverthis="python -m SimpleHTTPServer"
+
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop"defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop"defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
