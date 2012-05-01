@@ -6,7 +6,13 @@
 	st = status
 	co = checkout
 	sp = stash pop
+	di = diff
+	dc = diff --cached
 	mylog = log --author=Joel
+
+	head = !git l -1
+	h = !git head
+	l = "!source ~/.githelpers && pretty_git_log"
 
 [color]
 	diff = auto
