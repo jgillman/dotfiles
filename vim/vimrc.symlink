@@ -14,6 +14,7 @@ set backup                 " Store temporary files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set encoding=utf-8         " UTF8 or bust!
+set hidden                 " allow unsaved buffers in the background
 set autoindent             " automatic indent new lines
 set smartindent            " be smart about it
 set nowrap                 " do not wrap lines
@@ -21,7 +22,8 @@ set softtabstop=4
 set shiftwidth=4
 set tabstop=4
 set formatoptions+=n       " support for numbered/bullet lists
-"set textwidth=80           " wrap at 80 chars by default
+" set relativenumber         " show line numbers relative to the current line
+set textwidth=79           " wrap at 79 chars by default
 set virtualedit=block      " allow virtual edit in visual block ..
 set cpoptions+=$           " add the dollar character when changing a word
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
@@ -65,6 +67,14 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " lead with ,
 let mapleader = ","
 
+" Always search regular regex
+nnoremap / /\v
+vnoremap / /\v
+
+" Use tab to jump between matching bracket pairs
+nnoremap <tab> %
+vnoremap <tab> %
+
 " Toggle paste mode
 nmap <leader>p :set invpaste<cr>:set paste?<cr>
 
@@ -103,6 +113,9 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+" make ; do : so you stop typing :Wq
+nnoremap ; :
+
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
 
@@ -111,6 +124,11 @@ map <Left> :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
 map <Up> :echo "no!"<cr>
 map <Down> :echo "no!"<cr>
+
+" stop accidentally opening help
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
 
 " Indent if we're at the beginning of a line. Else, do completion.
 " (from Destroy All Software)
@@ -143,6 +161,7 @@ set shortmess=filtIoOA     " shorten messages
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
 set scrolloff=8            " keep 8 lines of space above and below the cursor
+set ttyfast                " always assume a fast connection
 
 
 " ----------------------------------------------------------------------------
@@ -155,7 +174,9 @@ set incsearch              " do incremental searching
 set laststatus=2           " always show the status line
 set smartcase              " use case insensitive unless a capital letter is used
 set hlsearch               " highlight searches
+set gdefault               " always search globally
 set visualbell             " shut the fuck up
+set colorcolumn=79         " highlight column 79 as a soft reminder
 
 
 " ---------------------------------------------------------------------------
