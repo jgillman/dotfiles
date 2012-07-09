@@ -23,7 +23,7 @@ set shiftwidth=4
 set tabstop=4
 set formatoptions+=n       " support for numbered/bullet lists
 " set relativenumber         " show line numbers relative to the current line
-set textwidth=79           " wrap at 79 chars by default
+" set textwidth=79           " wrap at 79 chars by default
 set virtualedit=block      " allow virtual edit in visual block ..
 set cpoptions+=$           " add the dollar character when changing a word
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
