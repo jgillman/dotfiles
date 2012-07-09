@@ -35,3 +35,5 @@ tmp/**/*
 
 .svn
 *~
+
+vim/vim.symlink/.netrwhist
