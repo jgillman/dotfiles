@@ -33,9 +33,9 @@ let g:CommandTMaxFiles=20000     " double number of files scanned
 let g:Powerline_symbols='fancy'  " use fancy characters for powerline
 
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 "  Auto commands
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " autocmd!
 " autocmd FileType text setlocal textwidth=78
 " Jump to last cursor position unless it's invalid or in an event handler
@@ -130,6 +130,10 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+" helpful split resizing
+nnoremap - <c-w>-
+nnoremap + <c-w>+
+
 " Indent if we're at the beginning of a line. Else, do completion.
 " (from Destroy All Software)
 function! InsertTabWrapper()
@@ -179,9 +183,9 @@ set visualbell             " shut the fuck up
 set colorcolumn=79         " highlight column 79 as a soft reminder
 
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 function! StripWhitespace ()
     exec ':%s/ \+$//gc'
@@ -189,9 +193,9 @@ endfunction
 map ,s :call StripWhitespace ()<CR>
 
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 "  Extra commands, sometimes useful
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 " Rename current file
 function! RenameFile()
