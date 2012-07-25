@@ -18,9 +18,9 @@ set hidden                 " allow unsaved buffers in the background
 set autoindent             " automatic indent new lines
 set smartindent            " be smart about it
 set nowrap                 " do not wrap lines
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
 set formatoptions+=n       " support for numbered/bullet lists
 " set relativenumber         " show line numbers relative to the current line
 " set textwidth=79           " wrap at 79 chars by default
