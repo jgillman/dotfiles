@@ -75,6 +75,8 @@ vnoremap / /\v
 nnoremap <tab> %
 vnoremap <tab> %
 
+" Toggle spellcheck
+nmap <silent> <leader>s :set spell!<CR>
 " Toggle paste mode
 nmap <leader>p :set invpaste<cr>:set paste?<cr>
 
@@ -179,7 +181,7 @@ set laststatus=2           " always show the status line
 set smartcase              " use case insensitive unless a capital letter is used
 set hlsearch               " highlight searches
 set gdefault               " always search globally
-set visualbell             " shut the fuck up
+" set visualbell             " shut the fuck up
 set colorcolumn=79         " highlight column 79 as a soft reminder
 
 
@@ -190,7 +192,7 @@ set colorcolumn=79         " highlight column 79 as a soft reminder
 function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
-map ,s :call StripWhitespace ()<CR>
+" map <leader>s :call StripWhitespace ()<CR>
 
 
 " ----------------------------------------------------------------------------
