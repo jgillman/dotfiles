@@ -54,7 +54,7 @@ if has ('gui_running')
 else
 	set background=dark
 endif
-colorscheme solarized
+colorscheme Tomorrow-Night
 
 
 " ----------------------------------------------------------------------------
@@ -66,6 +66,10 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " lead with ,
 let mapleader = ","
+
+" Bubble multiple lines
+vmap <C-k> xkP`[V`]
+vmap <C-j> xp`[V`]
 
 " Always search regular regex
 nnoremap / /\v
