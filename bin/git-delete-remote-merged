@@ -1,0 +1,63 @@
+#!/bin/sh
+#
+# Delete all remote branches that have been merged into master
+#
+
+main() {
+	check_for_master &&
+		update_remotes &&
+		echo "These branches are merged into master and will be nuked:" &&
+		show_branches_to_delete
+
+	prompt_confirmation &&
+		delete_branches
+}
+
+current_branch() {
+	git branch |
+		# Find the active branch
+		grep "^*" |
+		# Remove the '* ' at the begining
+		sed "s/\* //"
+}
+
+check_for_master() {
+	if [[ $(current_branch) != "master" ]]
+	then
+		echo "You must run this script from master."
+		exit 1
+	fi
+}
+
+update_remotes() {
+	git fetch
+	git remote prune origin
+}
+
+show_branches_to_delete() {
+	git branch -r --merged master |
+		sed "s/ *origin\///" |
+		grep -v "master$"
+}
+
+prompt_confirmation() {
+	echo ""
+	read -p "Nuke these branches (y/n)? "
+	if [[ "$REPLY" == "y" ]]
+	then
+		echo "I would totally delete them now"
+		exit 0
+	else
+		echo "Okay, I haven't deleted anything."
+		exit 1
+	fi
+}
+
+delete_branches() {
+	show_branches_to_delete |
+		# Push branches as arguments for removal
+		xargs -I% git push origin :%
+}
+
+main
+
