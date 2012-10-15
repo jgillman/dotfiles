@@ -2,6 +2,8 @@ call pathogen#infect()
 
 set noswapfile
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim  " Setup ctrlp
+
 " ----------------------------------------------------------------------------
 "  Basic Editing Config
 " ----------------------------------------------------------------------------
@@ -91,11 +93,11 @@ nmap <leader>n :set invhls<cr>:set hls?<cr>
 nmap <leader>w :set invwrap<cr>:set wrap?<cr>
 
 " Open files with <leader>f
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>f :CtrlP<cr>
 " Open files, limited to the directory of the current file
-map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+map <leader>gf :CtrlP %%<cr>
 " Open file window with currently open buffers
-nmap <leader>b :CommandTBuffer<cr>
+nmap <leader>b :CtrlPBuffer<cr>
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
