@@ -2,6 +2,9 @@
 	name = Joel Gillman
 	email = joeltgillman@gmail.com
 
+[status]
+	relativePaths = false
+
 [alias]
 	st = status
 	co = checkout
