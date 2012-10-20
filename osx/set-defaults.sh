@@ -86,8 +86,8 @@ defaults write com.apple.iTunes disablePingSidebar -bool true
 # Disable all the other Ping stuff in iTunes
 defaults write com.apple.iTunes disablePing -bool true
 
-# Empty Trash securely by default. WARNING, this can take forever
-defaults write com.apple.finder EmptyTrashSecurely -bool true
+# Empty Trash securely by default. WARNING, this can take forever (useless with SSDs)
+# defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 # Require password 3 seconds after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
