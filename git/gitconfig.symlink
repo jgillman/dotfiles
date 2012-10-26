@@ -32,3 +32,6 @@
 
 [github]
 	user = jgillman
+
+[push]
+	default = upstream
