@@ -7,6 +7,23 @@
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
+# Ask for the administrator password upfront
+sudo -v
+
+# Set computer name (as done via System Preferences → Sharing)
+sudo scutil --set ComputerName "Meatspace"
+sudo scutil --set HostName "Meatspace"
+sudo scutil --set LocalHostName "Meatspace"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Meatspace"
+
+# Menu bar: hide the useless Time Machine and Volume icons
+defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+# Reveal IP address, hostname, OS version, etc. when clicking the clock
+# in the login window
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
+
 # Disable press-and-hold for keys in favor of key repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 
@@ -40,6 +57,9 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
 # Enable spring loading for all Dock items
 defaults write enable-spring-load-actions-on-all-items -bool true
 
@@ -54,6 +74,9 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 0
+
+# Increase window resize speed for Cocoa applications
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 # Disable window animations
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
