@@ -2,6 +2,7 @@ alias reload!='. ~/.zshrc'
 
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
 alias la="ls -A"
 alias ll="ls -lAhF"
 
