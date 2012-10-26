@@ -7,13 +7,16 @@ brew install git
 # Install these
 brew install ack
 brew install base64
-brew install fortune
-brew install brc
-brew install node
+brew install libevent
 brew install optipng
+brew install rbenv
+brew install ruby-build
+brew install ssh-copy-id
 brew install tmux
 brew install webkit2png
 brew install wget
-brew install woof
 brew install youtube-dl
 brew install yuicompressor
+
+# Remove outdated versions
+brew cleanup
