@@ -121,9 +121,6 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" make ; do : so you stop typing :Wq
-nnoremap ; :
-
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
 
