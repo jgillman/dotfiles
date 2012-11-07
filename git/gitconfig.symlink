@@ -34,4 +34,4 @@
 	user = jgillman
 
 [push]
-	default = upstream
+	default = tracking
