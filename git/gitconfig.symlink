@@ -2,9 +2,6 @@
 	name = Joel Gillman
 	email = joeltgillman@gmail.com
 
-[status]
-	relativePaths = false
-
 [alias]
 	st = status
 	co = checkout
@@ -17,6 +14,13 @@
 	h = !git head
 	r = !git l -20
 	l = "!source ~/.githelpers && pretty_git_log"
+
+	fhs = !git flow hotfix start
+	fhf = !git flow hotfix finish
+	ffs = !git flow feature start
+	fff = !git flow feature finish
+	frs = !git flow release start
+	frf = !git flow release finish
 
 [color]
 	diff = auto
