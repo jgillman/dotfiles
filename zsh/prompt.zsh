@@ -74,7 +74,7 @@ directory_name(){
 
 set_prompt () {
   export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
-  export RPROMPT=$'%{$fg_bold[green]%}%~%{$reset_color%}'
+  export RPROMPT=$'%{$fg_bold[green]%}%~ @ %*%{$reset_color%}'
 }
 
 precmd() {
