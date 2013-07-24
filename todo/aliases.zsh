@@ -1,1 +1,1 @@
-alias t='todo.sh'
+# alias t='todo.sh'
