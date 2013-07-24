@@ -25,32 +25,27 @@ set -sg escape-time 0
 # Always use 256 colors
 set -g default-terminal "screen-256color"
 
+# Set scrollback to be a bit bigger
+set -g history-limit 10000
+
 # Easier window splitting
 unbind %
 bind | split-window -h
 bind - split-window -v
+
+# Bind monitor activity
+bind m set monitor-activity
 
 # THEME
 set -g status-interval 60
 set -g status-bg black
 set -g status-fg white
 set -g status-left '#[fg=green]#H'
-set -g status-right '#[fg=yellow]#(uptime | cut -d "," -f 2-)#[default]'
+set -g status-right '#[fg=yellow]#(uptime | cut -d "," -f 4)#[default]'
 
 # Start windows and panes at 1 not 0
 set -g base-index 1
 setw -g pane-base-index 1
-
-# DVTM style pane selection (thanks Steve Losh!)
-bind 1 select-pane -t 1
-bind 2 select-pane -t 2
-bind 3 select-pane -t 3
-bind 4 select-pane -t 4
-bind 5 select-pane -t 5
-bind 6 select-pane -t 6
-bind 7 select-pane -t 7
-bind 8 select-pane -t 8
-bind 9 select-pane -t 9
 
 # Highlight active window
 set-window-option -g window-status-current-bg red
