@@ -7,16 +7,75 @@ brew install git
 # Install these
 brew install ack
 brew install base64
-brew install libevent
-brew install optipng
+brew install git-flow
+brew install heroku-toolbelt
+brew install imagemagick
+brew install macvim
+brew install modile-shell
+brew install node
 brew install rbenv
+brew install reattach-to-user-namespace
 brew install ruby-build
+brew install s3cmd
 brew install ssh-copy-id
 brew install tmux
+brew install tree
+brew install watch
 brew install webkit2png
 brew install wget
 brew install youtube-dl
 brew install yuicompressor
+
+# Add brew cask
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
+# Add casks
+brew cask install adium
+brew cask install alfred
+brew cask install app-clearner
+brew cask install bartender
+brew cask install cloudapp
+brew cask install disk-inventory-x
+brew cask install divvy
+brew cask install doxie
+brew cask install dropbox
+brew cask install evernote
+brew cask install f-lux
+brew cask install firefox
+brew cask install google-chrome
+brew cask install google-drive
+brew cask install hip-chat
+brew cask install imagealpha
+brew cask install imageoptim
+brew cask install istat-menus
+brew cask install iterm2
+brew cask install lastfm
+brew cask install little-snitch
+brew cask install minecraft
+brew cask install miro-video-converter
+brew cask install one-password
+brew cask install plex
+brew cask install postgres
+brew cask install rdio
+brew cask install screenhero
+brew cask install steam
+brew cask install skype
+brew cask install steam
+brew cask install sublime-text
+brew cask install textexpander
+brew cask install the-unarchiver
+brew cask install tor-browser
+brew cask install transmit
+brew cask install true-crypt
+brew cask install unrarx
+brew cask install virtualbox
+brew cask install viscosity
+brew cask install vitamin-r
+brew cask install vlc
+
+# Link Alfred up (might need to be run after Alfred has been opened once)
+brew cask alfred
 
 # Remove outdated versions
 brew cleanup
