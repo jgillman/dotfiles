@@ -6,6 +6,11 @@ unbind C-b
 bind a send-prefix
 
 # Use vi mode keys because I'm use to vim
+set -g mode-keys vi
+set -g status-keys vi
+# reload config
+unbind r
+bind r source-file ~/.tmux.conf\; display "Config reloaded!"
 # set -g mode-keys vi
 # set -g status-keys vi
 
@@ -34,7 +39,8 @@ bind | split-window -h
 bind - split-window -v
 
 # Bind monitor activity
-bind m set monitor-activity
+bind m setw monitor-activity
+bind M command-prompt -p "monitor-silence (seconds)" "setw monitor-silence %%"
 
 # THEME
 set-option -g status-utf8 on
