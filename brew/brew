@@ -18,6 +18,7 @@ brew install reattach-to-user-namespace
 brew install ruby-build
 brew install s3cmd
 brew install ssh-copy-id
+brew install tig
 brew install tmux
 brew install tree
 brew install watch
