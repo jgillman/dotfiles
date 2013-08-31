@@ -34,6 +34,7 @@ task :install do
   end
 end
 
+desc "Remove all linked dotfiles"
 task :uninstall do
 
   Dir.glob('**/*.symlink').each do |linkable|
