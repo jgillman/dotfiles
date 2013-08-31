@@ -1,11 +1,19 @@
+# Search case insensitive if PATTERN is all lowercase
+--smart-case
+
+# Sort files for sane viewing
 --sort-files
+
+# Use `less` as my pager
 --pager=less
+
+# Ignore these common dirs
 --ignore-dir=bin
 --ignore-dir=build
 --ignore-dir=cgi-bin
 --ignore-dir=contrib
 --ignore-dir=ect
+--ignore-dir=log
 --ignore-dir=sql
---ignore-dir=test
---ignore-dir=widgets
---ignore-dir=xslt
+--ignore-dir=tmp
+
