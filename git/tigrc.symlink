@@ -1,5 +1,10 @@
 set line-graphics = utf-8
-set vertical-split = false
+set show-date = relative
+
+# set vertical-split = true
+
 set tab-size = 2
+set author-width = 12
+
 set ignore-case = true
 
