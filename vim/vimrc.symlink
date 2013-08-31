@@ -185,7 +185,8 @@ set showmatch              " brackets/braces that is
 set mat=5                  " duration to show matching brace (1/10 sec)
 set incsearch              " do incremental searching
 set laststatus=2           " always show the status line
-set smartcase              " use case insensitive unless a capital letter is used
+set ignorecase             " use case insensitive searching
+set smartcase              " ^ unless a capital letter is used
 set hlsearch               " highlight searches
 set gdefault               " always search globally
 " set visualbell             " shut the fuck up
