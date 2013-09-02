@@ -32,8 +32,8 @@ filetype plugin indent on
 
 let g:ctrlp_max_files=20000      " double number of files scanned
 let g:ctrlp_custom_ignore={
-	\ 'dir':  '(\.(git|hg|svn))|(db/(?:data|dumps))|(_local_s3|log|public|tmp|work)$',
-	\ 'file': '(*.sublime-)|(\.(exe|so|dll))$'
+	\ 'dir':  '(\.(git\|hg\|svn))\|(db/(?:data\|dumps))|(_local_s3\|log\|public\|tmp\|work)$',
+	\ 'file': '(*.sublime-)\|(\.(exe\|so\|dll))$'
 	\ }
 let g:Powerline_symbols='fancy'  " use fancy characters for powerline
 
