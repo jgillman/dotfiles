@@ -38,4 +38,4 @@
 	user = jgillman
 
 [push]
-	default = tracking
+	default = current
