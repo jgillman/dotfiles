@@ -171,7 +171,7 @@ map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
 
-let g:rspec_command = "!rspec --drb {spec}"
+let g:rspec_command = "!bundle exec rspec {spec}"
 
 " ----------------------------------------------------------------------------
 "  UI
