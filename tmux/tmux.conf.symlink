@@ -43,11 +43,15 @@ set -g history-limit 10000
 # Easier window splitting
 unbind %
 bind | split-window -h
+bind \ split-window -h
 bind - split-window -v
 
 # Tile all windows
 unbind =
 bind = select-layout tiled
+
+unbind +
+bind + select-layout main-vertical
 
 # Turn off default activity monitor
 set-window-option -g monitor-activity off
@@ -78,8 +82,8 @@ set -g base-index 1
 setw -g pane-base-index 1
 
 # Set window notifications
-setw -g monitor-activity on
-set -g visual-activity on
+setw -g monitor-activity off
+set -g visual-activity off
 
 # Automatically set window title
 setw -g automatic-rename
