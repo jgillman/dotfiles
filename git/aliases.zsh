@@ -16,3 +16,5 @@
 #   fi
 # fi
 
+alias cdp="cd `git root`"
+

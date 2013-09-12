@@ -15,12 +15,15 @@
 	r = !git l -20
 	l = "!source ~/.githelpers && pretty_git_log"
 
+	root = !pwd
+
 	fhs = !git flow hotfix start
 	fhf = !git flow hotfix finish
 	ffs = !git flow feature start
 	fff = !git flow feature finish
 	frs = !git flow release start
 	frf = !git flow release finish
+	g = grep --break --heading --line-number
 
 [color]
 	diff = auto
@@ -39,3 +42,6 @@
 
 [push]
 	default = current
+[grep]
+	extendRegexp = true
+	lineNumber = true
