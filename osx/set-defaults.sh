@@ -10,6 +10,9 @@
 # Ask for the administrator password upfront
 sudo -v
 
+# Show the ~/Library folder.
+chflags nohidden ~/Library
+
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "Meatspace"
 sudo scutil --set HostName "Meatspace"
