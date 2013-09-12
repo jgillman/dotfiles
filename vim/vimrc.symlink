@@ -1,3 +1,45 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" ----------------------------------------------------------------------------
+"  Bundles
+" ----------------------------------------------------------------------------
+
+" Trying these...
+Bundle 'amdt/sunset.git'
+
+" Interface / UI
+Bundle 'Lokaltog/vim-powerline.git'
+
+" Git
+Bundle 'airblade/vim-gitgutter.git'
+
+" Color Themes
+Bundle 'altercation/vim-colors-solarized.git'
+
+" Utility
+Bundle 'kien/ctrlp.vim.git'
+Bundle 'tpope/vim-commentary.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'vim-scripts/Align.git'
+
+" Everything else
+Bundle 'kchmck/vim-coffee-script.git'
+Bundle 'scrooloose/syntastic.git'
+Bundle 'thoughtbot/vim-rspec.git'
+Bundle 'tpope/vim-fugitive.git'
+Bundle 'tpope/vim-haml.git'
+Bundle 'tpope/vim-rails.git'
+
+
+
 set noswapfile
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim  " Setup ctrlp
@@ -9,7 +51,6 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim  " Setup ctrlp
 if has('mouse')
 	set mouse=a            " Turn on mouse support, if available
 endif
-set nocompatible
 set backup                 " Store temporary files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
