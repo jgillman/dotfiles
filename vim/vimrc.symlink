@@ -32,8 +32,8 @@ filetype plugin indent on
 
 let g:ctrlp_max_files=20000      " double number of files scanned
 let g:ctrlp_custom_ignore={
-	\ 'dir':  '(\.(git\|hg\|svn))\|(db/(?:data\|dumps))|(_local_s3\|log\|public\|tmp\|work)$',
-	\ 'file': '(*.sublime-)\|(\.(exe\|so\|dll))$'
+	\ 'dir':  '\v(\.(git|hg|svn))|(db/(data|dumps))|(_local_s3|log|public|tmp|work)$',
+	\ 'file': '\v(*.sublime-)|(\.(exe|so|dll))$'
 	\ }
 let g:Powerline_symbols='fancy'  " use fancy characters for powerline
 
@@ -217,6 +217,7 @@ function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
 " map <leader>s :call StripWhitespace ()<CR>
+autocmd BufWritePre * :%s/\s\+$//e
 
 
 " ----------------------------------------------------------------------------
@@ -249,3 +250,11 @@ command! OpenChangedFiles :call OpenChangedFiles()
 
 " Insert the current time
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
+
+
+" ----------------------------------------------------------------------------
+"  Per-filetype settings
+" ----------------------------------------------------------------------------
+
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+au BufNewFile,BufReadPost *.rb setl shiftwidth=2 expandtab
