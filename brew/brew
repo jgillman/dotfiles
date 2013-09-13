@@ -12,6 +12,7 @@ brew install heroku-toolbelt
 brew install imagemagick
 brew install macvim
 brew install modile-shell
+brew install mtr
 brew install node
 brew install rbenv
 brew install reattach-to-user-namespace
