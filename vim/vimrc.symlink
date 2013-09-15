@@ -16,7 +16,8 @@ Bundle 'gmarik/vundle'
 Bundle 'amdt/sunset.git'
 
 " Interface / UI
-Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'bling/vim-airline'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 " Git
 Bundle 'airblade/vim-gitgutter.git'
@@ -25,6 +26,7 @@ Bundle 'airblade/vim-gitgutter.git'
 Bundle 'altercation/vim-colors-solarized.git'
 
 " Utility
+Bundle 'ack.vim'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'tpope/vim-commentary.git'
 Bundle 'tpope/vim-surround.git'
@@ -76,7 +78,6 @@ let g:ctrlp_custom_ignore={
 	\ 'dir':  '\v(\.(git|hg|svn))|(db/(data|dumps))|(_local_s3|log|public|tmp|work)$',
 	\ 'file': '\v(*.sublime-)|(\.(exe|so|dll))$'
 	\ }
-let g:Powerline_symbols='fancy'  " use fancy characters for powerline
 
 
 " ----------------------------------------------------------------------------
@@ -232,6 +233,17 @@ set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
 set scrolloff=8            " keep 8 lines of space above and below the cursor
 set ttyfast                " always assume a fast connection
+
+
+" ----------------------------------------------------------------------------
+"  Airline (statusline)
+" ----------------------------------------------------------------------------
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+let g:airline_powerline_fonts=1
 
 
 " ----------------------------------------------------------------------------
