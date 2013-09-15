@@ -53,7 +53,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim  " Setup ctrlp
 " ----------------------------------------------------------------------------
 
 if has('mouse')
-	set mouse=a            " Turn on mouse support, if available
+  set mouse=a            " Turn on mouse support, if available
 endif
 set backup                 " Store temporary files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -75,9 +75,9 @@ filetype plugin indent on
 
 let g:ctrlp_max_files=20000      " double number of files scanned
 let g:ctrlp_custom_ignore={
-	\ 'dir':  '\v(\.(git|hg|svn))|(db/(data|dumps))|(_local_s3|log|public|tmp|work)$',
-	\ 'file': '\v(*.sublime-)|(\.(exe|so|dll))$'
-	\ }
+  \ 'dir':  '\v(\.(git|hg|svn))|(db/(data|dumps))|(_local_s3|log|public|tmp|work)$',
+  \ 'file': '\v(*.sublime-)|(\.(exe|so|dll))$'
+  \ }
 
 
 " ----------------------------------------------------------------------------
@@ -97,9 +97,9 @@ autocmd BufReadPost *
 " ----------------------------------------------------------------------------
 syntax enable
 if has ('gui_running')
-	set background=light
+  set background=light
 else
-	set background=light
+  set background=light
 endif
 colorscheme solarized
 
@@ -240,7 +240,7 @@ set ttyfast                " always assume a fast connection
 " ----------------------------------------------------------------------------
 
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 
 let g:airline_powerline_fonts=1
@@ -279,13 +279,13 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Rename current file
 function! RenameFile()
-	let old_name = expand('%')
-	let new_name = input('New file name: ', expand('%'))
-	if new_name != '' && new_name != old_name
-		exec ':saveas ' . new_name
-		exec ':silent !rm ' . old_name
-		redraw!
-	endif
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'))
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
 endfunction
 map <leader>n :call RenameFile()<cr>
 
