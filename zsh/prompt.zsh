@@ -19,12 +19,14 @@ git_dirty() {
       echo "on %{$fg[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
+  unset st
 }
 
 git_prompt_info () {
  ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || return
 # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
+ unset ref
 }
 
 unpushed () {
