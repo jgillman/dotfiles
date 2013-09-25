@@ -6,6 +6,17 @@ git_branch() {
   echo $(/usr/bin/git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
+git_wip() {
+  wip=$(/usr/bin/git log -1 --oneline 2>/dev/null | awk '{print tolower($2)}')
+  if [[ $wip == "wip" ]]
+  then
+    echo "%{$fg[red]%}❮WIP❯%{$reset_color%}"
+  else
+    echo ""
+  fi
+  unset wip
+}
+
 git_dirty() {
   st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
   if [[ $st == "" ]]
@@ -75,7 +86,7 @@ directory_name(){
 }
 
 set_prompt () {
-  export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+  export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n$(git_wip) › '
   export RPROMPT=$'%{$fg_bold[green]%}%~ @ %*%{$reset_color%}'
 }
 
