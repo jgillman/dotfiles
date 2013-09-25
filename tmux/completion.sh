@@ -1,14 +1,16 @@
+compdef _t t
+
 # START tmux completion
 # This file is in the public domain
 # See: http://www.debian-administration.org/articles/317 for how to write more.
 # Usage: Put "source bash_completion_tmux.sh" into your .bashrc
-_tmux() 
+_tmux()
 {
     local cur prev opts
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
-    
+
     opts=" \
     attach-session \
     bind-key \
@@ -93,7 +95,7 @@ _tmux()
     unlink-window \
     up-pane"
 
-    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))  
+    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
     return 0
 
 }
@@ -102,4 +104,4 @@ complete -F _tmux tmux
 # END tmux completion
 
 
- 	  	 
+
