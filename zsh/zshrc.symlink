@@ -41,5 +41,6 @@ do
   source $file
 done
 
+unset file
 unset config_files
 

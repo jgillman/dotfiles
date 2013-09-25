@@ -20,7 +20,7 @@
 # completion as well.  Place such a function inside an autoloaded #compdef file
 # and you should be all set.  You can add a description to such a function by
 # adding a line matching
-# 
+#
 #     #description DESCRIPTION
 #
 # as the second line in the file.  See
@@ -6136,29 +6136,32 @@ _git() {
 }
 
 # Load any _git-* definitions so that they may be completed as commands.
-declare -gUa _git_third_party_commands
-_git_third_party_commands=()
+load_git_definitions () {
+  declare -gUa _git_third_party_commands
+  _git_third_party_commands=()
 
-local file
-for file in ${^fpath}/_git-*~(*~|*.zwc)(.N); do
-  local name=${${file:t}#_git-}
-  if (( $+_git_third_party_commands[$name] )); then
-    continue
-  fi
-
-  local desc=
-  integer i=1
-  while read input; do
-    if (( i == 2 )); then
-      if [[ $input == '#description '* ]]; then
-        desc=:${input#\#description }
-      fi
-      break
+  local file
+  for file in ${^fpath}/_git-*~(*~|*.zwc)(.N); do
+    local name=${${file:t}#_git-}
+    if (( $+_git_third_party_commands[$name] )); then
+      continue
     fi
-    (( i++ ))
-  done < $file
 
-  _git_third_party_commands+=$name$desc
-done
+    local desc=
+    integer i=1
+    while read input; do
+      if (( i == 2 )); then
+        if [[ $input == '#description '* ]]; then
+          desc=:${input#\#description }
+        fi
+        break
+      fi
+      (( i++ ))
+    done < $file
 
-_git
+    _git_third_party_commands+=$name$desc
+  done
+}
+
+load_git_definitions
+
