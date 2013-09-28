@@ -7,10 +7,10 @@ git_branch() {
 }
 
 git_wip() {
-  wip=$(/usr/bin/git log -1 --oneline 2>/dev/null | awk '{print tolower($2)}')
+	wip=$(/usr/bin/git log -1 --oneline 2>/dev/null | awk '{print tolower($2)}' | awk '{gsub(/[^a-z]/, ""); print}')
   if [[ $wip == "wip" ]]
   then
-    echo "%{$fg[red]%}❮WIP❯%{$reset_color%}"
+    echo "%{$fg[red]%}± wip%{$reset_color%}"
   else
     echo ""
   fi
@@ -86,7 +86,7 @@ directory_name(){
 }
 
 set_prompt () {
-  export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n$(git_wip) › '
+  export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n$(git_wip)› '
   export RPROMPT=$'%{$fg_bold[green]%}%~ @ %*%{$reset_color%}'
 }
 
