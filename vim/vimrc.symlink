@@ -13,7 +13,7 @@ Bundle 'gmarik/vundle'
 " ----------------------------------------------------------------------------
 
 " Trying these...
-Bundle 'amdt/sunset.git'
+" Bundle 'amdt/sunset.git'
 
 " Interface / UI
 Bundle 'bling/vim-airline'
