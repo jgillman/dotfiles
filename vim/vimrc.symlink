@@ -17,6 +17,7 @@ Bundle 'gmarik/vundle'
 
 " Interface / UI
 Bundle 'bling/vim-airline'
+Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 " Git
