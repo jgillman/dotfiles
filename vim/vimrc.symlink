@@ -150,6 +150,7 @@ nnoremap <leader><leader> <c-^>
 
 " exit to normal mode with 'jj'
 inoremap jj <ESC>
+inoremap kk <ESC>
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
@@ -288,6 +289,7 @@ function! RenameFile()
     redraw!
   endif
 endfunction
+command! RenameFile :call RenameFile()
 " map <leader>n :call RenameFile()<cr>
 
 " Open a split for each dirty file in git
