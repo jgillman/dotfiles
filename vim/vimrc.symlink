@@ -247,6 +247,18 @@ endif
 
 let g:airline_powerline_fonts=1
 
+function! AirlineInit()
+  let g:airline_section_a = airline#section#create_left(['mode', 'paste', 'iminsert'])
+  let g:airline_section_b = airline#section#create(['branch'])
+  let g:airline_section_c = airline#section#create(['file'])
+
+  let g:airline_section_x = airline#section#create([])
+  let g:airline_section_y = airline#section#create(['%{airline#util#wrap(airline#parts#filetype(),0)}'])
+  let g:airline_section_z = airline#section#create(['%3p%%', ' %4l', ':%3c'])
+  let g:airline_section_warning = airline#section#create(['whitespace'])
+endfunction
+autocmd VimEnter * call AirlineInit()
+
 
 " ----------------------------------------------------------------------------
 " Visual Cues
