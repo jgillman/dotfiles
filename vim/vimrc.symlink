@@ -76,7 +76,7 @@ filetype plugin indent on
 
 let g:ctrlp_max_files=20000      " double number of files scanned
 let g:ctrlp_custom_ignore={
-  \ 'dir':  '\v(\.(git|hg|svn))|(db/(data|dumps))|(_local_s3|log|public|tmp|work)$',
+  \ 'dir':  '\v(\.(git|hg|svn))|(db/(data|dumps))|(_local_s3|log|public|tmp|work)|(_site)$',
   \ 'file': '\v(*.sublime-)|(\.(exe|so|dll))$'
   \ }
 
