@@ -3,8 +3,10 @@ alias reload!='. ~/.zshrc'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias cd.="cd ~/.dotfiles"
 alias la="ls -A"
 alias ll="ls -lAhF"
+alias l="ll"
 
 # Recursively delete '.DS_Store' files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"

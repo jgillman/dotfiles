@@ -10,6 +10,8 @@
 	dc = diff --cached
 	mylog = log --author=Joel
 
+  back = reset --soft HEAD^
+
 	head = !git l -1
 	h = !git head
 	r = !git l -20
