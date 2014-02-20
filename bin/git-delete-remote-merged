@@ -37,7 +37,8 @@ update_remotes() {
 show_branches_to_delete() {
 	git branch -r --merged master |
 		sed "s/ *origin\///" |
-		grep -v "master$"
+		grep -v "master$" |
+		grep -v "develop$"
 }
 
 prompt_confirmation() {
@@ -45,7 +46,8 @@ prompt_confirmation() {
 	read -p "Nuke these branches (y/n)? "
 	if [[ "$REPLY" == "y" ]]
 	then
-		echo "I would totally delete them now"
+		echo "Removing merged in branches on remote."
+    delete_branches
 		exit 0
 	else
 		echo "Okay, I haven't deleted anything."
