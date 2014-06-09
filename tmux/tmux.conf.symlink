@@ -11,11 +11,12 @@ set -g status-keys vi
 
 # Setup 'v' to begin selection as in Vim
 bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
 # Update default binding of `Enter` to also use copy-pipe
 unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Source .tmux-osx.conf if running in OS X
+if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
 
 # reload config
 unbind r
