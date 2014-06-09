@@ -66,10 +66,10 @@ set-option -g status-utf8 on
 set-option -g status-interval 60
 set-option -g status-bg colour235
 set-option -g status-fg colour244
-set-option -g status-left '#[bg=green,fg=black]⣿ ☯ #H ⡇ #[default,fg=green]⮀#[default]'
-set-option -g status-right '#[fg=green]⮂#[bg=green,fg=black]#(uptime | cut -d "," -f 4) #[default]'
+set-option -g status-left '#[bg=green,fg=black]⣿ ☯ #H ⡇ #[default,fg=green]#[default]'
+set-option -g status-right '#[fg=green]#[bg=green,fg=black]#(uptime | cut -d "," -f 4) #[default]'
 set-window-option -g window-status-format ' #I #W '
-set-window-option -g window-status-current-format '⮀#[fg=white] #I #W #[default]⮂'
+set-window-option -g window-status-current-format '#[fg=white] #I #W #[default]'
 
 set-window-option -g window-status-current-bg colour125
 set-window-option -g window-status-current-fg colour235
