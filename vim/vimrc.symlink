@@ -277,7 +277,7 @@ set smartcase              " ^ unless a capital letter is used
 set hlsearch               " highlight searches
 set gdefault               " always search globally
 " set visualbell             " shut the fuck up
-set colorcolumn=79         " highlight column 79 as a soft reminder
+set colorcolumn=79,120     " highlight column 79 as a soft reminder
 
 
 " ----------------------------------------------------------------------------
