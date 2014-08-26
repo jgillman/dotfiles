@@ -26,6 +26,7 @@ Bundle 'airblade/vim-gitgutter.git'
 " Color Themes
 Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'tomasr/molokai.git'
+Bundle 'chriskempson/tomorrow-theme.git', { 'rtp': 'vim/' }
 
 " Utility
 Bundle 'ack.vim'
