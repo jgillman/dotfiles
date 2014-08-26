@@ -214,6 +214,9 @@ function! NumberToggle()
 endfunc
 nnoremap <leader>r :call NumberToggle()<cr>
 
+nnoremap <F2> :mksession ~/quick-session.vim<cr>
+nnoremap <F3> :source ~/.quick-session.vim<cr>
+
 " Rspec.vim mappings
 map <leader>t :call RunCurrentSpecFile()<CR>
 map <leader>s :call RunNearestSpec()<CR>
