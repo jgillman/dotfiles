@@ -1,0 +1,2 @@
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"

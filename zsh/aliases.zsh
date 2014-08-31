@@ -26,3 +26,8 @@ alias showdesktop"defaults write com.apple.finder CreateDesktop -bool true && ki
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 10'"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
+
+function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
+function fname() { find . -iname "*$@*"; }
+function mcd() { mkdir $1 && cd $1; }
+

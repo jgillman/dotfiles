@@ -26,6 +26,7 @@ Bundle 'airblade/vim-gitgutter.git'
 " Color Themes
 Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'tomasr/molokai.git'
+Bundle 'chriskempson/tomorrow-theme.git', { 'rtp': 'vim/' }
 
 " Utility
 Bundle 'ack.vim'
@@ -221,6 +222,10 @@ if exists(":Align")
   vmap <leader>a: :Align :\zs<CR>
 endif
 
+nnoremap <F2> :mksession ~/quick-session.vim<cr>
+nnoremap <F3> :source ~/.quick-session.vim<cr>
+
+
 " ----------------------------------------------------------------------------
 "  UI
 " ----------------------------------------------------------------------------
@@ -277,7 +282,7 @@ set smartcase              " ^ unless a capital letter is used
 set hlsearch               " highlight searches
 set gdefault               " always search globally
 " set visualbell             " shut the fuck up
-set colorcolumn=79         " highlight column 79 as a soft reminder
+set colorcolumn=79,120     " highlight column 79 as a soft reminder
 
 
 " ----------------------------------------------------------------------------
