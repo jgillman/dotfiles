@@ -213,13 +213,13 @@ function! NumberToggle()
 endfunc
 nnoremap <leader>r :call NumberToggle()<cr>
 
-" Rspec.vim mappings
-map <leader>t :call RunCurrentSpecFile()<CR>
-map <leader>s :call RunNearestSpec()<CR>
-map <leader>l :call RunLastSpec()<CR>
-map <leader>a :call RunAllSpecs()<CR>
-
-let g:rspec_command = "!bundle exec rspec {spec}"
+" Align.vim mappings
+if exists(":Align")
+  nmap <leader>a= :Align =<CR>
+  vmap <leader>a= :Align =<CR>
+  nmap <leader>a: :Align :\zs<CR>
+  vmap <leader>a: :Align :\zs<CR>
+endif
 
 " ----------------------------------------------------------------------------
 "  UI
