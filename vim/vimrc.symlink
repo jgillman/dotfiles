@@ -214,14 +214,33 @@ function! NumberToggle()
 endfunc
 nnoremap <leader>r :call NumberToggle()<cr>
 
-nnoremap <F2> :mksession ~/quick-session.vim<cr>
-nnoremap <F3> :source ~/.quick-session.vim<cr>
+" Quicksave your session
+function! Quicksave()
+  let session_name = '~/.quick-session.vim'
+  let can_save = input('Quicksave? [Y/n]', '')
+  if can_save == 'y' || can_save == ''
+    exec ':mksession! ' . session_name
+    redraw!
+  endif
+endfunction
+function! Quickload()
+  let session_name = '~/.quick-session.vim'
+  let can_load = input('Quickload? [Y/n]', '')
+  if can_load == 'y' || can_load == ''
+    exec ':source ' . session_name
+    redraw!
+  endif
+endfunction
+
+nnoremap <F2> :call Quicksave()<cr>
+nnoremap <F3> :call Quickload()<cr>
+
 
 " Rspec.vim mappings
 map <leader>t :call RunCurrentSpecFile()<CR>
-map <leader>s :call RunNearestSpec()<CR>
-map <leader>l :call RunLastSpec()<CR>
-map <leader>a :call RunAllSpecs()<CR>
+" map <leader>s :call RunNearestSpec()<CR>
+" map <leader>l :call RunLastSpec()<CR>
+" map <leader>a :call RunAllSpecs()<CR>
 
 let g:rspec_command = "!bundle exec rspec {spec}"
 
