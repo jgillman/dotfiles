@@ -1,10 +1,5 @@
-set line-graphics = utf-8
-set show-date = relative
-
-# set vertical-split = true
-
+set line-graphics = default
 set tab-size = 2
-set author-width = 12
-
 set ignore-case = true
 
+set main-view = date:relative author:full,width:12 id commit-title,graph:true

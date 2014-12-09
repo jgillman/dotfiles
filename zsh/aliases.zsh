@@ -7,6 +7,7 @@ alias cd.="cd ~/.dotfiles"
 alias la="ls -A"
 alias ll="ls -lAhF"
 alias l="ll"
+alias :q='exit'
 
 # Recursively delete '.DS_Store' files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"

@@ -44,9 +44,6 @@ Bundle 'tpope/vim-haml.git'
 Bundle 'tpope/vim-rails.git'
 
 
-" Source local vimrc config
-source ~/.localvimrc.vim
-
 set noswapfile
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim  " Setup ctrlp
@@ -244,6 +241,7 @@ map <leader>t :call RunCurrentSpecFile()<CR>
 
 let g:rspec_command = "!bundle exec rspec {spec}"
 
+
 " ----------------------------------------------------------------------------
 "  UI
 " ----------------------------------------------------------------------------
@@ -361,3 +359,12 @@ au BufNewFile,BufReadPost *.rb setl shiftwidth=2 expandtab
 au BufNewFile,BufReadPost *.md setl ft=markdown expandtab
 
 set expandtab
+
+
+" ----------------------------------------------------------------------------
+"  Source local vimrc config
+" ----------------------------------------------------------------------------
+
+if filereadable($HOME . '/.vimrc.local')
+  source ~/.vimrc.local
+endif
