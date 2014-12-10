@@ -305,12 +305,15 @@ set colorcolumn=79,120     " highlight column 79 as a soft reminder
 "  Strip all trailing whitespace in file
 " ----------------------------------------------------------------------------
 
-function! StripWhitespace ()
-    exec ':%s/ \+$//gc'
+function! StripTrailingWhitespace ()
+  " Don't strip on these filetypes
+  if &ft =~ 'sql'
+    return
+  endif
+  %s/\s\+$//e
 endfunction
-" map <leader>s :call StripWhitespace ()<CR>
-autocmd BufWritePre * :%s/\s\+$//e
-command! StripWhitespace :call StripWhitespace()
+
+autocmd BufWritePre * call StripTrailingWhitespace()
 
 
 " ----------------------------------------------------------------------------
