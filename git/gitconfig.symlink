@@ -47,3 +47,5 @@
 [grep]
 	extendRegexp = true
 	lineNumber = true
+[heroku]
+	account = personal
