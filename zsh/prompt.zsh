@@ -62,12 +62,16 @@ rb_prompt(){
   fi
 }
 
+host_prompt() {
+  echo "%{$fg[yellow]%}$(hostname -s)%{$reset_color%}"
+}
+
 directory_name(){
   echo "%{$fg[cyan]%}%1/%\/%{$reset_color%}"
 }
 
 set_prompt () {
-  export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n$(git_wip)› '
+  export PROMPT=$'\n$(host_prompt) in $(directory_name) $(git_dirty)$(need_push)\n$(git_wip)› '
   export RPROMPT=$'%{$fg_bold[green]%}%~ @ %*%{$reset_color%}'
 }
 
