@@ -27,6 +27,7 @@ Plugin 'ack.vim'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
+Plugin 'vasconcelloslf/vim-interestingwords'
 Plugin 'vim-scripts/Align.git'
 
 " Everything else
