@@ -12,21 +12,15 @@ Plugin 'gmarik/Vundle.vim'
 "  Bundles
 " ----------------------------------------------------------------------------
 
-" Trying these...
-" Plugin 'amdt/sunset.git'
-
 " Interface / UI
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'nathanaelkane/vim-indent-guides'
 
 " Git
 Plugin 'airblade/vim-gitgutter.git'
 
 " Color Themes
 Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'tomasr/molokai.git'
-Plugin 'chriskempson/tomorrow-theme.git', { 'rtp': 'vim/' }
 
 " Utility
 Plugin 'ack.vim'
