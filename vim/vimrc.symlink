@@ -1,48 +1,51 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " ----------------------------------------------------------------------------
 "  Bundles
 " ----------------------------------------------------------------------------
 
 " Trying these...
-" Bundle 'amdt/sunset.git'
+" Plugin 'amdt/sunset.git'
 
 " Interface / UI
-Bundle 'bling/vim-airline'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'bling/vim-airline'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " Git
-Bundle 'airblade/vim-gitgutter.git'
+Plugin 'airblade/vim-gitgutter.git'
 
 " Color Themes
-Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'tomasr/molokai.git'
-Bundle 'chriskempson/tomorrow-theme.git', { 'rtp': 'vim/' }
+Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'tomasr/molokai.git'
+Plugin 'chriskempson/tomorrow-theme.git', { 'rtp': 'vim/' }
 
 " Utility
-Bundle 'ack.vim'
-Bundle 'kien/ctrlp.vim.git'
-Bundle 'tpope/vim-commentary.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'vim-scripts/Align.git'
+Plugin 'ack.vim'
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'tpope/vim-commentary.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'vim-scripts/Align.git'
 
 " Everything else
-Bundle 'kchmck/vim-coffee-script.git'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'thoughtbot/vim-rspec.git'
-Bundle 'tpope/vim-fugitive.git'
-Bundle 'tpope/vim-haml.git'
-Bundle 'tpope/vim-rails.git'
+Plugin 'kchmck/vim-coffee-script.git'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'thoughtbot/vim-rspec.git'
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'tpope/vim-haml.git'
+Plugin 'tpope/vim-rails.git'
 
+
+call vundle#end()
+filetype plugin indent on
 
 set noswapfile
 
@@ -71,7 +74,6 @@ set formatoptions+=n       " support for numbered/bullet lists
 set virtualedit=block      " allow virtual edit in visual block ..
 set cpoptions+=$           " add the dollar character when changing a word
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-filetype plugin indent on
 
 let g:ctrlp_max_files=20000      " double number of files scanned
 let g:ctrlp_custom_ignore={
