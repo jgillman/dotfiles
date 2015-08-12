@@ -23,7 +23,7 @@ Plugin 'airblade/vim-gitgutter.git'
 Plugin 'altercation/vim-colors-solarized.git'
 
 " Utility
-Plugin 'ack.vim'
+Plugin 'ag.vim'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'

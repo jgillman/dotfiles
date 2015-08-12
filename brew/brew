@@ -22,7 +22,6 @@ brew install homebrew/dupes/grep
 
 # Install these
 binaries=(
-  ack
   ffmpeg
   graphicsmagick
   heroku-toolbelt
@@ -40,6 +39,7 @@ binaries=(
   ruby-build
   s3cmd
   ssh-copy-id
+  the_silver_searcher
   tig
   tmux
   watch
