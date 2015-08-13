@@ -33,7 +33,6 @@ Plugin 'vim-scripts/Align.git'
 " Everything else
 Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'scrooloose/syntastic.git'
-Plugin 'thoughtbot/vim-rspec.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'tpope/vim-haml.git'
 Plugin 'tpope/vim-rails.git'
@@ -228,15 +227,6 @@ endfunction
 
 nnoremap <F2> :call Quicksave()<cr>
 nnoremap <F3> :call Quickload()<cr>
-
-
-" Rspec.vim mappings
-map <leader>t :call RunCurrentSpecFile()<CR>
-" map <leader>s :call RunNearestSpec()<CR>
-" map <leader>l :call RunLastSpec()<CR>
-" map <leader>a :call RunAllSpecs()<CR>
-
-let g:rspec_command = "!bundle exec rspec {spec}"
 
 
 " ----------------------------------------------------------------------------
