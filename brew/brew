@@ -23,6 +23,7 @@ brew install homebrew/dupes/grep
 # Install these
 binaries=(
   ffmpeg
+  fzf
   graphicsmagick
   heroku-toolbelt
   hub
