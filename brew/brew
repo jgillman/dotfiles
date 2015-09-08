@@ -61,10 +61,16 @@ brew cleanup
 brew tap phinze/homebrew-cask
 
 apps=(
+  adium
   alfred
   appclearner
+  atext
   bartender
-  cloudapp
+  caffeine
+  cathode
+  charles
+  crashplan
+  dash
   disk-inventory-x
   divvy
   dropbox
@@ -72,31 +78,36 @@ apps=(
   firefox
   flux
   google-chrome
+  gpgtools
   imagealpha
   imageoptim
   istat-menus
   iterm2
   karabiner
-  minecraft
+  keyboard-cleaner
+  launchcontrol
+  macpaw-gemini
+  mediainfo
+  monodraw
+  netspot
   onepassword
-  plex
+  plex-home-theater
   qlmarkdown
   qlstephen
   quicklook-json
   rdio
   screenhero
-  skype
   slack
   steam
-  sublime-text
-  textexpander
   the-unarchiver
   transmit
+  tripmode
+  tunnelblick
   vagrant
   virtualbox
-  viscosity
   vitamin-r
   vlc
+  xld
 )
 
 # Install apps to /Applications
