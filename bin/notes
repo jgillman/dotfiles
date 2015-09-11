@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# File is moved from Dropbox to home folder so the Dropbox never sees un-encrypted version
+
+main() {
+  local basename=notes.txt
+  local dropbox_file=~/Dropbox/$basename.bfe
+
+  if [[ -e $dropbox_file ]]; then
+    mv $dropbox_file ~/
+    bcrypt ~/$basename.bfe
+    vim ~/$basename
+    bcrypt ~/$basename
+    mv ~/$basename.bfe $dropbox_file
+  else
+    echo "$basename not found in ~/Dropbox/"
+  fi
+}
+
+main
+
