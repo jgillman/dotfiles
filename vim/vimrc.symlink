@@ -13,7 +13,6 @@ Plugin 'gmarik/Vundle.vim'
 " ----------------------------------------------------------------------------
 
 " Interface / UI
-Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Git
@@ -63,7 +62,20 @@ set tabstop=2
 set formatoptions+=n       " support for numbered/bullet lists
 set virtualedit=block      " allow virtual edit in visual block ..
 set cpoptions+=$           " add the dollar character when changing a word
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+
+
+" ----------------------------------------------------------------------------
+"  Status line
+" ----------------------------------------------------------------------------
+
+set statusline=                        " clear the statusline for when vimrc is reloaded
+set statusline+=%<                     " truncate from here
+set statusline+=\ %f\                  " path to file relative to current dir
+set statusline+=(%{&ft})\              " filetype
+set statusline+=%-4(%m%)               " modified flag
+set statusline+=%=                     " switch to right side
+set statusline+=%-20(%4l,%-3c\ \ %P%)  " cursor position
+
 
 let g:ctrlp_max_files=20000      " double number of files scanned
 let g:ctrlp_custom_ignore={
@@ -180,32 +192,6 @@ set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
 set scrolloff=8            " keep 8 lines of space above and below the cursor
 set ttyfast                " always assume a fast connection
-
-
-" ----------------------------------------------------------------------------
-"  Airline (statusline)
-" ----------------------------------------------------------------------------
-
-" Expand %% to the directory of the current file
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline_powerline_fonts=1
-
-function! AirlineInit()
-  let g:airline_section_a = airline#section#create_left(['mode', 'paste', 'iminsert'])
-  let g:airline_section_b = airline#section#create(['branch'])
-  let g:airline_section_c = airline#section#create(['file'])
-
-  let g:airline_section_x = airline#section#create([])
-  let g:airline_section_y = airline#section#create(['%{airline#util#wrap(airline#parts#filetype(),0)}'])
-  let g:airline_section_z = airline#section#create(['%3p%%', ' %4l', ':%3c'])
-  let g:airline_section_warning = airline#section#create(['whitespace'])
-endfunction
-autocmd VimEnter * call AirlineInit()
 
 
 " ----------------------------------------------------------------------------
