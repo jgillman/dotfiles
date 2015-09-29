@@ -8,24 +8,8 @@
 	sp = stash pop
 	di = diff
 	dc = diff --cached
-	mylog = log --author=Joel
-
-  back = reset --soft HEAD^
-
-	head = !git l -1
-	h = !git head
-	r = !git l -20
-	l = "!source ~/.githelpers && pretty_git_log"
-
+	back = reset --soft HEAD^
 	root = !pwd
-
-	fhs = !git flow hotfix start
-	fhf = !git flow hotfix finish
-	ffs = !git flow feature start
-	fff = !git flow feature finish
-	frs = !git flow release start
-	frf = !git flow release finish
-	g = grep --break --heading --line-number
 
 [color]
 	diff = auto
