@@ -83,6 +83,10 @@ let g:ctrlp_custom_ignore={
   \ 'file': '\v(*.sublime-)|(\.(exe|so|dll))$'
   \ }
 
+if executable("ag")
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+endif
+
 
 " ----------------------------------------------------------------------------
 "  Auto commands
@@ -128,7 +132,7 @@ nmap <leader>b :CtrlPBuffer<cr>
 nmap <leader>c :bprevious \| bdelete #<cr>
 
 " Switch between the last two files
-nnoremap <leader><leader> <c-^>
+" nnoremap <leader><leader> <c-^>
 
 " exit to normal mode with 'jj' or 'kk'
 inoremap jj <ESC>
