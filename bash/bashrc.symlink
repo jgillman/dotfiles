@@ -4,7 +4,12 @@
 [ -z "$PS1" ] && return
 
 
+# shortcut to this dotfiles path is $BASH
 export BASH=$HOME/.dotfiles
+
+# set default editor
+export VISUAL=vim
+export EDITOR=vim
 
 # source every .bash file in bash/
 for config_file in $BASH/bash/*.bash
