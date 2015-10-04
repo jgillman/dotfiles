@@ -16,7 +16,9 @@ fi
 
 # Key bindings
 # ------------
-source "/usr/local/Cellar/fzf/HEAD/shell/key-bindings.bash"
+if [[ -e "/usr/local/Cellar/fzf/HEAD/shell/key-bindings.bash" ]]; then
+  source "/usr/local/Cellar/fzf/HEAD/shell/key-bindings.bash"
+fi
 
 # Default command
 # ---------------

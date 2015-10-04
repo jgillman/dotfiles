@@ -45,6 +45,3 @@ done
 
 unset file
 unset config_files
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
