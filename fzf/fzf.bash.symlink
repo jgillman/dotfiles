@@ -1,26 +1,41 @@
+install_path() {
+  if [ $(uname) = 'Darwin' ]; then
+    echo "/usr/local/Cellar/fzf/HEAD"
+  else
+    echo "~/.fzf"
+  fi
+}
+
+INSTALL_PATH=$(install_path)
+
+
 # Setup fzf
 # ---------
-if [[ ! "$PATH" =~ "/usr/local/Cellar/fzf/HEAD/bin" ]]; then
-  export PATH="$PATH:/usr/local/Cellar/fzf/HEAD/bin"
+if [[ ! "$PATH" =~ "$INSTALL_PATH/bin" ]]; then
+  export PATH="$PATH:$INTALL_PATH/bin"
 fi
 
 # Man path
 # --------
-if [[ ! "$MANPATH" =~ "/usr/local/Cellar/fzf/HEAD/man" && -d "/usr/local/Cellar/fzf/HEAD/man" ]]; then
-  export MANPATH="$MANPATH:/usr/local/Cellar/fzf/HEAD/man"
+if [[ ! "$MANPATH" =~ "$INSTALL_PATH/man" && -d "$INSTALL_PATH/man" ]]; then
+  export MANPATH="$MANPATH:$INSTALL_PATH/man"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- =~ i ]] && source "/usr/local/Cellar/fzf/HEAD/shell/completion.bash" 2> /dev/null
+[[ $- =~ i ]] && source "$INSTALL_PATH/shell/completion.bash" 2> /dev/null
 
 # Key bindings
 # ------------
-if [[ -e "/usr/local/Cellar/fzf/HEAD/shell/key-bindings.bash" ]]; then
-  source "/usr/local/Cellar/fzf/HEAD/shell/key-bindings.bash"
+if [[ -e "$INSTALL_PATH/shell/key-bindings.bash" ]]; then
+  source "$INSTALL_PATH/shell/key-bindings.bash"
 fi
+
+unset INSTALL_PATH
 
 # Default command
 # ---------------
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
