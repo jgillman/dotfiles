@@ -114,7 +114,7 @@ colorscheme solarized
 " ----------------------------------------------------------------------------
 
 " lead with ,
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " Always search regular regex
 nnoremap / /\v
