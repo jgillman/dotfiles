@@ -23,7 +23,7 @@ Plugin 'altercation/vim-colors-solarized.git'
 
 " Utility
 Plugin 'ag.vim'
-Plugin 'kien/ctrlp.vim.git'
+Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'vasconcelloslf/vim-interestingwords'
@@ -114,7 +114,7 @@ colorscheme solarized
 " ----------------------------------------------------------------------------
 
 " lead with ,
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " Always search regular regex
 nnoremap / /\v
@@ -210,7 +210,7 @@ set ignorecase             " use case insensitive searching
 set smartcase              " ^ unless a capital letter is used
 set hlsearch               " highlight searches
 set gdefault               " always search globally
-set colorcolumn=79,120     " highlight column 79 as a soft reminder
+set colorcolumn=79,112     " highlight column 79 as a soft reminder
 
 
 " ----------------------------------------------------------------------------

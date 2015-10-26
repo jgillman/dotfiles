@@ -1,0 +1,7 @@
+*.gif
+*.jpg
+*.pdf
+*.png
+.git/*
+db/migrate
+spec/fixtures/vcr_cassettes
