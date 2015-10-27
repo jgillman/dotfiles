@@ -196,6 +196,8 @@ set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
 set scrolloff=8            " keep 8 lines of space above and below the cursor
 set ttyfast                " always assume a fast connection
+set modeline               " use in-file settinges when available
+set modelines=2
 
 
 " ----------------------------------------------------------------------------
