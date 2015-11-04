@@ -20,6 +20,7 @@ Plugin 'airblade/vim-gitgutter.git'
 
 " Color Themes
 Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'morhetz/gruvbox.git'
 
 " Utility
 Plugin 'ag.vim'
@@ -106,7 +107,8 @@ autocmd BufWritePre * call StripTrailingWhitespace()
 " ----------------------------------------------------------------------------
 
 syntax enable
-colorscheme solarized
+colorscheme gruvbox
+set background=dark
 
 
 " ----------------------------------------------------------------------------
