@@ -58,8 +58,8 @@ brew cleanup
 
 
 
-# Add brew cask
-brew tap phinze/homebrew-cask
+# Install brew cask
+brew install caskroom/cask/brew-cask
 
 apps=(
   adium
