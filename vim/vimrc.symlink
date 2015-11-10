@@ -109,8 +109,11 @@ autocmd BufWritePre * call StripTrailingWhitespace()
 " ----------------------------------------------------------------------------
 
 syntax enable
-colorscheme gruvbox
 set background=dark
+
+if has#colorscheme('gruvbox')
+  colorscheme gruvbox
+endif
 
 
 " ----------------------------------------------------------------------------
