@@ -252,9 +252,15 @@ command! RenameFile :call RenameFile()
 "  Per-filetype settings
 " ----------------------------------------------------------------------------
 
-au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-au BufNewFile,BufReadPost *.rb setl shiftwidth=2 expandtab
-au BufNewFile,BufReadPost *.md setl ft=markdown expandtab
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.rb setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.md setl ft=markdown expandtab
+
+" Enable spell check automatically
+autocmd FileType gitcommit,mail,markdown setlocal spell
+
+" Allow hyphenated word autocomplete for stylesheets
+autocmd FileType css,scss,sass setlocal iskeyword+=-
 
 set expandtab
 
