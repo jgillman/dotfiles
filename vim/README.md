@@ -19,4 +19,6 @@ rake git:init
 vim +PluginInstall +qall
 ```
 
-When starting up vim for the first time there may be a handful of errors as it will try to use plugins that haven't been installed yet. This is normal and doesn't realy hurt anything. Just hit 'enter' to dismiss them one by one.
+## Local config
+
+Local configurations can be set in `~/.vimrc.local` which is source at the end of `.vimrc`.
