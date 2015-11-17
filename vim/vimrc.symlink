@@ -25,10 +25,10 @@ Plugin 'morhetz/gruvbox.git'
 " Utility
 Plugin 'ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim.git'
+Plugin 'junegunn/vim-easy-align.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'vasconcelloslf/vim-interestingwords'
-Plugin 'vim-scripts/Align.git'
 
 " Everything else
 Plugin 'kchmck/vim-coffee-script.git'
