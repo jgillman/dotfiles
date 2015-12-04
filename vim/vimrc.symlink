@@ -80,6 +80,10 @@ set statusline+=%=                     " switch to right side
 set statusline+=%-20(%4l,%-3c\ \ %P%)  " cursor position
 
 
+" ----------------------------------------------------------------------------
+"  CtrlP Config
+" ----------------------------------------------------------------------------
+
 let g:ctrlp_max_files=20000      " double number of files scanned
 let g:ctrlp_custom_ignore={
   \ 'dir':  '\v(\.(git|hg|svn))|(db/(data|dumps))|(_local_s3|log|public|tmp|work)|(_bower_components|_site|node_modules)$',
@@ -130,7 +134,7 @@ vnoremap / /\v
 " Toggle paste mode
 nmap <leader>p :set invpaste<cr>:set paste?<cr>
 
-" Open files with <leader>f
+" Open CtrlP to search for files
 map <leader>f :CtrlP<cr>
 " Open file window with currently open buffers
 nmap <leader>b :CtrlPBuffer<cr>
