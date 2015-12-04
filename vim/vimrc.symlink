@@ -25,6 +25,7 @@ Plugin 'morhetz/gruvbox.git'
 " Utility
 Plugin 'ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim.git'
+Plugin 'jlanzarotta/bufexplorer.git'
 Plugin 'junegunn/vim-easy-align.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
@@ -96,6 +97,13 @@ endif
 
 
 " ----------------------------------------------------------------------------
+"  BufExplorer Config
+" ----------------------------------------------------------------------------
+
+let g:bufExplorerDisableDefaultKeyMapping=1
+
+
+" ----------------------------------------------------------------------------
 "  Auto commands
 " ----------------------------------------------------------------------------
 
@@ -136,8 +144,9 @@ nmap <leader>p :set invpaste<cr>:set paste?<cr>
 
 " Open CtrlP to search for files
 map <leader>f :CtrlP<cr>
-" Open file window with currently open buffers
-nmap <leader>b :CtrlPBuffer<cr>
+
+" Open BufExplorer to manage buffers
+nmap <leader>b :BufExplorer<cr>
 
 " Close current buffer without closing split
 nmap <leader>c :bprevious \| bdelete #<cr>
