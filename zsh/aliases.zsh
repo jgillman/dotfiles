@@ -4,6 +4,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias cd.="cd ~/.dotfiles"
+alias grep="grep --color=auto"
+alias ls="ls --color=auto"
 alias la="ls -A"
 alias ll="ls -lAhF"
 alias l="ll"
@@ -27,5 +29,6 @@ alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 10'"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
-function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
+function backup() { cp ${1}{,.bak}; }
 function fname() { find . -iname "*$@*"; }
+function psgrep() { ps axuf | grep -v grep | grep "$@" -i; }
