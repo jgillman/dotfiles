@@ -1,8 +1,29 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
-# Delete all local branches that have been merged into HEAD. Stolen from
-# our favorite @tekkub:
+# Find and delete all branches that are merged into HEAD.
 #
-#   https://plus.google.com/115587336092124934674/posts/dXsagsvLakJ
+# Based on original work by @tekkub
+# https://twitter.com/tekkub/status/111739726129672192
 
-git branch -d `git branch --merged | grep -v '^*' | grep -v 'master' | tr -d '\n'`
+
+exclude_current_branch() {
+  grep -v '^\*'
+}
+
+exclude_master_branch() {
+  grep -v 'master'
+}
+
+remove_newlines() {
+  tr -d '\n'
+}
+
+merged_branches() {
+  git branch --merged | exclude_current_branch | exclude_master_branch | remove_newlines
+}
+
+if [ -z $(merged_branches) ]; then
+  echo 'Nothing to delete.'
+else
+  git branch --delete $(merged_branches)
+fi
