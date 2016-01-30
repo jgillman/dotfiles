@@ -12,13 +12,6 @@ export PROJECTS=~/Sites
 export VISUAL=vim
 export EDITOR=vim
 
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
-
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
@@ -49,3 +42,11 @@ done
 
 unset file
 unset config_files
+
+
+# use .localrc for SUPER SECRET CRAP that you don't want in your public,
+# versioned repo. This should be last so it can override global configs.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
