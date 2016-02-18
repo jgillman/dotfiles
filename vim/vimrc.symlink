@@ -272,6 +272,8 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.rb setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.md setl ft=markdown expandtab
 
+autocmd FileType markdown setlocal wrap linebreak
+
 " Enable spell check automatically
 autocmd FileType gitcommit,mail,markdown setlocal spell
 
