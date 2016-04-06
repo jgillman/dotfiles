@@ -32,6 +32,7 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'vasconcelloslf/vim-interestingwords'
 
 " Everything else
+Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'tpope/vim-fugitive.git'
