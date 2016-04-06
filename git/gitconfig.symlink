@@ -1,6 +1,7 @@
 [user]
 	name = Joel Gillman
 	email = joeltgillman@gmail.com
+	signingkey = 13104968
 
 [alias]
 	st = status
