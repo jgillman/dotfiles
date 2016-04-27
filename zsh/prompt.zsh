@@ -8,8 +8,7 @@ git_branch() {
 
 git_wip() {
 	wip=$(/usr/bin/git log -1 --oneline 2>/dev/null | awk '{print tolower($2)}' | awk '{gsub(/[^a-z]/, ""); print}')
-  if [[ $wip == "wip" ]]
-  then
+  if [[ $wip == "wip" ]]; then
     echo "%{$fg[red]%}± wip%{$reset_color%}"
   else
     echo ""
@@ -50,15 +49,14 @@ unpushed () {
 need_push () {
   if [[ $(unpushed) == "" ]]
   then
-    echo " "
+    echo ""
   else
-    echo " with %{$fg[magenta]%}unpushed%{$reset_color%} "
+    echo " with %{$fg[magenta]%}unpushed%{$reset_color%}"
   fi
 }
 
 rb_prompt(){
-  if $(which rbenv &> /dev/null)
-  then
+  if $(which rbenv &> /dev/null); then
     echo "%{$fg[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
   else
     echo "%m"
