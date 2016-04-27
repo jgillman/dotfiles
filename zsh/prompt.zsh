@@ -1,45 +1,49 @@
 autoload colors && colors
-# cheers, @ehrenmurdick
-# http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
+
+is_git_repo() {
+  [[ -d .git ]] || git rev-parse --git-dir > /dev/null 2>&1
+}
+
+git_prompt() {
+  if is_git_repo; then
+    # in a git repo!
+    echo "$(git_dirty)$(need_push)"
+  else
+    # not in a git repo :(
+    echo ""
+  fi
+}
 
 git_branch() {
-  echo $(/usr/bin/git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
+  echo "$(/usr/bin/git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})"
 }
 
 git_wip() {
-	wip=$(/usr/bin/git log -1 --oneline 2>/dev/null | awk '{print tolower($2)}' | awk '{gsub(/[^a-z]/, ""); print}')
-  if [[ $wip == "wip" ]]; then
+	local wip=$(/usr/bin/git log -1 --oneline 2>/dev/null | awk '{print tolower($2)}' | awk '{gsub(/[^a-z]/, ""); print}')
+  if [[ "$wip" == "wip" ]]; then
     echo "%{$fg[red]%}± wip%{$reset_color%}"
   else
     echo ""
   fi
-  unset wip
 }
 
 git_dirty() {
   local git_status="$(/usr/bin/git status --porcelain 2>/dev/null)"
   local exit_status=$?
 
-  if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
-    # in a git repo!
-    if [[ "$git_status" == "" ]]; then
-      # clean git status
-      echo "on %{$fg[green]%}$(git_prompt_info)%{$reset_color%}"
-    else
-      # unclean git status
-      echo "on %{$fg[red]%}$(git_prompt_info)%{$reset_color%}"
-    fi
+  if [[ "$git_status" == "" ]]; then
+    # clean git status
+    echo "on %{$fg[green]%}$(git_prompt_info)%{$reset_color%}"
   else
-    # we're not in a git repo
-    echo ""
+    # unclean git status
+    echo "on %{$fg[red]%}$(git_prompt_info)%{$reset_color%}"
   fi
 }
 
 git_prompt_info () {
-  ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || return
+  local ref="$(/usr/bin/git symbolic-ref HEAD 2>/dev/null)" || return
   # echo "on %{$fg[yellow]%}${ref#refs/heads/}%{$reset_color%}"
   echo "${ref#refs/heads/}"
-  unset ref
 }
 
 unpushed () {
@@ -47,19 +51,11 @@ unpushed () {
 }
 
 need_push () {
-  if [[ $(unpushed) == "" ]]
+  if [[ "$(unpushed)" == "" ]]
   then
     echo ""
   else
     echo " with %{$fg[magenta]%}unpushed%{$reset_color%}"
-  fi
-}
-
-rb_prompt(){
-  if $(which rbenv &> /dev/null); then
-    echo "%{$fg[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
-  else
-    echo "%m"
   fi
 }
 
@@ -72,7 +68,7 @@ directory_name(){
 }
 
 set_prompt () {
-  export PROMPT=$'\n$(host_prompt) in $(directory_name) $(git_dirty)$(need_push)\n$(git_wip)› '
+  export PROMPT=$'\n$(host_prompt) in $(directory_name) $(git_prompt)\n$(git_wip)› '
   export RPROMPT=$'%{$fg_bold[green]%}%~ @ %*%{$reset_color%}'
 }
 
