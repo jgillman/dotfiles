@@ -18,19 +18,22 @@ git_wip() {
 }
 
 git_dirty() {
-  st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
-  if [[ $st == "" ]]
-  then
-    echo ""
-  else
-    if [[ $st == "nothing to commit, working directory clean" ]]
-    then
+  local git_status="$(/usr/bin/git status --porcelain 2>/dev/null)"
+  local exit_status=$?
+
+  if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
+    # in a git repo!
+    if [[ "$git_status" == "" ]]; then
+      # clean git status
       echo "on %{$fg[green]%}$(git_prompt_info)%{$reset_color%}"
     else
+      # unclean git status
       echo "on %{$fg[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
+  else
+    # we're not in a git repo
+    echo ""
   fi
-  unset st
 }
 
 git_prompt_info () {
