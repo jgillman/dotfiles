@@ -62,8 +62,6 @@ bind m setw monitor-activity
 bind M command-prompt -p "monitor-silence (seconds)" "setw monitor-silence %%"
 
 # THEME
-set-option -g status-utf8 on
-
 set-option -g status-interval 60
 set-option -g status-bg colour235
 set-option -g status-fg colour244
