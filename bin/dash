@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ $(uname) == 'Darwin' ]]; then
+  open "dash://$1"
+else
+  echo 'Dash is not available on this system.'
+fi
