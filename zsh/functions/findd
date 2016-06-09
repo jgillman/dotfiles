@@ -1,0 +1,14 @@
+findd() {
+  local search=""
+  local search_dir=""
+
+  if [ -d "$1" ]; then
+    search_dir="$1"
+    search="$2"
+  else
+    search_dir="."
+    search="$1"
+  fi
+
+  find "$search_dir" -type d -name "*${search}*"
+}
