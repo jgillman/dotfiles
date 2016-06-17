@@ -24,27 +24,27 @@ brew install homebrew/dupes/grep
 binaries=(
   cheat
   ffmpeg
+  gnugp2
+  gpgme
   graphicsmagick
   heroku-toolbelt
   hub
   imagemagick
+  keybase
   macvim
+  md5sha1sum
   mobile-shell
   mtr
   namebench
-  ngrok
   node
-  rbenv
   reattach-to-user-namespace
   rename
-  ruby-build
   s3cmd
   ssh-copy-id
   the_silver_searcher
   tig
   tmux
   watch
-  webkit2png
   wget
   youtube-dl
 )
