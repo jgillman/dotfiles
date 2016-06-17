@@ -24,7 +24,6 @@ brew install homebrew/dupes/grep
 binaries=(
   cheat
   ffmpeg
-  fzf
   graphicsmagick
   heroku-toolbelt
   hub
