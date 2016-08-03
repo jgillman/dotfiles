@@ -11,6 +11,9 @@ set -g status-keys vi
 
 # Setup 'v' to begin selection as in Vim
 bind-key -t vi-copy v begin-selection
+#
+# Setup 'y' to copy selection as in Vim
+bind-key -t vi-copy 'y' copy-selection
 
 # Update default binding of `Enter` to also use copy-pipe
 unbind -t vi-copy Enter
