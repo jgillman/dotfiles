@@ -12,6 +12,9 @@
 	back = reset --soft HEAD^
 	root = !pwd
 
+[commit]
+  gpgSign = true
+
 [color]
 	diff = auto
 	status = auto
