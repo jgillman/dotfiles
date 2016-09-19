@@ -1,39 +1,43 @@
+# Local/private config goes in the include
+[include]
+  path = ~/.gitconfig.local
+
 [user]
-	name = Joel Gillman
-	email = joeltgillman@gmail.com
-	signingkey = 13104968
+  name = Joel Gillman
+  email = joeltgillman@gmail.com
+  signingkey = E3EED513929D3C0A69A9B9CA5B5890FE13104968
 
 [alias]
-	st = status
-	co = checkout
-	sp = stash pop
-	di = diff
-	dc = diff --cached
-	back = reset --soft HEAD^
-	root = !pwd
+  st = status
+  co = checkout
+  sp = stash pop
+  di = diff
+  dc = diff --cached
+  back = reset --soft HEAD^
+  root = !pwd
 
 [commit]
   gpgSign = true
 
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
-	ui = true
-	pager = true
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
 
 [core]
-	excludesfile = ~/.gitignore
-	editor = vim
+  excludesfile = ~/.gitignore
+  editor = vim
 
 [github]
-	user = jgillman
+  user = jgillman
 
 [push]
-	default = current
+  default = current
 [grep]
-	extendRegexp = true
-	lineNumber = true
+  extendRegexp = true
+  lineNumber = true
 [heroku]
-	account = personal
+  account = personal
