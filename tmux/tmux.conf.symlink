@@ -5,9 +5,20 @@ unbind C-b
 # Map Control + a then a to regular Control + a
 bind a send-prefix
 
-# Use Emacs bindings in the shell
-set -g mode-keys emacs
+# Use Emacs bindings on the command line
 set -g status-keys emacs
+
+# Use Vim bindings when in copy mode
+set -g mode-keys vi
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+
+# Setup 'y' to copy selection as in Vim
+bind-key -t vi-copy 'y' copy-selection
+
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
 
 # Source .tmux-osx.conf if running in OS X
 if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
