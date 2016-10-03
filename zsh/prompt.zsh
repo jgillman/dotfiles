@@ -15,11 +15,11 @@ git_prompt() {
 }
 
 git_branch() {
-  echo "$(/usr/bin/git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})"
+  echo "$(git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})"
 }
 
 git_wip() {
-	local wip=$(/usr/bin/git log -1 --oneline 2>/dev/null | awk '{print tolower($2)}' | awk '{gsub(/[^a-z]/, ""); print}')
+	local wip=$(git log -1 --oneline 2>/dev/null | awk '{print tolower($2)}' | awk '{gsub(/[^a-z]/, ""); print}')
   if [[ "$wip" == "wip" ]]; then
     echo "%{$fg[red]%}± wip%{$reset_color%}"
   else
@@ -28,7 +28,7 @@ git_wip() {
 }
 
 git_dirty() {
-  local git_status="$(/usr/bin/git status --porcelain 2>/dev/null)"
+  local git_status="$(git status --porcelain 2>/dev/null)"
   local exit_status=$?
 
   if [[ "$git_status" == "" ]]; then
@@ -41,13 +41,13 @@ git_dirty() {
 }
 
 git_prompt_info () {
-  local ref="$(/usr/bin/git symbolic-ref HEAD 2>/dev/null)" || return
+  local ref="$(git symbolic-ref HEAD 2>/dev/null)" || return
   # echo "on %{$fg[yellow]%}${ref#refs/heads/}%{$reset_color%}"
   echo "${ref#refs/heads/}"
 }
 
 unpushed () {
-  /usr/bin/git cherry -v @{upstream} 2>/dev/null
+  git cherry -v @{upstream} 2>/dev/null
 }
 
 need_push () {
