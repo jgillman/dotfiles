@@ -70,10 +70,14 @@ bind M command-prompt -p "monitor-silence (seconds)" "setw monitor-silence %%"
 set-option -g status-interval 60
 set-option -g status-bg colour235
 set-option -g status-fg colour244
-set-option -g status-left '#[bg=green,fg=black] #H #[default]'
-set-option -g status-right '#[bg=green,fg=black]#(uptime | cut -d "," -f 4) #[default]'
+set-option -g status-left ' #h '
+set-option -g status-right ' #(uptime | cut -d "," -f 4) '
+
+set-option -g pane-border-fg black
+set-option -g pane-active-border-fg brightblack
+
 set-window-option -g window-status-format ' #I #W '
-set-window-option -g window-status-current-format '#[fg=white] #I #W #[default]'
+set-window-option -g window-status-current-format '#[bg=blue,fg=black] #I #W #[default]'
 
 set-window-option -g window-status-current-bg colour125
 set-window-option -g window-status-current-fg colour235

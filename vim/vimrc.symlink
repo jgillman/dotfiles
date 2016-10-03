@@ -20,6 +20,7 @@ Plugin 'airblade/vim-gitgutter.git'
 
 " Color Themes
 Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'dracula/vim'
 Plugin 'morhetz/gruvbox.git'
 
 " Utility
@@ -138,8 +139,8 @@ autocmd BufWritePre * call StripTrailingWhitespace()
 syntax enable
 set background=dark
 
-if has#colorscheme('gruvbox')
-  colorscheme gruvbox
+if has#colorscheme('dracula')
+  colorscheme dracula
 endif
 
 
