@@ -28,6 +28,7 @@ Plugin 'ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'jlanzarotta/bufexplorer.git'
 Plugin 'junegunn/vim-easy-align.git'
+Plugin 'sjl/gundo.vim.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'vasconcelloslf/vim-interestingwords'
@@ -170,6 +171,9 @@ map <leader>f :CtrlP<cr>
 
 " Open BufExplorer to manage buffers
 nmap <leader>b :BufExplorer<cr>
+
+" Open Gundo for "super undo"
+nnoremap <leader>u :GundoToggle<CR>
 
 " Close current buffer without closing split
 nmap <leader>c :bprevious \| bdelete #<cr>
