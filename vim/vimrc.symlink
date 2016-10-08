@@ -263,6 +263,16 @@ set colorcolumn=79,112     " highlight column 79 as a soft reminder
 
 
 " ----------------------------------------------------------------------------
+"  Set up folding
+" ----------------------------------------------------------------------------
+
+set foldenable             " enable folds (default)
+set foldlevelstart=10      " open most folds by default
+set foldnestmax=10         " nest no more than 10 folds deep
+set foldmethod=indent      " auto-create folds by indentation
+
+
+" ----------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
 " ----------------------------------------------------------------------------
 
@@ -305,6 +315,16 @@ function RangerExplorer()
 endfun
 map <Leader>x :call RangerExplorer()<CR>
 
+
+" ----------------------------------------------------------------------------
+"  Toggle settings used for when I pair
+" ----------------------------------------------------------------------------
+
+function! TogglePairingMode()
+  windo set number!
+  windo set cursorline!
+endfunction
+command! PairingMode :call TogglePairingMode()
 
 " ----------------------------------------------------------------------------
 "  Per-filetype settings
