@@ -29,3 +29,6 @@ if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
+
+# Don't hang with Ctrl+s / Ctrl+q
+stty -ixon
