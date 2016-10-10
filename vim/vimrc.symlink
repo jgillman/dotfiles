@@ -108,7 +108,14 @@ let g:ctrlp_custom_ignore={
   \ }
 
 if executable("ag")
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 endif
 
 
@@ -278,6 +285,21 @@ function! RenameFile()
   endif
 endfunction
 command! RenameFile :call RenameFile()
+
+
+" ----------------------------------------------------------------------------
+"  Use ranger for file exploring
+" ----------------------------------------------------------------------------
+
+function RangerExplorer()
+    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
+    if filereadable('/tmp/vim_ranger_current_file')
+        exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
+        call system('rm /tmp/vim_ranger_current_file')
+    endif
+    redraw!
+endfun
+map <Leader>x :call RangerExplorer()<CR>
 
 
 " ----------------------------------------------------------------------------
