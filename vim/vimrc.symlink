@@ -72,6 +72,14 @@ set cpoptions+=$           " add the dollar character when changing a word
 
 
 " ----------------------------------------------------------------------------
+"  Mouse Config
+" ----------------------------------------------------------------------------
+
+set mouse=""               " Disable mouse use by default
+set ttymouse=xterm2        " Allow mouse drag events (split resizing)
+
+
+" ----------------------------------------------------------------------------
 "  Status line
 " ----------------------------------------------------------------------------
 
@@ -323,6 +331,7 @@ map <Leader>x :call RangerExplorer()<CR>
 function! TogglePairingMode()
   windo set number!
   windo set cursorline!
+  windo set mouse=a
 endfunction
 command! PairingMode :call TogglePairingMode()
 
