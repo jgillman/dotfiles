@@ -174,8 +174,8 @@ nmap <leader>b :BufExplorer<cr>
 " Close current buffer without closing split
 nmap <leader>c :bprevious \| bdelete #<cr>
 
-" Switch between the last two files
-" nnoremap <leader><leader> <c-^>
+" Toggle spellcheck
+nmap <leader>s :set spell!<cr>
 
 " exit to normal mode with 'jj' or 'kk'
 " inoremap jj <ESC>
