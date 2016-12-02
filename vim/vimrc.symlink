@@ -155,8 +155,8 @@ autocmd BufWritePre * call StripTrailingWhitespace()
 syntax enable
 set background=dark
 
-if has#colorscheme('dracula')
-  colorscheme dracula
+if has#colorscheme('gruvbox')
+  colorscheme gruvbox
 endif
 
 
