@@ -32,7 +32,7 @@ Also, to steal directly from [holman](https://github.com/holman):
 
 ## install
 
-- `git clone git://github.com/holman/dotfiles ~/.dotfiles`
+- `git clone git@github.com:jgillman/dotfiles.git ~/.dotfiles`
 - `cd ~/.dotfiles`
 - `rake install`
 
