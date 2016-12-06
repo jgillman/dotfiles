@@ -16,29 +16,26 @@ brew install findutils
 brew install bash
 brew install zsh
 
-# Allow more recent versions of build in tools
-brew tap homebrew/dupes
-brew install homebrew/dupes/grep
-
 # Install these
 binaries=(
   cheat
   ffmpeg
-  gnugp2
-  gpgme
   graphicsmagick
-  heroku-toolbelt
+  heroku
+  htop
   hub
-  imagemagick
   keybase
   macvim
   md5sha1sum
   mobile-shell
+  mpv
   mtr
   namebench
   node
+  ranger
   reattach-to-user-namespace
   rename
+  rtv
   s3cmd
   ssh-copy-id
   the_silver_searcher
@@ -61,20 +58,20 @@ brew cleanup
 brew install caskroom/cask/brew-cask
 
 apps=(
-  adium
+  1password
   alfred
   appclearner
   atext
   bartender
   caffeine
   cathode
-  charles
   crashplan
   dash
   disk-inventory-x
-  divvy
+  docker
   dropbox
   evernote
+  fantastical
   firefox
   flux
   google-chrome
@@ -82,22 +79,19 @@ apps=(
   imagealpha
   imageoptim
   istat-menus
-  iterm2
-  karabiner
+  iterm
   keyboard-cleaner
   launchcontrol
   macpaw-gemini
   mediainfo
   monodraw
   netspot
-  onepassword
-  plex-home-theater
   qlmarkdown
   qlstephen
   quicklook-json
-  rdio
   screenhero
   slack
+  spotify
   steam
   the-unarchiver
   transmit
@@ -105,17 +99,12 @@ apps=(
   tunnelblick
   vagrant
   virtualbox
-  vitamin-r
-  vlc
   xld
 )
 
 # Install apps to /Applications
 echo "Install apps..."
-brew cask install --appdir="/Applications" ${apps[@]}
-
-# Link alfred
-brew cask alfred list
+brew cask install ${apps[@]}
 
 echo "Cleaning up..."
 brew cleanup

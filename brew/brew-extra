@@ -1,0 +1,15 @@
+# Check for Homebrew,
+# Install if we don't have it
+if ! hash brew 2>/dev/null; then
+  echo "Please install homebrew first!"
+fi
+
+# Update homebrew recipes
+brew update
+
+brew cask install osxfuse
+
+brew install homebrew/fuse/encfs
+
+echo "Cleaning up..."
+brew cleanup
