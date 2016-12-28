@@ -44,6 +44,7 @@ Plugin 'scrooloose/syntastic.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'tpope/vim-haml.git'
 Plugin 'tpope/vim-rails.git'
+Plugin 'suan/vim-instant-markdown.git'
 
 
 call vundle#end()
