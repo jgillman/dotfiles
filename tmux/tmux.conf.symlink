@@ -43,12 +43,6 @@ set -g default-terminal "screen-256color"
 # Set scrollback to be a bit bigger
 set -g history-limit 10000
 
-# Easier window splitting
-unbind %
-bind | split-window -h
-bind \ split-window -h
-bind - split-window -v
-
 # Tile all windows
 unbind =
 bind = select-layout tiled
