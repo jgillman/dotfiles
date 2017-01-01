@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Interface / UI
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-sensible.git'
 
 " Git
 Plugin 'airblade/vim-gitgutter.git'
@@ -34,15 +35,19 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'vasconcelloslf/vim-interestingwords'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'mileszs/ack.vim'
+Plugin 'L9'
+Plugin 'thoughtbot/vim-rspec.git'
+Plugin 'vim-ruby/vim-ruby.git'
+Plugin 'vim-scripts/Align'
+Plugin 'godlygeek/tabular'
 
 " Everything else
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'kchmck/vim-coffee-script.git'
-Plugin 'scrooloose/syntastic.git'
+Plugin 'vim-syntastic/syntastic.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'tpope/vim-haml.git'
 Plugin 'tpope/vim-rails.git'
-
 
 call vundle#end()
 filetype plugin indent on
