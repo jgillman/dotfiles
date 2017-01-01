@@ -1,6 +1,7 @@
-# jgillman's sepcial dotfiles
+# wotsrovert's fork of jgillman sepcial dotfiles
 
 ## Shoutout
+When in doubt, do as [Joel does](https://github.com/jgillman/dotfiles).
 
 The real core of these dotfiles are from [holman's
 dotfiles](https://github.com/holman/dotfiles). I had been holding off using
