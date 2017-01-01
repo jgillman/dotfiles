@@ -159,12 +159,12 @@ autocmd BufWritePre * call StripTrailingWhitespace()
 "  Colors
 " ----------------------------------------------------------------------------
 
-syntax enable
-set background=dark
+" syntax enable
+" set background=dark
 
-if has#colorscheme('gruvbox')
-  colorscheme gruvbox
-endif
+" if has#colorscheme('gruvbox')
+"   colorscheme gruvbox
+" endif
 
 
 " ----------------------------------------------------------------------------
