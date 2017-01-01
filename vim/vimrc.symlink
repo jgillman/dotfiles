@@ -32,6 +32,8 @@ Plugin 'sjl/gundo.vim.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'vasconcelloslf/vim-interestingwords'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'mileszs/ack.vim'
 
 " Everything else
 Plugin 'ekalinin/Dockerfile.vim'
