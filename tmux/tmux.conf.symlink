@@ -40,6 +40,11 @@ set -sg escape-time 0
 # Always use 256 colors
 set -g default-terminal "screen-256color"
 
+set-option -g status-bg colour235
+set-option -g status-fg colour244
+set-window-option -g window-status-current-bg colour125
+set-window-option -g window-status-current-fg colour235
+
 # Set scrollback to be a bit bigger
 set -g history-limit 10000
 
