@@ -3,7 +3,7 @@ set -g prefix C-a
 unbind C-b
 
 # Map Control + a then a to regular Control + a
-bind a send-prefix
+bind x send-prefix
 
 # Use Emacs bindings on the command line
 set -g status-keys emacs
