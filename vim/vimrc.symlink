@@ -174,10 +174,6 @@ endif
 " lead with ,
 let mapleader = "\<Space>"
 
-" Always search regular regex
-nnoremap / /\v
-vnoremap / /\v
-
 " Toggle paste mode
 nmap <leader>p :set invpaste<cr>:set paste?<cr>
 
