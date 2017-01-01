@@ -193,8 +193,8 @@ nmap <leader>c :bprevious \| bdelete #<cr>
 nmap <leader>s :set spell!<cr>
 
 " exit to normal mode with 'jj' or 'kk'
-" inoremap jj <ESC>
-" inoremap kk <ESC>
+inoremap jj <ESC>
+inoremap kk <ESC>
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
