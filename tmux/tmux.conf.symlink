@@ -1,9 +1,6 @@
-# Remap prefix to Control + a
-set -g prefix C-a
+# Remap prefix to Control + x
 unbind C-b
-
-# Map Control + a then a to regular Control + a
-bind x send-prefix
+set -g prefix C-x
 
 # Use Emacs bindings on the command line
 set -g status-keys emacs
