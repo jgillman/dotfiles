@@ -364,3 +364,13 @@ set expandtab
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
+
+" ----------------------------------------------------------------------------
+"  Vertically align ruby hashes using Tabularize plugin
+" ----------------------------------------------------------------------------
+function IndentV()
+  Tabularize /[^:]*:
+  Tabularize /[^=>]*=>
+endfunction
+map <Leader>iv :call IndentV()<cr>
+
