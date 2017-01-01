@@ -3,9 +3,9 @@
   path = ~/.gitconfig.local
 
 [user]
-  name = Joel Gillman
-  email = joeltgillman@gmail.com
-  signingkey = E3EED513929D3C0A69A9B9CA5B5890FE13104968
+  name = Trevor Stow
+  email = trevorstow@gmail.com
+	signingkey = 11FF1041
 
 [alias]
   st = status
@@ -32,7 +32,7 @@
   editor = vim
 
 [github]
-  user = jgillman
+	user = wotsrovert
 
 [push]
   default = current
@@ -41,3 +41,5 @@
   lineNumber = true
 [heroku]
   account = personal
+[gpg]
+	program = gpg
