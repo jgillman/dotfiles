@@ -68,7 +68,7 @@ directory_name(){
 }
 
 set_prompt () {
-  export PROMPT=$'\n$(host_prompt) in $(directory_name) $(git_prompt)\n$(git_wip)› '
+  export PROMPT=$'$(host_prompt) in $(directory_name) $(git_prompt)\n$(git_wip)› '
   export RPROMPT=$'%{$fg_bold[green]%}%~ @ %*%{$reset_color%}'
 }
 
