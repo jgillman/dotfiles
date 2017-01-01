@@ -1,13 +1,29 @@
 alias reload!='. ~/.zshrc'
 
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias cd.="cd ~/.dotfiles"
-alias la="ls -A"
-alias ll="ls -lAhF"
-alias l="ll"
-alias :q='exit'
+alias la='ls -alG'
+alias ack="ack-grep"
+alias bu='bundle '
+alias brs='bin/rspec -f documentation'
+alias fn='find . -name'
+alias gb='git branch'
+alias gd='git diff'
+alias gdn='git diff --name-only'
+alias gcmwip='git commit -m "w.i.p."'
+alias gdc='git diff --cached'
+alias gcm='git commit -m'
+alias gcma='git commit --amend'
+alias gcom='git checkout master'
+alias gclbr='gcom && glom && git br --merged'
+alias gdm='git diff master'
+alias gmm='git merge master'
+alias glom='git pull origin master'
+alias gpo='git push origin'
+alias gs='git status'
+alias hcons='heroku run rails console -a goldbely'
+alias hconstg='heroku run rails console -a goldbely-staging'
+alias hpg='heroku pg:psql HEROKU_POSTGRESQL_WHITE_URL -a goldbely'
+alias pgb='psql goldbely_development'
+alias tmuxa='tmux attach || tmux new'
 
 # Recursively delete '.DS_Store' files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
