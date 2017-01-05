@@ -1,6 +1,7 @@
-# jgillman's sepcial dotfiles
+# wotsrovert's fork of jgillman sepcial dotfiles
 
 ## Shoutout
+When in doubt, do as [Joel does](https://github.com/jgillman/dotfiles).
 
 The real core of these dotfiles are from [holman's
 dotfiles](https://github.com/holman/dotfiles). I had been holding off using
@@ -32,7 +33,7 @@ Also, to steal directly from [holman](https://github.com/holman):
 
 ## install
 
-- `git clone git@github.com:jgillman/dotfiles.git ~/.dotfiles`
+- `git clone git@github.com:wotsrovert/dotfiles.git ~/.dotfiles`
 - `cd ~/.dotfiles`
 - `rake install`
 
