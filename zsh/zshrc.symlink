@@ -57,3 +57,7 @@ fi
 
 # Don't hang with Ctrl+s / Ctrl+q
 stty -ixon
+
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
