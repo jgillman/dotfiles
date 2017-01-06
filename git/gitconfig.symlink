@@ -15,6 +15,7 @@
   dc = diff --cached
   back = reset --soft HEAD^
   root = !pwd
+  br = branch
 
 [commit]
   gpgSign = true
