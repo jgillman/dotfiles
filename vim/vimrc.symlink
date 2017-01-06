@@ -69,6 +69,7 @@ set encoding=utf-8         " UTF8 or bust!
 set hidden                 " allow unsaved buffers in the background
 set autoindent             " automatic indent new lines
 set smartindent            " be smart about it
+set number                 " show line numbers
 set nowrap                 " do not wrap lines
 set softtabstop=2
 set shiftwidth=2
