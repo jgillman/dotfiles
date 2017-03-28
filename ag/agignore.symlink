@@ -3,5 +3,8 @@
 *.pdf
 *.png
 .git/*
+tmp/*
 db/migrate
+log
+source_maps
 spec/fixtures/vcr_cassettes
