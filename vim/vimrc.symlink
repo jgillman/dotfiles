@@ -240,7 +240,7 @@ inoremap <s-tab> <c-n>
 
 set ruler                  " show the cursor position all the time
 set noshowcmd              " don't display incomplete commands
-set lazyredraw             " turn off lazy redraw
+set lazyredraw             " turn on lazy redraw
 set wildmenu               " turn on wild menu
 set wildmode=list:longest,full
 set ch=2                   " command line height
@@ -266,7 +266,6 @@ set laststatus=2           " always show the status line
 set ignorecase             " use case insensitive searching
 set smartcase              " ^ unless a capital letter is used
 set hlsearch               " highlight searches
-set gdefault               " always search globally
 set colorcolumn=79,112     " highlight column 79 as a soft reminder
 
 
