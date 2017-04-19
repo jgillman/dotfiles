@@ -32,6 +32,7 @@ Plugin 'ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'jlanzarotta/bufexplorer.git'
 Plugin 'junegunn/vim-easy-align.git'
+Plugin 'lambdatoast/elm.vim.git'
 Plugin 'sjl/gundo.vim.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
@@ -335,6 +336,17 @@ function! TogglePairingMode()
   windo set mouse=a
 endfunction
 command! PairingMode :call TogglePairingMode()
+
+" }}}
+"  Set settings for I like for writing {{{
+" ----------------------------------------------------------------------------
+
+function! EnableWriteMode()
+  set nonumber
+  set wrap
+  set linebreak
+endfunction
+command! WriteMode :call EnableWriteMode()
 
 " }}}
 "  Per-filetype settings {{{
