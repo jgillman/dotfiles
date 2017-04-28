@@ -41,6 +41,9 @@ Plugin 'vim-ruby/vim-ruby.git'
 Plugin 'vim-scripts/Align'
 Plugin 'godlygeek/tabular'
 
+" Programming Languages
+Plugin 'ElmCast/elm-vim'
+
 " Everything else
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'kchmck/vim-coffee-script.git'
@@ -356,6 +359,18 @@ autocmd FileType css,scss,sass setlocal iskeyword+=-
 
 set expandtab
 
+" ----------------------------------------------------------------------------
+" Elm programming language
+" ----------------------------------------------------------------------------
+let g:elm_format_autosave = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1
+
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
 
 " ----------------------------------------------------------------------------
 "  Source local vimrc config
