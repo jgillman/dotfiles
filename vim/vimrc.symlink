@@ -21,6 +21,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 
 " Git
 Plugin 'airblade/vim-gitgutter.git'
+Plugin 'tpope/vim-fugitive.git'
 
 " Color Themes
 Plugin 'altercation/vim-colors-solarized.git'
@@ -38,14 +39,17 @@ Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'vasconcelloslf/vim-interestingwords'
 
-" Everything else
+" Languages and Syntaxes
+
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'kchmck/vim-coffee-script.git'
-Plugin 'scrooloose/syntastic.git'
-Plugin 'tpope/vim-fugitive.git'
+Plugin 'nginx.vim'
 Plugin 'tpope/vim-haml.git'
 Plugin 'tpope/vim-rails.git'
 Plugin 'suan/vim-instant-markdown.git'
+
+" Misc
+Plugin 'scrooloose/syntastic.git'
 
 
 call vundle#end()
@@ -363,6 +367,8 @@ autocmd FileType gitcommit,mail,markdown setlocal spell
 
 " Allow hyphenated word autocomplete for stylesheets
 autocmd FileType css,scss,sass setlocal iskeyword+=-
+
+autocmd BufRead,BufNewFile /usr/local/etc/nginx/* if &ft == '' | setfiletype nginx | endif
 
 set expandtab
 
