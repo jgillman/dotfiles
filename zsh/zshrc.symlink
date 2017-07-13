@@ -15,6 +15,11 @@ export EDITOR=vim
 # set emacs style bindings
 bindkey -e
 
+# If figlet is installed, print the hostname for new session
+if hash figlet > /dev/null 2>&1; then
+  hostname -s | figlet -w 120 -f slant
+fi
+
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
