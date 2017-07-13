@@ -359,6 +359,7 @@ command! WriteMode :call EnableWriteMode()
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.rb setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.md setl ft=markdown expandtab
+autocmd BufNewFile,BufReadPost *.py setl tabstop=4 shiftwidth=4 expandtab
 
 autocmd FileType markdown setlocal wrap linebreak
 
