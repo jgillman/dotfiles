@@ -5,10 +5,6 @@ alias ack="ack-grep"
 alias bu='bundle '
 alias brs='bin/rspec -f documentation'
 alias fn='find . -name'
-alias hcons='heroku run rails console -a goldbely'
-alias hconstg='heroku run rails console -a goldbely-staging'
-alias hpg='heroku pg:psql HEROKU_POSTGRESQL_WHITE_URL -a goldbely'
-alias pgb='psql goldbely_development'
 alias tmuxa='tmux attach || tmux new'
 
 # Recursively delete '.DS_Store' files
