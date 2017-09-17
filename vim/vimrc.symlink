@@ -166,9 +166,9 @@ autocmd BufWritePre * call StripTrailingWhitespace()
 " syntax enable
 " set background=dark
 
-" if has#colorscheme('gruvbox')
-"   colorscheme gruvbox
-" endif
+if has#colorscheme('gruvbox')
+  colorscheme gruvbox
+endif
 
 
 " ----------------------------------------------------------------------------
@@ -272,8 +272,7 @@ set incsearch              " do incremental searching
 set laststatus=2           " always show the status line
 set ignorecase             " use case insensitive searching
 set smartcase              " ^ unless a capital letter is used
-" set hlsearch               " highlight searches
-set gdefault               " always search globally
+set hlsearch               " highlight searches
 
 
 " ----------------------------------------------------------------------------
