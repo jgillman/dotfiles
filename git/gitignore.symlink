@@ -31,8 +31,11 @@ tmp/**/*
 #######################
 *.swp
 *.swo
-
+tags
 .svn
 *~
 
 vim/vim.symlink/.netrwhist
+
+# Local work-docs director
+local_docs
