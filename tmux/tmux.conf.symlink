@@ -12,13 +12,10 @@ set -g status-keys emacs
 set -g mode-keys vi
 
 # Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
+bind-key -Tcopy-mode-vi 'v' send -X begin-selection
 
 # Setup 'y' to copy selection as in Vim
-bind-key -t vi-copy 'y' copy-selection
-
-# Update default binding of `Enter` to also use copy-pipe
-unbind -t vi-copy Enter
+bind-key -Tcopy-mode-vi 'y' send -X copy-selection-and-cancel
 
 # Source .tmux-osx.conf if running in OS X
 if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
