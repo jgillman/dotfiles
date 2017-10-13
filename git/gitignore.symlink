@@ -36,3 +36,4 @@ tmp/**/*
 *~
 
 vim/vim.symlink/.netrwhist
+tags

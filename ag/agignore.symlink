@@ -3,6 +3,7 @@
 *.pdf
 *.png
 .git/*
+tags
 tmp/*
 db/migrate
 log
