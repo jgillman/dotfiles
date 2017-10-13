@@ -32,9 +32,6 @@ Plugin 'morhetz/gruvbox.git'
 Plugin 'ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'jlanzarotta/bufexplorer.git'
-Plugin 'junegunn/vim-easy-align.git'
-Plugin 'lambdatoast/elm.vim.git'
-Plugin 'sjl/gundo.vim.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'vasconcelloslf/vim-interestingwords'
@@ -46,10 +43,12 @@ Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'nginx.vim'
 Plugin 'tpope/vim-haml.git'
 Plugin 'tpope/vim-rails.git'
-Plugin 'suan/vim-instant-markdown.git'
+
+" Linting
+Plugin 'scrooloose/syntastic.git'
 
 " Misc
-Plugin 'scrooloose/syntastic.git'
+Plugin 'suan/vim-instant-markdown.git'
 
 
 call vundle#end()
