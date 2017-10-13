@@ -140,6 +140,8 @@ endif
 " ----------------------------------------------------------------------------
 
 let g:bufExplorerDisableDefaultKeyMapping=1
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerSortBy='fullpath'
 
 
 " }}}
@@ -182,7 +184,7 @@ vnoremap / /\v
 nmap <leader>p :set invpaste<cr>:set paste?<cr>
 
 " Open CtrlP to search for files
-map <leader>f :CtrlP<cr>
+map <leader>f :CtrlPMRU<cr>
 
 " Open BufExplorer to manage buffers
 nmap <leader>b :BufExplorer<cr>
