@@ -1,5 +1,9 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if _has ag; then
+  export FZF_DEFAULT_COMMAND='ag -g ""'
+fi
+
 # fzf via Homebrew
 if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   source /usr/local/opt/fzf/shell/key-bindings.zsh
