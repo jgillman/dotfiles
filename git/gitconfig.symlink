@@ -42,3 +42,7 @@
   lineNumber = true
 [heroku]
   account = personal
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
