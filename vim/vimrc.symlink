@@ -13,7 +13,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " set the runtime path to include fzf
-if isdirectory("$HOME/.fzf")
+if isdirectory(expand("$HOME/.fzf"))
   " git install of fzf
   set rtp+=~/.fzf
 
