@@ -544,8 +544,6 @@ now_playing_suffix = $/b
 
 song_columns_list_format = (20)[red]{a} (6f)[green]{NE} (50)[blue]{t|f:Title} (20)[yellow]{b} (7f)[magenta]{l}
 
-progressbar_look = "■■□"
-
 user_interface = alternative
 
 header_visibility = yes
@@ -569,9 +567,12 @@ current_item_suffix = "$/r$(end)"
 current_item_inactive_column_prefix = "$(red)$r"
 current_item_inactive_column_suffix = "$/r$(end)"
 
-progressbar_color = black
-progressbar_elapsed_color = green
-statusbar_color = green
-alternative_ui_separator_color = black
-window_border_color = magenta
-active_window_border = green
+# progressbar_look = "▉▉▉"
+progressbar_look = "—>-"
+progressbar_elapsed_color = "red:b"
+progressbar_color = "black:b"
+
+statusbar_color = "green"
+alternative_ui_separator_color = "black"
+window_border_color = "magenta"
+active_window_border = "green"
