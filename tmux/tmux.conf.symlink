@@ -24,11 +24,8 @@ if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
 unbind r
 bind r source-file ~/.tmux.conf\; display "Config reloaded!"
 
-# Enable mouse support (works in iTerm)
-# set-window-option -g mode-mouse on
-# set-option -g mouse-select-pane on
-# set-option -g mouse-resize-pane on
-# set-option -g mouse-select-window on
+# Enable mouse support
+set-option -g mouse on
 
 # Quick window cycling
 unbind ^A
