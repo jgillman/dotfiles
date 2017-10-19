@@ -12,8 +12,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" " set the runtime path to include fzf
-set rtp+=~/.fzf
+" set the runtime path to include fzf
+if isdirectory("$HOME/.fzf")
+  " git install of fzf
+  set rtp+=~/.fzf
+
+elseif isdirectory("/usr/local/opt/fzf")
+  " homebrew install of fzf
+  set rtp+=/usr/local/opt/fzf
+
+endif
 
 " }}}
 "  Bundles {{{
