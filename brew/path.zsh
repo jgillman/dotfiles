@@ -1,2 +1,3 @@
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+_prepend_to_path "/usr/local/sbin"
+_prepend_to_path "/usr/local/bin"
 export MANPATH="/usr/local/man:$MANPATH"

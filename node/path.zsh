@@ -1,3 +1,4 @@
 # Add common node_module paths
-export PATH="/usr/local/lib/node_modules:$HOME/node_modules/.bin:$PATH:/usr/local/share/npm/bin"
-
+_prepend_to_path "${HOME}/node_modules/.bin"
+_prepend_to_path "/usr/local/lib/node_modules"
+_append_to_path "/usr/local/share/npm/bin"
