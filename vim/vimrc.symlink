@@ -264,7 +264,7 @@ set laststatus=2           " always show the status line
 set ignorecase             " use case insensitive searching
 set smartcase              " ^ unless a capital letter is used
 set hlsearch               " highlight searches
-set colorcolumn=79,112     " highlight column 79 as a soft reminder
+set colorcolumn=80,120     " highlight column 79 as a soft reminder
 
 
 " }}}
