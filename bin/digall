@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+main() {
+  local domain=$1
+  dig +noall +answer -t any "$domain" | \
+    sort --key 4
+}
+
+main "$@"
