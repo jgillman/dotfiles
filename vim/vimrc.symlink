@@ -1,4 +1,4 @@
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker
 
 "  Set Up {{{
 " ----------------------------------------------------------------------------
@@ -39,12 +39,7 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'vasconcelloslf/vim-interestingwords'
 
 " Languages and Syntaxes
-
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'kchmck/vim-coffee-script.git'
-Plugin 'nginx.vim'
-Plugin 'tpope/vim-haml.git'
-Plugin 'tpope/vim-rails.git'
+Plugin 'sheerun/vim-polyglot'
 
 " Linting
 Plugin 'w0rp/ale'
