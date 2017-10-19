@@ -29,7 +29,7 @@ Plugin 'dracula/vim'
 Plugin 'morhetz/gruvbox.git'
 
 " Utility
-Plugin 'ag.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'jlanzarotta/bufexplorer.git'
 Plugin 'tpope/vim-commentary.git'
@@ -97,6 +97,18 @@ set statusline+=(%{&ft})\              " filetype
 set statusline+=%-4(%m%)               " modified flag
 set statusline+=%=                     " switch to right side
 set statusline+=%-20(%4l,%-3c\ \ %P%)  " cursor position
+
+" }}}
+"  Ack config {{{
+" ----------------------------------------------------------------------------
+
+" Use ag instead of ack, if it's available
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" Don't jump into the first result automatically
+cnoreabbrev Ack Ack!
 
 " }}}
 "  ALE (Asynchronous Lint Engine) Config {{{
