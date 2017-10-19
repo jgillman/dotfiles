@@ -1,0 +1,52 @@
+# Swiped from statico's dotfiles:
+# https://github.com/statico/dotfiles/blob/340c01d0970bc2cd6a27284ddb87774131c00e5c/.zshrc
+# Some local changes and cleanup from myself
+
+
+# INTERNAL UTILITY FUNCTIONS
+
+# Returns whether the given command is executable or aliased.
+_has() {
+  return "$( hash "$1" >/dev/null 2>&1 )"
+}
+
+# Returns whether the given statement executed cleanly. Try to avoid this
+# because this slows down shell loading.
+_try() {
+  return "$( eval "$*" >/dev/null 2>&1 )"
+}
+
+# Returns whether the current host type is what we think it is. (HOSTTYPE is
+# set later.)
+_is() {
+  return "$( [ "$HOSTTYPE" = "$1" ] )"
+}
+
+# Returns whether out terminal supports color.
+_color() {
+  return "$( [ -z "$INSIDE_EMACS" -a -z "$VIMRUNTIME" ] )"
+}
+
+
+# PATH MODIFICATIONS {{{1
+
+# Functions which modify the path given a directory, but only if the directory
+# exists and is not already in the path. (Super useful in ~/.zshlocal)
+
+_prepend_to_path() {
+  if [ -d "$1" -a -z "${path[(r)$1]}" ]; then
+    path=("$1" "$path");
+  fi
+}
+
+_append_to_path() {
+  if [ -d "$1" -a -z "${path[(r)$1]}" ]; then
+    path=("$path" "$1");
+  fi
+}
+
+_force_prepend_to_path() {
+  path=("$1" "${(@)path:#$1}")
+}
+
+# vim:ft=zsh

@@ -15,35 +15,8 @@ export EDITOR=vim
 # set emacs style bindings
 bindkey -e
 
-
-# Returns whether the given command is executable or aliased.
-_has() {
-  return "$( hash "$1" >/dev/null 2>&1 )"
-}
-
-
-# PATH MODIFICATIONS {{{1
-
-# Functions which modify the path given a directory, but only if the directory
-# exists and is not already in the path. (Super useful in ~/.zshlocal)
-
-_prepend_to_path() {
-  if [ -d "$1" -a -z ${path[(r)$1]} ]; then
-    path=($1 $path);
-  fi
-}
-
-_append_to_path() {
-  if [ -d $1 -a -z ${path[(r)$1]} ]; then
-    path=($1 $path);
-  fi
-}
-
-_force_prepend_to_path() {
-  path=($1 ${(@)path:#$1})
-}
-
-
+# Source utility functions
+source "${ZSH}/zsh/utilities"
 
 # If figlet is installed, print the hostname for new session
 if _has figlet; then
