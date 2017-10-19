@@ -34,19 +34,19 @@ _color() {
 # exists and is not already in the path. (Super useful in ~/.zshlocal)
 
 _prepend_to_path() {
-  if [ -d "$1" -a -z "${path[(r)$1]}" ]; then
-    path=("$1" "$path");
+  if [ -d $1 -a -z ${path[(r)$1]} ]; then
+    path=($1 $path);
   fi
 }
 
 _append_to_path() {
-  if [ -d "$1" -a -z "${path[(r)$1]}" ]; then
-    path=("$path" "$1");
+  if [ -d $1 -a -z ${path[(r)$1]} ]; then
+    path=($path $1);
   fi
 }
 
 _force_prepend_to_path() {
-  path=("$1" "${(@)path:#$1}")
+  path=($1 ${(@)path:#$1})
 }
 
 # vim:ft=zsh
