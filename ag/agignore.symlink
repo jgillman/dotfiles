@@ -7,5 +7,6 @@ tags
 tmp/*
 db/migrate
 log
+node_modules
 source_maps
 spec/fixtures/vcr_cassettes
