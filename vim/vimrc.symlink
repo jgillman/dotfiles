@@ -12,6 +12,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" " set the runtime path to include fzf
+set rtp+=~/.fzf
+
 " }}}
 "  Bundles {{{
 " ----------------------------------------------------------------------------
@@ -32,7 +35,7 @@ Plugin 'morhetz/gruvbox.git'
 
 " Utility
 Plugin 'mileszs/ack.vim'
-Plugin 'ctrlpvim/ctrlp.vim.git'
+Plugin 'junegunn/fzf.vim'
 Plugin 'jlanzarotta/bufexplorer.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
@@ -52,8 +55,6 @@ call vundle#end()
 filetype plugin indent on
 
 set noswapfile
-
-set runtimepath^=~/.vim/bundle/ctrlp.vim  " Setup ctrlp
 
 " }}}
 "  Basic Editing Config {{{
@@ -152,26 +153,13 @@ cnoreabbrev Ack Ack!
 " ----------------------------------------------------------------------------
 
 " }}}
-"  CtrlP Config {{{
+"  fzf config {{{
 " ----------------------------------------------------------------------------
 
-let g:ctrlp_max_files=20000      " double number of files scanned
-let g:ctrlp_custom_ignore={
-  \ 'dir':  '\v(\.(git|hg|svn))|(db/(data|dumps))|(_local_s3|log|public|tmp|work)|(_bower_components|_site|node_modules)$',
-  \ 'file': '\v(*.sublime-)|(\.(exe|so|dll))$'
-  \ }
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
 
-if executable("ag")
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
+let g:fzf_layout = { 'down': '~30%' }
 
 " }}}
 "  BufExplorer Config {{{
@@ -221,11 +209,14 @@ vnoremap / /\v
 " Toggle paste mode
 nmap <leader>p :set invpaste<cr>:set paste?<cr>
 
-" Open CtrlP to search for files
-map <leader>f :CtrlPMRU<cr>
+" Open fzf to search for files
+map <leader>f :Files<cr>
 
-" Open BufExplorer to manage buffers
-nmap <leader>b :BufExplorer<cr>
+" Open fzf to manage buffers
+nmap <leader>b :Buffers<cr>
+
+" Open fzf to search tags
+nmap <leader>r :Tags<cr>
 
 " Open Gundo for "super undo"
 nnoremap <leader>u :GundoToggle<CR>
