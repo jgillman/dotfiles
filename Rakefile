@@ -55,16 +55,4 @@ task :uninstall do
   end
 end
 
-namespace :git do
-	desc "Initialize all git submodules"
-	task :init do
-		`git submodule init && git submodule update`
-	end
-
-	desc "Update all the submodles from their respective origin/master"
-	task :update do
-		`git submodule foreach git pull origin master`
-	end
-end
-
 task :default => 'install'

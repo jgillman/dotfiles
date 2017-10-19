@@ -40,20 +40,6 @@ The install rake task will symlink the appropriate files in `.dotfiles` to your
 home directory. Everything is configured and tweaked within `~/.dotfiles`,
 though.
 
-I've included the vim plugins I use as submodules in git. Should you want to
-use them as well you must instansiate them after you clone the initial repo.
-
-- `git submodule init`
-- `git submodule update`
-
-On top of that, [wincent's Command-T](https://github.com/wincent/Command-T)
-plugin must be initialized as well. To use Command-T you must also have vim
-with ruby support, I'll let you figure that out.
-
-- `cd ~/.vim/bundle/command-t/ruby/command-t`
-- `ruby extconf.rb`
-- `make`
-
 ## topical
 
 Everything's built around topic areas. If you're adding a new area to your

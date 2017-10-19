@@ -2,21 +2,15 @@
 
 My editor of choice.
 
-I use [vundle][] to manage my plugins. See below for setting that up:
+I use [vim-plug][] to manage my plugins. See below for setting that up:
 
-[vundle]: https://github.com/VundleVim/Vundle.vim
+[vim-plug]: https://github.com/junegunn/vim-plug
 
 ## Install
 
 ```sh
-# Change to the dotfile dir
-cd ~/.dotfiles
-
-# Initialize git submodules
-rake git:init
-
 # Install plugins and quit
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 ```
 
 ## Local config

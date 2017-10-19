@@ -5,10 +5,6 @@
 set nocompatible
 filetype off
 
-" }}}
-"  Set up fzf runtime path {{{
-" ----------------------------------------------------------------------------
-
 " set the runtime path to include fzf
 if isdirectory(expand("$HOME/.fzf"))
   " git install of fzf
@@ -21,42 +17,44 @@ elseif isdirectory("/usr/local/opt/fzf")
 endif
 
 " }}}
-"  Bundles {{{
+"  Plugins {{{
 " ----------------------------------------------------------------------------
 
+call plug#begin()
+
 " Interface / UI
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'itchyny/lightline.vim'
-Plugin 'junegunn/goyo.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/goyo.vim'
 
 " Git
-Plugin 'airblade/vim-gitgutter.git'
-Plugin 'tpope/vim-fugitive.git'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " Color Themes
-Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'dracula/vim'
-Plugin 'morhetz/gruvbox.git'
+Plug 'altercation/vim-colors-solarized'
+Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 
 " Utility
-Plugin 'mileszs/ack.vim'
-Plugin 'junegunn/fzf.vim'
-Plugin 'jlanzarotta/bufexplorer.git'
-Plugin 'tpope/vim-commentary.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'vasconcelloslf/vim-interestingwords'
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'vasconcelloslf/vim-interestingwords'
 
 " Languages and Syntaxes
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " Linting
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
 
 " Misc
-Plugin 'suan/vim-instant-markdown.git'
+Plug 'suan/vim-instant-markdown'
 
 
-filetype plugin indent on
+call plug#end()
 
 set noswapfile
 
