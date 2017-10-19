@@ -45,7 +45,7 @@ Plugin 'tpope/vim-haml.git'
 Plugin 'tpope/vim-rails.git'
 
 " Linting
-Plugin 'scrooloose/syntastic.git'
+Plugin 'w0rp/ale'
 
 " Misc
 Plugin 'suan/vim-instant-markdown.git'
@@ -99,18 +99,8 @@ set statusline+=%=                     " switch to right side
 set statusline+=%-20(%4l,%-3c\ \ %P%)  " cursor position
 
 " }}}
-"  Syntastic Config {{{
+"  ALE (Asynchronous Lint Engine) Config {{{
 " ----------------------------------------------------------------------------
-
-" Don't use the 'error location list'
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['eslint']
-
 
 " }}}
 "  CtrlP Config {{{
