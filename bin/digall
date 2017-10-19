@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Quick access to a domain's DNS records
+
 main() {
   local domain=$1
   dig +noall +answer -t any "$domain" | \
