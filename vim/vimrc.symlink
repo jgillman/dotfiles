@@ -18,6 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Interface / UI
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'junegunn/goyo.vim'
 
 " Git
 Plugin 'airblade/vim-gitgutter.git'
