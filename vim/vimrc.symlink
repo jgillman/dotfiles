@@ -98,7 +98,7 @@ let g:lightline = {
 \ },
 \ 'inactive': {
 \   'left': [['relativepath', 'modified']],
-\   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+\   'right': [['lineinfo'], ['percent'], ['readonly']]
 \ },
 \ 'component_expand': {
 \   'linter_warnings': 'LightlineLinterWarnings',
