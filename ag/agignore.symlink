@@ -9,4 +9,5 @@ db/migrate
 log
 node_modules
 source_maps
+__snapshots__
 spec/fixtures/vcr_cassettes
