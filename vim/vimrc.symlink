@@ -168,8 +168,8 @@ let g:ale_javascript_prettier_use_local_config = 1
 "  fzf config {{{
 " ----------------------------------------------------------------------------
 
-" [Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
+" [Buffers] Don't jump to the existing window if possible
+let g:fzf_buffers_jump = 0
 
 let g:fzf_layout = { 'down': '~30%' }
 
