@@ -18,17 +18,16 @@ brew install zsh
 
 # Install these
 binaries=(
+  ag
   cheat
   ffmpeg
   graphicsmagick
   heroku
   htop
   hub
-  keybase
   macvim
   md5sha1sum
   mobile-shell
-  mpv
   mtr
   namebench
   node
@@ -36,9 +35,7 @@ binaries=(
   reattach-to-user-namespace
   rename
   rtv
-  s3cmd
   ssh-copy-id
-  the_silver_searcher
   tig
   tmux
   watch
@@ -49,21 +46,32 @@ binaries=(
 echo "Installing binaries..."
 brew install ${binaries[@]}
 
+echo "Installing mpv with bundle..."
+brew install mpv --with-bundle
+
 echo "Cleaning up..."
 brew cleanup
 
 
+fonts=(
+  font-envy-code-r
+  font-fira-code
+  font-inconsolata
+)
 
-# Install brew cask
-brew install caskroom/cask/brew-cask
+echo "Tapping the fonts keg..."
+brew tap caskroom/fonts
+
+echo "Installing fonts..."
+brew cask install ${fonts[@]}
+
 
 apps=(
   1password
   alfred
-  appclearner
+  appcleaner
   atext
   bartender
-  caffeine
   cathode
   crashplan
   dash
@@ -73,23 +81,24 @@ apps=(
   evernote
   fantastical
   firefox
-  flux
   google-chrome
-  gpgtools
+  gpg-suite
   imagealpha
   imageoptim
   istat-menus
-  iterm
+  iterm2
+  keepingyouawake
+  keybase
   keyboard-cleaner
   launchcontrol
-  macpaw-gemini
   mediainfo
   monodraw
   netspot
+  qlimagesize
   qlmarkdown
   qlstephen
+  qlvideo
   quicklook-json
-  screenhero
   slack
   spotify
   steam
