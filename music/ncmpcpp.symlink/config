@@ -315,9 +315,9 @@ visualizer_color = 41, 83, 119, 155, 185, 215, 209, 203, 197, 161
 #
 #volume_change_step = 2
 #
-#autocenter_mode = no
+autocenter_mode = yes
 #
-#centered_cursor = no
+centered_cursor = yes
 #
 ##
 ## Note: You can specify third character which will
