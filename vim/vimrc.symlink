@@ -178,6 +178,9 @@ endif
 " lead with ,
 let mapleader = "\<Space>"
 
+" Toggle line numbers
+nmap <leader>n :set invnumber<cr>:set number?<cr>
+
 " Toggle paste mode
 nmap <leader>p :set invpaste<cr>:set paste?<cr>
 
@@ -272,7 +275,7 @@ set incsearch              " do incremental searching
 set laststatus=2           " always show the status line
 set ignorecase             " use case insensitive searching
 set smartcase              " ^ unless a capital letter is used
-set hlsearch               " highlight searches
+" set hlsearch               " highlight searches
 
 
 " ----------------------------------------------------------------------------
@@ -283,6 +286,17 @@ set foldenable             " enable folds (default)
 set foldlevelstart=10      " open most folds by default
 set foldnestmax=10         " nest no more than 10 folds deep
 set foldmethod=indent      " auto-create folds by indentation
+
+" ----------------------------------------------------------------------------
+"  ALE (Asynchronous Lint Engine) Config
+" ----------------------------------------------------------------------------
+
+let g:ale_fix_on_save = 0
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier_eslint']
+let g:ale_fixers['ruby'] = ['rubocop']
+let g:ale_javascript_prettier_use_local_config = 1
+highlight ALEWarning ctermbg=DarkMagenta
 
 
 " ----------------------------------------------------------------------------

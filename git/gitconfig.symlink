@@ -13,6 +13,8 @@
   sp = stash pop
   di = diff
   dc = diff --cached
+  dn = diff --name-only
+  dnm = diff --name-only master
   back = reset --soft HEAD^
   root = !pwd
   br = branch
