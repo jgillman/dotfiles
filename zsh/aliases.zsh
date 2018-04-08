@@ -7,9 +7,6 @@ alias brs='bin/rspec -f documentation'
 alias fn='find . -name'
 alias tmuxa='tmux attach || tmux new'
 
-# Recursively delete '.DS_Store' files
-alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
-
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
 
