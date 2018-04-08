@@ -47,6 +47,11 @@ unset file
 unset config_files
 
 
+
+# Don't hang with Ctrl+s / Ctrl+q
+stty -ixon
+
+
 # use .localrc for SUPER SECRET CRAP that you don't want in your public,
 # versioned repo. This should be last so it can override global configs.
 if [[ -a ~/.localrc ]]
