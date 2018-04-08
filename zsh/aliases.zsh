@@ -6,6 +6,7 @@ alias bu='bundle '
 alias brs='bin/rspec -f documentation'
 alias fn='find . -name'
 alias tmuxa='tmux attach || tmux new'
+alias brsx='brs $(git status | grep spec | grep "modified:" | cut -b 14- )'
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
