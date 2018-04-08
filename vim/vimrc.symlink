@@ -44,10 +44,12 @@ Plugin 'godlygeek/tabular'
 " Programming Languages
 Plugin 'ElmCast/elm-vim'
 
+" Linting
+Plugin 'w0rp/ale'
+
 " Everything else
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'kchmck/vim-coffee-script.git'
-Plugin 'vim-syntastic/syntastic.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'tpope/vim-haml.git'
 Plugin 'tpope/vim-rails.git'
@@ -101,20 +103,6 @@ set statusline+=(%{&ft})\              " filetype
 set statusline+=%-4(%m%)               " modified flag
 set statusline+=%=                     " switch to right side
 set statusline+=%-20(%4l,%-3c\ \ %P%)  " cursor position
-
-
-" ----------------------------------------------------------------------------
-"  Syntastic Config
-" ----------------------------------------------------------------------------
-
-" Don't use the 'error location list'
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['eslint']
 
 
 " ----------------------------------------------------------------------------
