@@ -1,12 +1,13 @@
 alias reload!='. ~/.zshrc'
 
-alias la='ls -alG'
 alias ack="ack-grep"
 alias bu='bundle '
 alias brs='bin/rspec -f documentation'
-alias fn='find . -name'
-alias tmuxa='tmux attach || tmux new'
 alias brsx='brs $(git status | grep spec | grep "modified:" | cut -b 14- )'
+alias fn='find . -name'
+alias hcons='heroku run rails console -a goldbely'
+alias la='ls -alG'
+alias tmuxa='tmux attach || tmux new'
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
