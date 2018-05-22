@@ -2,6 +2,8 @@
 *.jpg
 *.pdf
 *.png
+*.min.js
+*.min.css
 .git/*
 tags
 tmp/*
