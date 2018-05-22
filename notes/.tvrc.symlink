@@ -1,5 +1,6 @@
 [DEFAULT]
 extension = .md
+editor = vim
 # The filename extensions to recognize in the notes dir.
 extensions = .txt, .text, .md, .markdown, .mdown, .mdwn, .mkdn, .mkd, .rst
 notes_dir = ~/dropbox-crypt/notes
