@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+function main() {
+  local youtube_url=$1
+  local output_dir="${XDG_MUSIC_DIR}/YouTube"
+  local output_template="${output_dir}/%(uploader)s/%(title)s.%(ext)s"
+
+  if [ -z "$XDG_MUSIC_DIR" ]; then
+    echo "Please set \$XDG_MUSIC_DIR to your music library location"
+    exit 1
+  fi
+
+  youtube-dl \
+    --extract-audio \
+    --ignore-errors \
+    --embed-thumbnail \
+    --youtube-skip-dash-manifest \
+    --add-metadata \
+    --audio-format mp3 \
+    --output "$output_template" \
+    "$youtube_url"
+}
+
+main "$@"
