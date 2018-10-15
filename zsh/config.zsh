@@ -15,22 +15,29 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt NO_BG_NICE # don't nice background tasks
+# don't nice background tasks
+setopt NO_BG_NICE
 setopt NO_HUP
 setopt NO_LIST_BEEP
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS # allow functions to have local traps
+# allow functions to have local options
+setopt LOCAL_OPTIONS
+# allow functions to have local traps
+setopt LOCAL_TRAPS
 setopt HIST_VERIFY
-setopt SHARE_HISTORY # share history between sessions ???
-setopt EXTENDED_HISTORY # add timestamps to history
+# add timestamps to history
+setopt EXTENDED_HISTORY
 setopt PROMPT_SUBST
 setopt CORRECT
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 
-setopt APPEND_HISTORY # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
-setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
+# adds history
+setopt APPEND_HISTORY
+# adds history incrementally and share it across sessions
+setopt INC_APPEND_HISTORY SHARE_HISTORY
+# don't record dupes in history
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 
 # don't expand aliases _before_ completion has finished
@@ -38,6 +45,10 @@ setopt HIST_REDUCE_BLANKS
 setopt complete_aliases
 
 zle -N newtab
+
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
 
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
