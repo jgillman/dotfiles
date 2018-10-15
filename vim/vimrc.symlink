@@ -145,6 +145,14 @@ function! s:MaybeUpdateLightline()
 endfunction
 
 " }}}
+"  Instant Markdown config {{{
+" ----------------------------------------------------------------------------
+
+" Don't autostart, use :InstantMarkdownPreview manually
+let g:instant_markdown_autostart = 0
+
+
+" }}}
 "  Ack config {{{
 " ----------------------------------------------------------------------------
 
@@ -207,6 +215,10 @@ set background=dark
 if has#colorscheme('gruvbox')
   colorscheme gruvbox
 endif
+
+" Set the background color as transparent to 'inherit' from the terminal's
+" background color.
+hi Normal ctermbg=NONE
 
 
 " }}}
@@ -285,6 +297,15 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
+
+" }}}
+"  Macros {{{
+" ----------------------------------------------------------------------------
+
+" this is supposed to convert css to sass
+" it works if you type out all the keys, but idk why it's not working as a Map
+" or Leader command :(
+" map <Leader>cc /\v \{|\s\}\n|;$<CR>:%s///g<CR>
 
 " }}}
 "  UI {{{
