@@ -2,4 +2,4 @@ set line-graphics = default
 set tab-size = 2
 set ignore-case = true
 
-set main-view = date:relative-compact author:full,width:12 id commit-title,graph:true
+set main-view = date:relative-compact author:full,width:12 id,width:8 commit-title,graph:true
