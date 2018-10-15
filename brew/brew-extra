@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Check for Homebrew,
 # Install if we don't have it
 if ! hash brew 2>/dev/null; then

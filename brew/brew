@@ -1,3 +1,5 @@
+#!/user/bin/env bash
+
 # Check for Homebrew,
 # Install if we don't have it
 if ! hash brew 2>/dev/null; then
@@ -20,21 +22,26 @@ brew install zsh
 binaries=(
   ag
   cheat
+  ctags
   ffmpeg
+  fzf # fuzzy searching
   graphicsmagick
   heroku
   htop
   hub
+  jq # json parsing
+  jrnl # journaling
   macvim
   md5sha1sum
-  mobile-shell
-  mtr
-  namebench
+  mobile-shell # formerly 'mosh'
+  mpv # best video player
+  mtr # network debugging
   node
-  ranger
+  ranger # cli file tree explorer
   reattach-to-user-namespace
   rename
-  rtv
+  rtv # cli reddit
+  shellcheck
   ssh-copy-id
   tig
   tmux
@@ -73,7 +80,6 @@ apps=(
   atext
   bartender
   cathode
-  crashplan
   dash
   disk-inventory-x
   docker
@@ -86,11 +92,12 @@ apps=(
   imagealpha
   imageoptim
   istat-menus
-  iterm2
   keepingyouawake
   keybase
   keyboard-cleaner
+  kitty
   launchcontrol
+  malwarebytes
   mediainfo
   monodraw
   netspot
@@ -99,6 +106,7 @@ apps=(
   qlstephen
   qlvideo
   quicklook-json
+  qutebrowser
   slack
   spotify
   steam
@@ -106,8 +114,6 @@ apps=(
   transmit
   tripmode
   tunnelblick
-  vagrant
-  virtualbox
   xld
 )
 
