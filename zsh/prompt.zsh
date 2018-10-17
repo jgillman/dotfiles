@@ -63,6 +63,7 @@ host_prompt() {
   echo "%{$fg[yellow]%}$(hostname -s)%{$reset_color%}"
 }
 
+# For virtualenv, see python/README.md
 virtualenv_prompt() {
   if [ -z ${VIRTUAL_ENV+x} ]; then
     # VIRTUAL_ENV is unset
