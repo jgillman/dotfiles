@@ -69,7 +69,7 @@ visualizer_output_name = my_fifo
 ##
 ## If you set format to 44100:16:2, make it 'yes'.
 ##
-visualizer_in_stereo = yes
+visualizer_in_stereo = no
 #
 ##
 ## Multiply received samples by given value. Very
@@ -96,8 +96,7 @@ visualizer_sync_interval = 30
 ##
 visualizer_type = spectrum
 #
-# visualizer_look = ●▮
-visualizer_look = o#
+visualizer_look = ●▮
 #
  # visualizer_color = blue, cyan, green, yellow, magenta, red
 #
