@@ -7,7 +7,7 @@ is_git_repo() {
 git_prompt() {
   if is_git_repo; then
     # in a git repo!
-    echo "$(git_dirty)$(need_push)"
+    echo " $(git_dirty)$(need_push)"
   else
     # not in a git repo :(
     echo ""
@@ -78,8 +78,34 @@ directory_name(){
   echo "%{$fg[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-set_prompt () {
-  export PROMPT=$'\n$(virtualenv_prompt)$(host_prompt) in $(directory_name) $(git_prompt)\n$(git_wip)› '
+# Execution time start
+prompt_exec_time_preexec_hook() {
+  PROMPT_EXEC_TIME_start=$(date +%s)
+}
+
+# Execution time end
+prompt_exec_time_precmd_hook() {
+  [[ -n $PROMPT_EXEC_TIME_duration ]] && unset PROMPT_EXEC_TIME_duration
+  [[ -z $PROMPT_EXEC_TIME_start ]] && return
+  local PROMPT_EXEC_TIME_stop=$(date +%s)
+  PROMPT_EXEC_TIME_duration=$(( $PROMPT_EXEC_TIME_stop - $PROMPT_EXEC_TIME_start ))
+  unset PROMPT_EXEC_TIME_start
+}
+
+prompt_exec_time() {
+  if [[ $PROMPT_EXEC_TIME_duration -ge 10 ]]; then
+    echo " ${PROMPT_EXEC_TIME_duration}s"
+  fi
+}
+
+set_prompt() {
+  autoload -Uz add-zsh-hook
+
+  # Add exec_time hooks
+  add-zsh-hook preexec prompt_exec_time_preexec_hook
+  add-zsh-hook precmd prompt_exec_time_precmd_hook
+
+  export PROMPT=$'\n$(virtualenv_prompt)$(host_prompt) in $(directory_name)$(git_prompt)$(prompt_exec_time)\n$(git_wip)› '
   export RPROMPT=$'%{$fg_bold[green]%}%~ @ %*%{$reset_color%}'
 }
 
