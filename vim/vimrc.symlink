@@ -415,6 +415,7 @@ function! EnableWriteMode()
   set nonumber
   set wrap
   set linebreak
+  set ft=markdown
 endfunction
 command! WriteMode :call EnableWriteMode()
 

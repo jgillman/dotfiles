@@ -4,8 +4,18 @@
 
 main() {
   local domain=$1
-  dig +noall +answer -t any "$domain" | \
-    sort --key 4
+  local record_types=(
+    "A"
+    "CNAME"
+    "MX"
+    "NS"
+    "SOA"
+    "TXT"
+  )
+
+  for record_type in "${record_types[@]}"; do
+    dig +noall +answer -t "$record_type" "$domain"
+  done
 }
 
 main "$@"

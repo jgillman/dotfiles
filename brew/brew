@@ -81,6 +81,7 @@ apps=(
   bartender
   cathode
   dash
+  diff-so-fancy
   disk-inventory-x
   docker
   dropbox
@@ -110,6 +111,7 @@ apps=(
   slack
   spotify
   steam
+  switchaudio-osx
   the-unarchiver
   transmit
   tripmode
