@@ -23,6 +23,7 @@ binaries=(
   ag
   cheat
   ctags
+  diff-so-fancy # better git diffs
   ffmpeg
   fzf # fuzzy searching
   graphicsmagick
@@ -34,8 +35,12 @@ binaries=(
   macvim
   md5sha1sum
   mobile-shell # formerly 'mosh'
+  mpc
+  mpd
   mpv # best video player
   mtr # network debugging
+  ncdu # better disk usage
+  ncmpcpp # music player
   node
   ranger # cli file tree explorer
   reattach-to-user-namespace
@@ -45,6 +50,7 @@ binaries=(
   ssh-copy-id
   tig
   tmux
+  vim
   watch
   wget
   youtube-dl
