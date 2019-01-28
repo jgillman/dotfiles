@@ -7,7 +7,15 @@ alias cd.="cd ~/.dotfiles"
 alias la="ls -A"
 alias ll="ls -lAhF"
 alias l="ll"
-alias :q='exit'
+alias :q="exit"
+
+alias weather=ansiweather
+alias caca="mpv --really-quiet --vo=caca"
+alias clock="tty-clock -c -t"
+alias du="ncdu --color dark -rr"
+alias music="ncmpcpp"
+alias reddit="rtv"
+alias youtube="mpsyt"
 
 # Recursively delete '.DS_Store' files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
@@ -21,11 +29,6 @@ alias servethis="open http://0.0.0.0:8000 && python -m SimpleHTTPServer"
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop"defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop"defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# Stuff I never really use but cannot delete because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 10'"
-alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
 function backup() { cp ${1}{,.bak}; }
 function fname() { find . -iname "*$@*"; }
