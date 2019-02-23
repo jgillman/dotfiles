@@ -320,14 +320,14 @@ command! RenameFile :call RenameFile()
 "  Use ranger for file exploring
 " ----------------------------------------------------------------------------
 
-function RangerExplorer()
-    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
-    if filereadable('/tmp/vim_ranger_current_file')
-        exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
-        call system('rm /tmp/vim_ranger_current_file')
-    endif
-    redraw!
-endfun
+" function RangerExplorer()
+"     exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
+"     if filereadable('/tmp/vim_ranger_current_file')
+"         exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
+"         call system('rm /tmp/vim_ranger_current_file')
+"     endif
+"     redraw!
+" endfun
 map <Leader>x :call RangerExplorer()<CR>
 
 
@@ -363,7 +363,7 @@ set expandtab
 " ----------------------------------------------------------------------------
 " Elm programming language
 " ----------------------------------------------------------------------------
-let g:elm_format_autosave = 1
+" let g:elm_format_autosave = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
@@ -384,9 +384,9 @@ endif
 " ----------------------------------------------------------------------------
 "  Vertically align ruby hashes using Tabularize plugin
 " ----------------------------------------------------------------------------
-function IndentV()
-  Tabularize /[^:]*:
-  Tabularize /[^=>]*=>
-endfunction
+" function IndentV()
+"   Tabularize /[^:]*:
+"   Tabularize /[^=>]*=>
+" endfunction
 map <Leader>iv :call IndentV()<cr>
 
