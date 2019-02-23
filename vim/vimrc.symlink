@@ -264,7 +264,7 @@ set laststatus=2           " always show the status line
 set ignorecase             " use case insensitive searching
 set smartcase              " ^ unless a capital letter is used
 " set hlsearch               " highlight searches
-set gdefault               " always search globally
+" set gdefault               " always search globally
 
 
 " ----------------------------------------------------------------------------
