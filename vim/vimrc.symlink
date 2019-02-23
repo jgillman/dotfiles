@@ -280,12 +280,11 @@ set foldmethod=indent      " auto-create folds by indentation
 "  ALE (Asynchronous Lint Engine) Config
 " ----------------------------------------------------------------------------
 
-let g:ale_fix_on_save = 0
 let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier_eslint']
+let g:ale_fixers['javascript'] = ['prettier', 'prettier_eslint']
 let g:ale_fixers['ruby'] = ['rubocop']
 let g:ale_javascript_prettier_use_local_config = 1
-highlight ALEWarning ctermbg=DarkMagenta
+let g:ale_fix_on_save = 1
 
 
 " ----------------------------------------------------------------------------
