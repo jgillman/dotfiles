@@ -25,7 +25,6 @@ Plugin 'dracula/vim'
 Plugin 'morhetz/gruvbox.git'
 
 " Utility
-Plugin 'ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'jlanzarotta/bufexplorer.git'
 Plugin 'junegunn/vim-easy-align.git'
@@ -42,7 +41,6 @@ Plugin 'vim-scripts/Align'
 Plugin 'godlygeek/tabular'
 
 " Programming Languages
-Plugin 'ElmCast/elm-vim'
 
 " Linting
 Plugin 'w0rp/ale'
@@ -115,18 +113,6 @@ let g:ctrlp_custom_ignore={
   \ 'file': '\v(*.sublime-)|(\.(exe|so|dll))$'
   \ }
 
-if executable("ag")
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
-
 " ----------------------------------------------------------------------------
 "  BufExplorer Config
 " ----------------------------------------------------------------------------
@@ -180,9 +166,6 @@ nmap <leader>b :BufExplorer<cr>
 
 " Open Gundo for "super undo"
 nnoremap <leader>u :GundoToggle<CR>
-
-" Close current buffer without closing split
-nmap <leader>c :bprevious \| bdelete #<cr>
 
 " Toggle spellcheck
 nmap <leader>s :set spell!<cr>
@@ -359,19 +342,6 @@ autocmd FileType gitcommit,mail,markdown setlocal spell
 autocmd FileType css,scss,sass setlocal iskeyword+=-
 
 set expandtab
-
-" ----------------------------------------------------------------------------
-" Elm programming language
-" ----------------------------------------------------------------------------
-" let g:elm_format_autosave = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
-let g:elm_syntastic_show_warnings = 1
-
-let g:ycm_semantic_triggers = {
-     \ 'elm' : ['.'],
-     \}
 
 " ----------------------------------------------------------------------------
 "  Source local vimrc config
