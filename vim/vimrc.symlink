@@ -53,7 +53,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 
 " Misc
-Plug 'suan/vim-instant-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 
 call plug#end()
@@ -145,11 +145,11 @@ function! s:MaybeUpdateLightline()
 endfunction
 
 " }}}
-"  Instant Markdown config {{{
+"  Markdown Preview config {{{
 " ----------------------------------------------------------------------------
 
-" Don't autostart, use :InstantMarkdownPreview manually
-let g:instant_markdown_autostart = 0
+" Don't autostart, use :MarkdownPreview manually
+let g:mkdp_auto_start = 0
 
 
 " }}}
