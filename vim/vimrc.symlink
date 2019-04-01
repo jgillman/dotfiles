@@ -151,6 +151,9 @@ endfunction
 " Don't autostart, use :MarkdownPreview manually
 let g:mkdp_auto_start = 0
 
+" Allow :MarkdownPreview command from any file
+let g:mkdp_command_for_global = 1
+
 
 " }}}
 "  Ack config {{{
