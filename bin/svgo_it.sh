@@ -5,10 +5,11 @@
 
 main() {
   local input=$1
+  local precision=${2:-2}
   # Move ALL styles to inline
   local config='{ "plugins": [{ "inlineStyles": { "onlyMatchedOnce": false } }] }'
 
-  svgo -i "$input" -o "${input}.opt.svg" --precision=2 --multipass --config="${config}"
+  svgo -i "$input" -o "${input}.opt.svg" --precision="$precision" --multipass --config="$config"
 }
 
 main "$@"
