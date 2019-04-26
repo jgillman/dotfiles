@@ -37,9 +37,9 @@ Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 
 " Utility
-Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -229,12 +229,15 @@ hi Normal ctermbg=NONE
 "  Remapping {{{
 " ----------------------------------------------------------------------------
 
-" lead with ,
+" Set "space bar" as the leader key
 let mapleader = "\<Space>"
 
 " Always search regular regex
 nnoremap / /\v
 vnoremap / /\v
+
+" Create a new tab
+nnoremap <leader>tn :tabnew<CR>
 
 " Toggle paste mode
 nmap <leader>p :set invpaste<cr>:set paste?<cr>
@@ -248,18 +251,11 @@ nmap <leader>b :Buffers<cr>
 " Open fzf to search tags
 nmap <leader>r :Tags<cr>
 
-" Open Gundo for "super undo"
-nnoremap <leader>u :GundoToggle<CR>
-
 " Close current buffer without closing split
 nmap <leader>c :bprevious \| bdelete #<cr>
 
 " Toggle spellcheck
 nmap <leader>s :set spell!<cr>
-
-" exit to normal mode with 'jj' or 'kk'
-" inoremap jj <ESC>
-" inoremap kk <ESC>
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
