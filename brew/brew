@@ -21,7 +21,6 @@ binaries=(
   cheat
   ffmpeg
   graphicsmagick
-  heroku
   htop
   hub
   keybase
@@ -54,13 +53,9 @@ brew cleanup
 
 
 
-# Install brew cask
-brew install caskroom/cask/brew-cask
-
 apps=(
   1password
   alfred
-  appclearner
   atext
   bartender
   caffeine
@@ -86,14 +81,17 @@ apps=(
   mediainfo
   monodraw
   netspot
+  postgresql
   qlmarkdown
   qlstephen
   quicklook-json
+  rbenv
   screenhero
   slack
   spotify
   steam
   the-unarchiver
+  tmux
   transmit
   tripmode
   tunnelblick
