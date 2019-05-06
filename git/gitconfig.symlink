@@ -5,7 +5,7 @@
 [user]
   name = Trevor Stow
   email = trevorstow@gmail.com
-	signingkey = 11FF1041
+	signingkey = 21FFF5DF1021326E
 
 [alias]
   st = status
@@ -20,7 +20,7 @@
   br = branch
 
 [commit]
-  gpgSign = true
+	gpgsign = true
 
 [color]
   diff = auto
