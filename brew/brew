@@ -33,6 +33,7 @@ binaries=(
   node
   ranger
   reattach-to-user-namespace
+  redis
   rename
   rtv
   s3cmd
@@ -72,9 +73,11 @@ apps=(
   google-chrome
   gpgtools
   imagealpha
+  imagemagick
   imageoptim
   istat-menus
   iterm
+  keybase
   keyboard-cleaner
   launchcontrol
   macpaw-gemini
@@ -97,6 +100,7 @@ apps=(
   tunnelblick
   vagrant
   virtualbox
+  yarn
   xld
 )
 
@@ -106,3 +110,6 @@ brew cask install ${apps[@]}
 
 echo "Cleaning up..."
 brew cleanup
+
+# start now and restart at login
+brew services start redis
