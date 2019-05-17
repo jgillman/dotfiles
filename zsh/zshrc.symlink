@@ -44,8 +44,18 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+# https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2767420
+autoload -Uz compinit
+setopt EXTENDEDGLOB
+for dump in $HOME/.zcompdump(#qN.m2); do
+  compinit
+  if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
+    zcompile "$dump"
+  fi
+done
+unsetopt EXTENDEDGLOB
+compinit -C
+
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
