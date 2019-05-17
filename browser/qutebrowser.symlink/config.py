@@ -45,7 +45,7 @@ c.tabs.padding = {'bottom': 5, 'left': 5, 'right': 5, 'top': 5}
 # Hide the window decoration.  This setting requires a restart on
 # Wayland.
 # Type: Bool
-c.window.hide_decoration = True
+c.window.hide_decoration = False
 
 ## Colors {{{
 
