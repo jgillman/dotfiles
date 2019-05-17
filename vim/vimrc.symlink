@@ -299,15 +299,6 @@ inoremap <s-tab> <c-n>
 
 
 " }}}
-"  Macros {{{
-" ----------------------------------------------------------------------------
-
-" this is supposed to convert css to sass
-" it works if you type out all the keys, but idk why it's not working as a Map
-" or Leader command :(
-" map <Leader>cc /\v \{|\s\}\n|;$<CR>:%s///g<CR>
-
-" }}}
 "  UI {{{
 " ----------------------------------------------------------------------------
 
@@ -339,7 +330,7 @@ set laststatus=2           " always show the status line
 set ignorecase             " use case insensitive searching
 set smartcase              " ^ unless a capital letter is used
 set hlsearch               " highlight searches
-set colorcolumn=80,120     " highlight column 79 as a soft reminder
+set colorcolumn=80,120     " highlight column 80 as a soft reminder
 
 
 " }}}
