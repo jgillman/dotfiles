@@ -67,13 +67,11 @@ set-option -g status-fg brightblack
 set-option -g status-left ' #h '
 set-option -g status-right ' #(uptime | cut -d "," -f 4) '
 
-set-option -g pane-border-fg colour238
-set-option -g pane-active-border-fg colour200
+set-option -g pane-border-style bg=black,fg=colour200
 
 set-window-option -g window-status-format ' #I #W '
 set-window-option -g window-status-current-format ' #I #W '
-set-window-option -g window-status-current-bg magenta
-set-window-option -g window-status-current-fg black
+set-window-option -g window-status-current-style bg=magenta,fg=black
 
 set-option -g status-right-length 60
 set-option -g status-left-length 60
