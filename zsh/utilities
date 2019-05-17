@@ -7,7 +7,7 @@
 
 # Returns whether the given command is executable or aliased.
 _has() {
-  return $( hash "$1" >/dev/null 2>&1 )
+  return $( type "$1" >/dev/null 2>&1 )
 }
 
 # Returns whether the given statement executed cleanly. Try to avoid this
