@@ -1,4 +1,4 @@
-#!/user/bin/env bash
+#!/usr/bin/env bash
 
 # Check for Homebrew,
 # Install if we don't have it
@@ -59,9 +59,6 @@ binaries=(
 echo "Installing binaries..."
 brew install ${binaries[@]}
 
-echo "Installing mpv with bundle..."
-brew install mpv --with-bundle
-
 echo "Cleaning up..."
 brew cleanup
 
@@ -73,7 +70,7 @@ fonts=(
 )
 
 echo "Tapping the fonts keg..."
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 
 echo "Installing fonts..."
 brew cask install ${fonts[@]}
@@ -81,13 +78,13 @@ brew cask install ${fonts[@]}
 
 apps=(
   1password
+  adobe-creative-cloud
   alfred
   appcleaner
   atext
   bartender
   cathode
   dash
-  diff-so-fancy
   disk-inventory-x
   docker
   dropbox
@@ -100,14 +97,15 @@ apps=(
   imageoptim
   istat-menus
   keepingyouawake
+  kensington-trackball-works
   keybase
-  keyboard-cleaner
   kitty
   launchcontrol
   malwarebytes
   mediainfo
   monodraw
   netspot
+  oversight
   qlimagesize
   qlmarkdown
   qlstephen
@@ -117,7 +115,6 @@ apps=(
   slack
   spotify
   steam
-  switchaudio-osx
   the-unarchiver
   transmit
   tripmode
