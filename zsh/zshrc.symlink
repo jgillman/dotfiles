@@ -1,3 +1,6 @@
+# Uncomment this line and the last line to profile zsh performance
+# zmodload zsh/zprof
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -64,3 +67,6 @@ fi
 
 # Don't hang with Ctrl+s / Ctrl+q
 stty -ixon
+
+# Uncomment to end debugging (see line 1)
+# zprof
