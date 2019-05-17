@@ -1,3 +1,3 @@
-if hash kitty >/dev/null 2>&1; then
+if _has kitty; then
   kitty + complete setup zsh | source /dev/stdin
 fi
