@@ -10,7 +10,6 @@ alias l="ll"
 alias :q="exit"
 
 alias weather=ansiweather
-alias caca="mpv --really-quiet --vo=caca"
 alias clock="tty-clock -c -t"
 alias du="ncdu --color dark -rr"
 alias music="ncmpcpp"
