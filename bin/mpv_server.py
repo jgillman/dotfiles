@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 import subprocess, urlparse
 import SimpleHTTPServer, SocketServer
@@ -16,8 +18,9 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         subprocess.Popen(
             [
                 'mpv',
-                '--mute=yes', # always start muted
+                '--mute=no', # always start muted
                 '--loop=inf', # loop by default
+                '--no-native-fs',
                 url
             ],
             stdout=subprocess.PIPE
