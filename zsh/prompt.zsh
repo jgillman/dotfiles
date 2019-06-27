@@ -106,7 +106,7 @@ set_prompt() {
   add-zsh-hook precmd prompt_exec_time_precmd_hook
 
   export PROMPT=$'\n$(virtualenv_prompt)$(host_prompt) in $(directory_name)$(git_prompt)$(prompt_exec_time)\n$(git_wip)› '
-  export RPROMPT=$'%{$fg_bold[green]%}%~ @ %*%{$reset_color%}'
+  # export RPROMPT=$'%{$fg_bold[green]%}%~ @ %*%{$reset_color%}'
 }
 
 precmd() {
