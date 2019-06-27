@@ -253,15 +253,6 @@ nmap <leader>r :Tags<cr>
 " Close current buffer without closing split
 nmap <leader>c :bprevious \| bdelete #<cr>
 
-" Toggle spellcheck
-nmap <leader>s :set spell!<cr>
-
-" Move around splits with <c-hjkl>
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
 " sane movement with wrap turned on
 nnoremap j gj
 nnoremap k gk
@@ -282,6 +273,12 @@ vnoremap <F1> <ESC>
 " helpful split resizing
 nnoremap - <c-w>-
 nnoremap + <c-w>+
+
+" helpful split navigation
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 " Indent if we're at the beginning of a line. Else, do completion.
 " (from Destroy All Software)
