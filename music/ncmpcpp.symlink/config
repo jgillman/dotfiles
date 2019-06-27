@@ -285,7 +285,7 @@ visualizer_color = 41, 83, 119, 155, 185, 215, 209, 203, 197, 161
 ## Note: Custom command that will be executed each
 ## time song changes. Useful for notifications etc.
 ##
-#execute_on_song_change = ""
+execute_on_song_change = "bash ~/.ncmpcpp/notify.sh"
 #
 #playlist_show_mpd_host = no
 #
@@ -541,7 +541,7 @@ alternative_header_first_line_format = $b$1$aqqu$/a$3 {%t}|{%f} $1$atqq$/a$9$/b
 
 now_playing_suffix = $/b
 
-song_columns_list_format = (20)[red]{a} (6f)[green]{NE} (50)[blue]{t|f:Title} (20)[yellow]{b} (7f)[magenta]{l}
+song_columns_list_format = (20)[red]{ar} (50)[blue]{t|f:Title} (20)[yellow]{b} (8f)[magenta]{l}
 
 user_interface = alternative
 

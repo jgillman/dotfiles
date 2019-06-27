@@ -157,25 +157,25 @@ def_key "k"
 def_key "j"
   scroll_down
 
-# def_key "K"
-#  select_item
-#  scroll_up
+def_key "K"
+ select_item
+ scroll_up
 
-# def_key "J"
-#   select_item
-#   scroll_down
+def_key "J"
+  select_item
+  scroll_down
 
-#def_key "["
-#  scroll_up_album
+def_key "["
+  scroll_up_album
 
-#def_key "]"
-#  scroll_down_album
+def_key "]"
+  scroll_down_album
 
-#def_key "{"
-#  scroll_up_artist
+def_key "{"
+  scroll_up_artist
 
-#def_key "}"
-#  scroll_down_artist
+def_key "}"
+  scroll_down_artist
 
 def_key "ctrl-u"
   page_up
