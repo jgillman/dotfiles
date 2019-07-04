@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
-title="$(mpc current -f '%title%')"
-subtitle="$(mpc current -f '%artist%')"
-message="$(mpc current -f '%album%')"
-artwork="$(dirname "${XDG_MUSIC_DIR}/$(mpc current -f '%file%')")/albumart.jpg"
+artwork() {
+  album_dir="$(dirname "${XDG_MUSIC_DIR}/$(mpc current -f '%file%')")"
+
+  find "$album_dir" -name '*.png' -or -name '*.jpg' -or -name '*.gif' \
+    | head -1
+}
 
 send_notification() {
+  local title="$(mpc current -f '%title%')"
+  local subtitle="$(mpc current -f '%artist%')"
+  local message="$(mpc current -f '%album%')"
+  local artwork="$(artwork)"
+
   if [ -f "$artwork" ]; then
     terminal-notifier \
       -title "$title" \
