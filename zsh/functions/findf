@@ -10,5 +10,5 @@ findf() {
     search="$1"
   fi
 
-  find "$search_dir" -type f -name "*${search}*"
+  find "$search_dir" -type f -iname "*${search}*"
 }
