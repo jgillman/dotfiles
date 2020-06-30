@@ -36,6 +36,8 @@
 [github]
   user = jgillman
 
+[pull]
+	rebase = true
 [push]
   default = current
 [grep]
