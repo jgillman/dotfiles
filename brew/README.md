@@ -4,15 +4,12 @@
 
 ## Install
 
-The `brew` script will install all of my commonly used tools. It will:
+Install [brew]() if you haven't already.
 
-- install `brew` if it's missing
-- update itself
-- install the latest stable `bash` and `zsh`
-- set up `brew cask`
-- install a handful of apps with cask
+Then install everything with `brew bundle`.
 
 ```sh
-# Kick off the install with
-~/.dotfiles/brew/brew
+brew bundle --file="${ZSH}/brew/Brewfile"
 ```
+
+[brew]: https://brew.sh/
