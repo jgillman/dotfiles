@@ -33,8 +33,7 @@ ncmpcpp_directory = ~/.ncmpcpp
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = /Users/jgillman/Music/library
-# mpd_music_dir = $XDG_CONFIG_MUSIC
+mpd_music_dir = $XDG_CONFIG_MUSIC
 #
 #mpd_crossfade_time = 5
 #
