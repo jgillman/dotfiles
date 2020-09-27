@@ -40,14 +40,15 @@ brew "reattach-to-user-namespace"
 brew "rename"
 brew "rtv"
 brew "shellcheck"
+brew "saulpw/vd/visidata"
 brew "ssh-copy-id"
 brew "syncthing", restart_service: true
 brew "the_silver_searcher"
 brew "tig"
 brew "tmux"
 brew "tor", restart_service: true
-brew "saulpw/vd/visidata"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+brew "watch"
 cask "alfred"
 cask "appcleaner"
 cask "appgrid"
