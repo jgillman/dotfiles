@@ -35,11 +35,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
+Plug 'thetomcraig/xenomorph.vim'
 
 " Utility
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -79,6 +81,7 @@ set tabstop=2
 set formatoptions+=n       " support for numbered/bullet lists
 set virtualedit=block      " allow virtual edit in visual block ..
 set cpoptions+=$           " add the dollar character when changing a word
+set updatetime=300
 
 " }}}
 "  Mouse Config {{{
@@ -92,7 +95,7 @@ set ttymouse=xterm2        " Allow mouse drag events (split resizing)
 " ----------------------------------------------------------------------------
 
 let g:lightline = {
-\ 'colorscheme': 'wombat',
+\ 'colorscheme': 'dracula',
 \ 'active': {
 \   'left': [['mode', 'paste'], ['relativepath', 'modified'], ['filetype']],
 \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
@@ -155,11 +158,13 @@ let g:mkdp_command_for_global = 1
 
 
 " }}}
-"  Ack config {{{
+"  Search config {{{
 " ----------------------------------------------------------------------------
 
-" Use ag instead of ack, if it's available
-if executable('ag')
+" Use rg instead of ag, if it's available
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
@@ -213,15 +218,10 @@ autocmd BufWritePre * call StripTrailingWhitespace()
 " ----------------------------------------------------------------------------
 
 syntax enable
-set background=dark
 
-if has#colorscheme('gruvbox')
-  colorscheme gruvbox
+if filereadable($HOME . '/.vim/theme.vim')
+  source ~/.vim/theme.vim
 endif
-
-" Set the background color as transparent to 'inherit' from the terminal's
-" background color.
-hi Normal ctermbg=NONE
 
 
 " }}}
@@ -294,6 +294,13 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 
+" Tab completion for Coc.vim
+" if filereadable($HOME . '/.vim_coc_config.local')
+"   source ~/.vim_coc_config.local
+" endif
+
+
+
 " }}}
 "  UI {{{
 " ----------------------------------------------------------------------------
@@ -307,6 +314,7 @@ set ch=2                   " command line height
 set backspace=2            " allow backspacing over everything in insert mode
 set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=filtIoOA     " shorten messages
+set shortmess+=c           " Don't pass messages to |ins-completion-menu|.
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
 set scrolloff=8            " keep 8 lines of space above and below the cursor
