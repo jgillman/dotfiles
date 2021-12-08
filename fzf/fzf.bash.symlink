@@ -2,6 +2,8 @@
 # ---------
 if [ -e /usr/local/opt/fzf ]; then
   FZF_INSTALL_PATH="/usr/local/opt/fzf"
+elif [ -e /opt/homebrew/opt/fzf ]; then
+  FZF_INSTALL_PATH="/opt/homebrew/opt/fzf"
 elif [ -e ${HOME}/.fzf ]; then
   FZF_INSTALL_PATH="${HOME}/.fzf"
 fi
