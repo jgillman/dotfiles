@@ -104,12 +104,16 @@ apps=(
   xld
 )
 
+# from https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+brew tap heroku/brew && brew install heroku
+
 # Install apps to /Applications
 echo "Install apps..."
 brew cask install ${apps[@]}
 
 echo "Cleaning up..."
 brew cleanup
+
 
 # start now and restart at login
 brew services start redis

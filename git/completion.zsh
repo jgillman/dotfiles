@@ -1,4 +1,4 @@
-#compdef git git-cvsserver git-receive-pack git-upload-archive git-upload-pack git-shell gitk tig
+compdef git git-cvsserver git-receive-pack git-upload-archive git-upload-pack git-shell gitk tig
 
 # Some parts of this completion's behaviour are configurable:
 #

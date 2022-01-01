@@ -71,3 +71,6 @@ export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+# export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+eval "$(nodenv init -)"

@@ -19,9 +19,6 @@
   root = !pwd
   br = branch
 
-[commit]
-	gpgsign = true
-
 [color]
   diff = auto
   status = auto
@@ -44,5 +41,4 @@
   lineNumber = true
 [heroku]
   account = personal
-[gpg]
-	program = gpg
+

@@ -40,3 +40,9 @@ vim/vim.symlink/.netrwhist
 # Local work-docs director
 local_docs
 .env.test.local
+.husky
+
+# NVM
+.node-version
+
+# config/webpacker.yml # TODO: remove this once able
