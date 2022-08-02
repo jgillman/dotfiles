@@ -66,8 +66,9 @@ set noswapfile
 " ----------------------------------------------------------------------------
 
 set backup                 " Store temporary files in a central spot
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.vim-tmp//,~/.tmp//,~/tmp//,/var/tmp//,/tmp//
+set directory=~/.vim-tmp//,~/.tmp//,~/tmp//,/var/tmp//,/tmp//
+set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " Keep spell file out of .dotfiles
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 set encoding=utf-8         " UTF8 or bust!
