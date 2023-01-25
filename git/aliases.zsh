@@ -1,5 +1,6 @@
 alias gb='git branch'
 alias gbx='git branch | grep -v tk__'
+alias gbxg='gbx | grep'
 alias gd='git diff'
 alias gdn='git diff --name-only'
 alias gcmwip='git commit -m "w.i.p."'
