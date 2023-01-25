@@ -44,5 +44,3 @@ local_docs
 
 # NVM
 .node-version
-
-# config/webpacker.yml # TODO: remove this once able
