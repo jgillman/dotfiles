@@ -63,13 +63,16 @@ fi
 # Don't hang with Ctrl+s / Ctrl+q
 stty -ixon
 
+# fix +[__NSCFConstantString initialize] may have been in progress in another thread when fork() was called.
+# errors when running feature specs in rails
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
+export PATH="$HOME/.nodenv/bin:$PATH"
 
 eval "$(nodenv init -)"
