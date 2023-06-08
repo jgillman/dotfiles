@@ -4,6 +4,7 @@ alias ack="ack-grep"
 alias bu='bundle '
 alias brs='bin/rspec -f documentation'
 alias brsx='brs $(git status | grep "_spec\.rb" | grep "modified:" | cut -b 14- )'
+alias coverband='COVERBAND_REDIS_URL="$(HEROKU_COLOR=0 heroku config:get -a goldbely REDIS_URL | xargs)" bundle exec rails coverband:coverage_server PUMA_WORKERS=1 PUMA_THREADS=1 '
 alias fn='find . -name'
 alias gdn='git diff --name-only'
 alias gdnm='git diff --name-only master'
