@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#
+# breath is a simple script to count out a basic breathing excersize
+#
+# Takes one input for the number of times to repeat. Defaults to 4.
+#
+# Example:
+# breath 3
+#
+
+readonly num_cycles=${1:-4}
+
+function do_step() {
+  local step_name=$1
+  local hold_count=$2
+  local i
+
+  printf "%s " "$step_name"
+  for i in $(seq 1 "$hold_count"); do
+    sleep 1
+    printf "."
+  done
+  printf "\n"
+}
+
+function main() {
+  for cycle in $(seq 1 "$num_cycles"); do
+    if [ "$num_cycles" -gt "1" ]; then
+      echo "$cycle of $num_cycles"
+    fi
+
+    do_step "Inhale" 4
+    do_step "Hold" 7
+    do_step "Exhale" 8
+
+  done
+}
+
+main "$@"
