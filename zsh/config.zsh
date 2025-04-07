@@ -46,3 +46,6 @@ bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
 bindkey '^R' history-incremental-search-backward
+
+# set emacs style bindings
+bindkey -e
