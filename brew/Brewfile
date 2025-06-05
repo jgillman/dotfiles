@@ -24,6 +24,7 @@ brew "figlet"
 brew "findutils"
 brew "fzf"
 brew "git"
+brew "gitui"  # blazing fast terminal-ui for git
 brew "graphicsmagick"
 brew "hub"
 brew "ipfs"
@@ -51,7 +52,6 @@ brew "shellcheck"
 brew "ssh-copy-id"
 brew "switchaudio-osx"
 brew "syncthing", restart_service: true
-brew "tig"
 brew "tmux"
 brew "tree"  # visual output of a file tree
 brew "tor", restart_service: true
