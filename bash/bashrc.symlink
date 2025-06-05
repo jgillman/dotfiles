@@ -4,8 +4,8 @@
 [ -z "$PS1" ] && return
 
 
-# shortcut to this dotfiles path is $BASH
-export BASH=$HOME/.dotfiles
+# shortcut to this dotfiles path is $DOTFILES
+export DOTFILES=$HOME/.dotfiles
 
 # set default editor
 export VISUAL=vim

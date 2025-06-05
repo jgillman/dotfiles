@@ -9,7 +9,7 @@ Install [brew]() if you haven't already.
 Then install everything with `brew bundle`.
 
 ```sh
-brew bundle --file="${ZSH}/brew/Brewfile"
+brew bundle --file="${DOTFILES}/brew/Brewfile"
 ```
 
 [brew]: https://brew.sh/
