@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
 main() {
-  local source="$ZSH/kitty/config-kitty"
-  local target="${HOME}/.config/kitty"
+  # Set base_dir to the name of the directory or program
+  local base_dir="kitty"
+
+  local source="$ZSH/${base_dir}/config-${base_dir}"
+  local target="${HOME}/.config/${base_dir}"
 
   if [ -e "$target" ]; then
     echo "$target already exists."

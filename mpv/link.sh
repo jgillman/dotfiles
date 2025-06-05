@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
 main() {
-  local source="$ZSH/video/config-mpv"
-  local target="${HOME}/.config/mpv"
+  # Set base_dir to the name of the directory or program
+  local base_dir="mpv"
+
+  local source="$ZSH/${base_dir}/config-${base_dir}"
+  local target="${HOME}/.config/${base_dir}"
 
   if [ -e "$target" ]; then
     echo "$target already exists."
