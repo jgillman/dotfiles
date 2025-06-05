@@ -29,7 +29,6 @@ setopt EXTENDED_HISTORY
 setopt PROMPT_SUBST
 setopt CORRECT
 setopt COMPLETE_IN_WORD
-setopt IGNORE_EOF
 
 # adds history
 setopt APPEND_HISTORY
@@ -57,4 +56,10 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
-bindkey '^R' history-incremental-search-backward
+
+# Use fzf's history widget if available
+if [[ $(type "fzf-history-widget" >/dev/null 2>&1) ]]; then
+  bindkey '^R' history-incremental-search-backward
+else
+  bindkey '^R' fzf-history-widget
+fi

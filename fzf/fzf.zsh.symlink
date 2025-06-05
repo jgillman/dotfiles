@@ -1,22 +1,8 @@
 # Setup fzf
 # ---------
-if [ -e /usr/local/opt/fzf ]; then
-  FZF_INSTALL_PATH="/usr/local/opt/fzf"
-elif [ -e /opt/homebrew/opt/fzf ]; then
-  FZF_INSTALL_PATH="/opt/homebrew/opt/fzf"
-elif [ -e ${HOME}/.fzf ]; then
-  FZF_INSTALL_PATH="${HOME}/.fzf"
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
 fi
 
-if [[ ! "$PATH" == *${FZF_INSTALL_PATH}/bin* ]]; then
-  export PATH="$PATH:$FZF_INSTALL_PATH/bin"
-fi
-
-# Auto-completion
-# ---------------
-[[ $- == *i* ]] && source "${FZF_INSTALL_PATH}/shell/completion.zsh" 2> /dev/null
-
-# Key bindings
-# ------------
-source "${FZF_INSTALL_PATH}/shell/key-bindings.zsh"
+eval "$(fzf --zsh)"
 
