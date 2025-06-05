@@ -9,4 +9,4 @@ endif
 
 " Set the background color as transparent to 'inherit' from the terminal's
 " background color.
-hi Normal guibg=NONE ctermbg=NONE
+hi Normal ctermbg=NONE

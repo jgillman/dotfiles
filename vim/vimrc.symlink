@@ -10,6 +10,12 @@ if isdirectory(expand("$HOME/.fzf"))
   " git install of fzf
   set rtp+=~/.fzf
 
+
+elseif isdirectory("/opt/homebrew/opt/fzf")
+  " homebrew install of fzf
+  set rtp+=/opt/homebrew/opt/fzf
+
+
 elseif isdirectory("/usr/local/opt/fzf")
   " homebrew install of fzf
   set rtp+=/usr/local/opt/fzf
@@ -96,7 +102,7 @@ set ttymouse=xterm2        " Allow mouse drag events (split resizing)
 " ----------------------------------------------------------------------------
 
 let g:lightline = {
-\ 'colorscheme': 'dracula',
+\ 'colorscheme': 'gruvbox',
 \ 'active': {
 \   'left': [['mode', 'paste'], ['relativepath', 'modified'], ['filetype']],
 \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
@@ -419,22 +425,36 @@ command! WriteMode :call EnableWriteMode()
 "  Per-filetype settings {{{
 " ----------------------------------------------------------------------------
 
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.rb setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.md setl ft=markdown expandtab
-autocmd BufNewFile,BufReadPost *.py setl tabstop=4 shiftwidth=4 expandtab
+if has("autocmd")
+  autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+  autocmd BufNewFile,BufReadPost *.rb setl shiftwidth=2 expandtab
+  autocmd BufNewFile,BufReadPost *.md setl ft=markdown expandtab
+  autocmd BufNewFile,BufReadPost *.py setl tabstop=4 shiftwidth=4 expandtab
+  autocmd BufNewFile,BufReadPost *.conf.sample setl ft=nginx
 
-autocmd FileType markdown setlocal wrap linebreak
+  autocmd FileType markdown setlocal wrap linebreak
 
-" Enable spell check automatically
-autocmd FileType gitcommit,mail,markdown setlocal spell
+  " Enable spell check automatically
+  autocmd FileType gitcommit,mail,markdown setlocal spell
 
-" Allow hyphenated word autocomplete for stylesheets
-autocmd FileType css,scss,sass setlocal iskeyword+=-
+  " Allow hyphenated word autocomplete for stylesheets
+  autocmd FileType css,scss,sass setlocal iskeyword+=-
 
-autocmd BufRead,BufNewFile /usr/local/etc/nginx/* if &ft == '' | setfiletype nginx | endif
+  autocmd BufRead,BufNewFile /usr/local/etc/nginx/* if &ft == '' | setfiletype nginx | endif
+endif
 
 set expandtab
+
+
+" }}}
+"  Template / skeleton file autoloading {{{
+" ----------------------------------------------------------------------------
+" Based on https://blog.petdance.com/2018/07/13/how-to-use-templates-in-vim/
+" and https://shapeshed.com/vim-templates/
+
+if has("autocmd")
+  autocmd BufNewFile * silent! 0r ~/.vim/templates/%:e.tpl
+endif
 
 
 " }}}
