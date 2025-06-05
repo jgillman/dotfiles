@@ -50,6 +50,7 @@ brew "tmux"
 brew "tor", restart_service: true
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "watch"
+brew "zoxide"
 
 cask "alfred"
 cask "appcleaner"
