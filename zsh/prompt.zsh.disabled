@@ -1,3 +1,6 @@
+echo "HELLO FROM PROMPT ZSH"
+
+
 autoload colors && colors
 
 is_git_repo() {
@@ -7,7 +10,8 @@ is_git_repo() {
 git_prompt() {
   if is_git_repo; then
     # in a git repo!
-    echo " $(git_dirty)$(need_push)"
+    # echo " $(git_dirty)$(need_push)"
+    echo " $(git_branch)$(need_push)"
   else
     # not in a git repo :(
     echo ""
@@ -15,7 +19,7 @@ git_prompt() {
 }
 
 git_branch() {
-  echo "$(git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})"
+  echo "on %{$fg[yellow]%}$(git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})%{$reset_color%}"
 }
 
 git_wip() {
@@ -51,8 +55,7 @@ unpushed () {
 }
 
 need_push () {
-  if [[ "$(unpushed)" == "" ]]
-  then
+  if [[ "$(unpushed)" == "" ]]; then
     echo ""
   else
     echo " with %{$fg[magenta]%}unpushed%{$reset_color%}"
@@ -60,7 +63,11 @@ need_push () {
 }
 
 host_prompt() {
-  echo "%{$fg[yellow]%}$(hostname -s)%{$reset_color%}"
+  if [ -z ${HOST_NAME_OVERIDE+x} ]; then
+    echo "%{$fg[yellow]%}${HOST_NAME_OVERIDE}%{$reset_color%}"
+  else
+    echo "%{$fg[yellow]%}$(hostname -s)%{$reset_color%}"
+  fi
 }
 
 # For virtualenv, see python/README.md
