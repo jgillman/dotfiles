@@ -7,14 +7,7 @@ alias cd.="cd ~/.dotfiles"
 alias la="ls -A"
 alias ll="ls -lAhF"
 alias l="ll"
-if _has eza; then
-  alias ls="eza --icons --time-style=long-iso --all --header"
-fi
 alias :q="exit"
-
-if _has bat; then
-  alias cat="bat"
-fi
 
 alias weather=ansiweather
 alias clock="tty-clock -c -t"

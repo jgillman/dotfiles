@@ -69,9 +69,11 @@ unset config_files
 
 # use .localrc for SUPER SECRET CRAP that you don't want in your public,
 # versioned repo. This should be last so it can override global configs.
-if [[ -a ~/.localrc ]]
-then
+if [[ -a ~/.localrc ]]; then
   source ~/.localrc
+fi
+if [[ -a ~/.localrc.zsh ]]; then
+  source ~/.localrc.zsh
 fi
 
 
