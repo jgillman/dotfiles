@@ -11,10 +11,13 @@ set -gx DOTFILES $HOME/.dotfiles
 set -gx VISUAL vim
 set -gx EDITOR vim
 
-
-# If figlet is installed, print the hostname for new session
-if _has figlet
-  hostname -s | figlet -w 120 -f slant
+function fish_greeting
+  # If figlet is installed, print the hostname for new session
+  if _has figlet
+    hostname -s | figlet -w 120 -f slant
+  else
+    echo You\'re on (set_color yellow)$hostname(set_color normal).
+  end
 end
 
 # all of our fish files
