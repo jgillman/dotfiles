@@ -1,5 +1,14 @@
 [aws]
 symbol = "  "
+disabled = true
+
+[[battery.display]] # 'bold red' style when capacity is between 0% and 10%
+threshold = 10
+style = 'bold red'
+
+[[battery.display]] # 'bold yellow' style when capacity is between 10% and 30%
+threshold = 30
+style = 'bold yellow'
 
 [buf]
 symbol = " "
@@ -30,6 +39,7 @@ symbol = " "
 
 [directory]
 read_only = " 󰌾"
+truncation_symbol = '…/'
 
 [docker_context]
 symbol = " "
@@ -179,6 +189,15 @@ symbol = "󱘗 "
 
 [scala]
 symbol = " "
+
+[shell]
+bash_indicator = '󱆃 '
+fish_indicator = '󰈺 '
+zsh_indicator = '󰬇 '
+powershell_indicator = '_'
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
+disabled = false
 
 [swift]
 symbol = " "
