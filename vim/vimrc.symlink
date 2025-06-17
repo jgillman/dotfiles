@@ -10,14 +10,13 @@ if isdirectory(expand("$HOME/.fzf"))
   " git install of fzf
   set rtp+=~/.fzf
 
-
 elseif isdirectory("/opt/homebrew/opt/fzf")
   " homebrew install of fzf
   set rtp+=/opt/homebrew/opt/fzf
 
 
 elseif isdirectory("/usr/local/opt/fzf")
-  " homebrew install of fzf
+  " legacy homebrew install of fzf
   set rtp+=/usr/local/opt/fzf
 
 endif
@@ -71,6 +70,8 @@ set noswapfile
 "  Basic Editing Config {{{
 " ----------------------------------------------------------------------------
 
+let g:my_theme='dracula'
+
 set backup                 " Store temporary files in a central spot
 set backupdir=~/.vim-tmp//,~/.tmp//,~/tmp//,/var/tmp//,/tmp//
 set directory=~/.vim-tmp//,~/.tmp//,~/tmp//,/var/tmp//,/tmp//
@@ -102,7 +103,7 @@ set ttymouse=xterm2        " Allow mouse drag events (split resizing)
 " ----------------------------------------------------------------------------
 
 let g:lightline = {
-\ 'colorscheme': 'gruvbox',
+\ 'colorscheme': g:my_theme,
 \ 'active': {
 \   'left': [['mode', 'paste'], ['relativepath', 'modified'], ['filetype']],
 \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
