@@ -260,7 +260,7 @@ load_plugins {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "dracula"
+theme "dracula"
 
 // Choose the base input mode of zellij.
 // Default: normal
@@ -343,7 +343,7 @@ default_shell "fish"
 // copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 //
-// copy_command "pbcopy"
+copy_command "pbcopy"
 
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
@@ -435,7 +435,7 @@ default_shell "fish"
 // Whether to show tips on startup
 // Default: true
 //
-// show_startup_tips false
+show_startup_tips false
 
 // Whether to show release notes on first version run
 // Default: true
