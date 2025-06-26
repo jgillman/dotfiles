@@ -41,6 +41,13 @@ symbol = " "
 read_only = " 󰌾"
 truncation_symbol = '…/'
 
+[direnv]
+disabled = false
+format = '[$allowed$symbol]($style) '
+symbol = 'direnv'
+allowed_msg = '󱥾 '
+denied_msg = ' '
+
 [docker_context]
 symbol = " "
 
@@ -162,6 +169,7 @@ Windows = "󰍲 "
 
 [package]
 symbol = "󰏗 "
+disabled = true
 
 [perl]
 symbol = " "
