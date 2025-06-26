@@ -14,7 +14,6 @@ elseif isdirectory("/opt/homebrew/opt/fzf")
   " homebrew install of fzf
   set rtp+=/opt/homebrew/opt/fzf
 
-
 elseif isdirectory("/usr/local/opt/fzf")
   " legacy homebrew install of fzf
   set rtp+=/usr/local/opt/fzf
@@ -54,6 +53,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vasconcelloslf/vim-interestingwords'
 
 " Languages and Syntaxes
+Plug 'imsnif/kdl.vim'
 Plug 'sheerun/vim-polyglot'
 
 " Linting
@@ -95,8 +95,10 @@ set updatetime=300
 "  Mouse Config {{{
 " ----------------------------------------------------------------------------
 
-set mouse=""               " Disable mouse use by default
-set ttymouse=xterm2        " Allow mouse drag events (split resizing)
+" set mouse=""               " Disable mouse use by default
+if !has('nvim')
+  set ttymouse=xterm2      " Allow mouse drag events (split resizing)
+endif
 
 " }}}
 "  Status line (Lightline) {{{
@@ -266,12 +268,6 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-
-" stop using arrow keys
-map <Left> :echo "no!"<cr>
-map <Right> :echo "no!"<cr>
-map <Up> :echo "no!"<cr>
-map <Down> :echo "no!"<cr>
 
 " stop accidentally opening help
 inoremap <F1> <ESC>
