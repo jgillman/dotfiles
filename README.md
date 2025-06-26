@@ -1,22 +1,20 @@
-# jgillman's sepcial dotfiles
+# jgillman's special dotfiles
 
 ## Shoutout
 
-The real core of these dotfiles are from [holman's
-dotfiles](https://github.com/holman/dotfiles). I had been holding off using
-GitHub for my dotfiles simply because I wasn't aware of a good way of
-automatically symlinking them and keeping them organized. holman's use of topic
-folders and a Rakefile to automate symlinking has made it too easy not to. All
-credit goes to him.
+All of this was originally forked from and later inspired by [holman's
+dotfiles](https://github.com/holman/dotfiles). While the original Ruby
+dependencies have been removed the main strategy of using "topic" folders is
+still here which, imo, is the best part.
 
 ## dotfiles
 
-Dotfiles essentially what makes your environment *yours*. All your unique little
-tweaks and settings that make your computer completely unusable and foreign to
-others. I had originally kept all my dotfiles in Dropbox which worked really
-nicely for a long time. Two big issues I had with my Dropbox setup is that 1) I
-would manually have to symlink new files/folder and 2) I couldn't use them on
-remote development machines (where I often work).
+Dotfiles are essentially what makes your environment *yours*. All your unique
+little tweaks and settings that make your computer completely unusable and
+foreign to others. I had originally kept all my dotfiles in Dropbox which
+worked really nicely for a long time. Two big issues I had with my Dropbox
+setup is that 1) I would manually have to symlink new files/folders and 2) I
+couldn't use them on remote development machines (where I often work).
 
 Also, to steal directly from [holman](https://github.com/holman):
 
@@ -25,7 +23,7 @@ Also, to steal directly from [holman](https://github.com/holman):
 > project being much more topic-centric. I realized I could split a lot of
 > things up into the main areas I used (Ruby, git, system libraries, and so on),
 > so I structured the project accordingly.
-> 
+>
 > If you're interested in the philosophy behind why projects like these are
 > awesome, you might want to [read my post on the
 > subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
@@ -34,19 +32,20 @@ Also, to steal directly from [holman](https://github.com/holman):
 
 - `git clone git@github.com:jgillman/dotfiles.git ~/.dotfiles`
 - `cd ~/.dotfiles`
-- `rake install`
+- `./dotfiles.sh install`
 
-The install rake task will symlink the appropriate files in `.dotfiles` to your
-home directory. Everything is configured and tweaked within `~/.dotfiles`,
-though.
+The install task will symlink the appropriate files in `.dotfiles` to your home
+directory. Everything is configured and tweaked within `~/.dotfiles`, though.
 
 ## topical
 
 Everything's built around topic areas. If you're adding a new area to your
-forked dotfiles — say, "Java" — you can simply add a `java` directory and put
-files in there. Anything with an extension of `.zsh` will get automatically
-included into your shell. Anything with an extension of `.symlink` will get
-symlinked without extension into `$HOME` when you run `rake install`.
+dotfiles — say, "Java" — you can simply add a `java` directory and put files in
+there. Anything with an extension of `.bash`, `.zsh`, or `.fish` will get
+automatically included into that respective shell. Anything with an extension
+of `.symlink` will get symlinked without extension into `$HOME`. Files that
+need custom linking (for example, into `~/.config/`) can be handled through
+`link.sh` files within each topic.
 
 ## components
 
