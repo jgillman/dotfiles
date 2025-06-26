@@ -42,7 +42,6 @@ abbr --add -g clock 'tty-clock'
 
 # load everything but the path files
 for file in $config_files
-  # if not string match -q "*/path.fish" $file; and not string match -q "*/completion.fish" $file
   if not string match -q "*/path.fish" $file; and not string match -q "*/fish/config-fish/*" $file
     source $file
   end

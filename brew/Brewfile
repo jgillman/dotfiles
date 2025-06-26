@@ -54,9 +54,9 @@ brew "ssh-copy-id"
 brew "starship"  # nice looking prompts
 brew "switchaudio-osx"
 brew "syncthing", restart_service: true
-brew "tmux"
-brew "tree"  # visual output of a file tree
 brew "tor", restart_service: true
+brew "trash"
+brew "tree"  # visual output of a file tree
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "watch"
 brew "yazi"  # blazing fast terminal file manager
