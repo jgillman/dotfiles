@@ -1,3 +1,3 @@
 if _has bat
-  alias cat="bat"
+  abbr cat "bat"
 end

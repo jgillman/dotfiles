@@ -24,14 +24,21 @@ end
 set config_files (find $DOTFILES -name "*.fish" -type f)
 
 
-if not set -q TMUX
-  # load the path files
+# load the path files as long as we're not in a multiplexer
+if not set -q TMUX; and not set -q ZELLIJ
   for file in $config_files
     if string match -q "*/path.fish" $file
       source $file
     end
   end
 end
+
+abbr --add -g .. 'cd ..'
+abbr --add -g ... 'cd ../..'
+abbr --add -g .... 'cd ../../..'
+
+abbr --add -g clock 'tty-clock'
+
 
 # load everything but the path files
 for file in $config_files
