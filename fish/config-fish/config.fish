@@ -8,8 +8,13 @@ end
 set -gx DOTFILES $HOME/.dotfiles
 
 # set default editor
-set -gx VISUAL vim
-set -gx EDITOR vim
+if _has nvim
+  set -gx VISUAL nvim
+  set -gx EDITOR nvim
+else
+  set -gx VISUAL vim
+  set -gx EDITOR vim
+end
 
 function fish_greeting
   # If figlet is installed, print the hostname for new session
