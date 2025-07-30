@@ -2,6 +2,7 @@ alias reload!='. ~/.zshrc'
 
 alias bu='bundle '
 alias brs='bin/rspec -f documentation'
+alias brsg='bin/rspec -f documentation `git diff --name-only master | grep _spec.rb`'
 alias brsx='brs $(git status | grep "_spec\.rb" | grep "modified:" | cut -b 14- )'
 alias hcons='bin/production run rails c' #  -e DISABLE_DATADOG_AGENT=true --app goldbely'
 alias la='ls -alG'
