@@ -13,37 +13,14 @@ brew install git
 
 brew install coreutils
 brew install findutils
-brew install bash
 brew install zsh
 
 # Install these
 binaries=(
-  cheat
   ffmpeg
-  graphicsmagick
-  htop
-  hub
-  keybase
-  macvim
-  md5sha1sum
-  mobile-shell
-  mpv
-  mtr
-  namebench
-  node
-  ranger
-  reattach-to-user-namespace
-  redis
-  rename
-  rtv
+  gh
+  mise
   s3cmd
-  ssh-copy-id
-  the_silver_searcher
-  tig
-  tmux
-  watch
-  wget
-  youtube-dl
 )
 
 echo "Installing binaries..."
@@ -52,60 +29,17 @@ brew install ${binaries[@]}
 echo "Cleaning up..."
 brew cleanup
 
-
-
 apps=(
-  1password
-  alfred
-  atext
-  bartender
-  caffeine
-  cathode
-  crashplan
-  dash
-  disk-inventory-x
   docker
-  dropbox
-  evernote
-  fantastical
-  firefox
-  flux
   google-chrome
   gpgtools
   imagealpha
   imagemagick
-  imageoptim
-  istat-menus
-  iterm
-  keybase
-  keyboard-cleaner
-  launchcontrol
-  macpaw-gemini
-  mediainfo
-  monodraw
-  netspot
-  postgresql
-  qlmarkdown
-  qlstephen
-  quicklook-json
-  rbenv
-  screenhero
-  slack
-  spotify
-  steam
-  the-unarchiver
-  tmux
-  transmit
-  tripmode
-  tunnelblick
-  vagrant
-  virtualbox
-  yarn
   xld
 )
 
-# from https://devcenter.heroku.com/articles/heroku-cli#download-and-install
-brew tap heroku/brew && brew install heroku
+# from https://devcenter.heroku.com/articles/heroku-cli
+brew install heroku/brew/heroku
 
 # Install apps to /Applications
 echo "Install apps..."
@@ -114,6 +48,3 @@ brew cask install ${apps[@]}
 echo "Cleaning up..."
 brew cleanup
 
-
-# start now and restart at login
-brew services start redis
