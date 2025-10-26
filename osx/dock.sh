@@ -80,14 +80,14 @@ function restore_dock() {
     echo -e "${YELLOW}Restoring Dock applications from ${DOCK_APPS_FILE}...${NC}"
 
     # Use Python to rebuild the Dock
-    python3 <<'PYTHON_SCRIPT'
+    python3 - "${DOCK_APPS_FILE}" <<'PYTHON_SCRIPT'
 import subprocess
 import json
 import os
 import sys
 import urllib.parse
 
-dock_file = os.environ['DOCK_APPS_FILE']
+dock_file = sys.argv[1]
 
 try:
     with open(dock_file, 'r') as f:
