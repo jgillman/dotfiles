@@ -20,7 +20,14 @@ defaults write com.apple.dock orientation -string right
 # set dock size
 defaults write com.apple.dock tilesize -int 30
 
+# Enable dragging
+defaults write com.apple.AppleMultitouchTrackpad Dragging -bool true
+
+# Set dragging style to three-finger drag (value 1 = three-finger drag)
+defaults write com.apple.AppleMultitouchTrackpad DraggingStyle -int 1
+
 # Restart dock
 killall Dock
+
 
 
