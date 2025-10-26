@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Messages",
+    "path": "file:///System/Applications/Messages.app/"
+  },
+  {
+    "name": "Photos",
+    "path": "file:///System/Applications/Photos.app/"
+  },
+  {
+    "name": "FaceTime",
+    "path": "file:///System/Applications/FaceTime.app/"
+  },
+  {
+    "name": "Notes",
+    "path": "file:///System/Applications/Notes.app/"
+  },
+  {
+    "name": "System Settings",
+    "path": "file:///System/Applications/System Settings.app/"
+  }
+]
