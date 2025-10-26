@@ -1,1 +1,0 @@
-export CHEATCOLORS=true
