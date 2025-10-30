@@ -43,7 +43,7 @@ brew install heroku/brew/heroku
 
 # Install apps to /Applications
 echo "Install apps..."
-brew cask install ${apps[@]}
+brew install --cask ${apps[@]}
 
 echo "Cleaning up..."
 brew cleanup
