@@ -19,6 +19,7 @@ brew install zsh
 binaries=(
   ffmpeg
   gh
+  libyaml
   mise
   postgresql@16
   redis
