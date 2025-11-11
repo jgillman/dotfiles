@@ -20,6 +20,8 @@ binaries=(
   ffmpeg
   gh
   mise
+  postgresql@16
+  redis
   s3cmd
 )
 
@@ -30,13 +32,14 @@ echo "Cleaning up..."
 brew cleanup
 
 apps=(
-  docker
   google-chrome
   gpgtools
   imagealpha
   imagemagick
   xld
 )
+
+brew services start redis
 
 # from https://devcenter.heroku.com/articles/heroku-cli
 brew install heroku/brew/heroku
@@ -47,4 +50,8 @@ brew install --cask ${apps[@]}
 
 echo "Cleaning up..."
 brew cleanup
+
+# start immmediately and configure to start on bootup
+brew services start postgresql@16
+brew services start redis
 
