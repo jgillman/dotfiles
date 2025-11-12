@@ -40,6 +40,7 @@ vim/vim.symlink/.netrwhist
 # Local work-docs director
 local_docs
 .env.test.local
+mise.toml
 .husky
 
 # NVM
