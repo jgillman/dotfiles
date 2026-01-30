@@ -3,5 +3,17 @@ use = "yazi-rs/plugins:chmod"
 rev = "63f9650"
 hash = "d0ad0c1946b46a30c8489735fe8de41c"
 
-[flavor]
-deps = []
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "90a1652"
+hash = "7a83bfab51d1d2ba6558cc56bd52539a"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "cfb9140"
+hash = "b5067143415bd2d46c0dfa57319ddcef"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:dracula"
+rev = "4a1802a"
+hash = "7a870f143a4026a893ea3123be711e7a"
