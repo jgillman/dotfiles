@@ -1,11 +1,4 @@
-tap "heroku/brew"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/core"
-tap "homebrew/services"
 tap "saulpw/vd"
-tap "universal-ctags/universal-ctags"
 
 
 brew "bat"
@@ -15,9 +8,9 @@ brew "cmatrix"
 brew "coreutils"
 brew "diff-so-fancy"
 brew "direnv"
-brew "dog"
 brew "dua-cli"  # fast and interactive du
 brew "eza"  # modern alternative to ls
+brew "f2"  # batch renaming tool
 brew "fd"  # friendlier find
 brew "ffmpeg"
 brew "figlet"
@@ -31,23 +24,18 @@ brew "hub"
 brew "ipfs"
 brew "jq"
 brew "logrotate", restart_service: true
-brew "macvim"
 brew "massren"
 brew "mosh"
-brew "mpc"
-brew "mpd", restart_service: true
 brew "mpv"
 brew "mtr"
 brew "ncdu"
 brew "ncmpcpp"
 brew "pipes-sh"
 brew "ranger"
-brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "rename"
 brew "resvg"  # svg rendering for yazi
 brew "ripgrep"  # grep replacement
-brew "rtv"
 brew "saulpw/vd/visidata"
 brew "shellcheck"
 brew "ssh-copy-id"
@@ -57,7 +45,6 @@ brew "syncthing", restart_service: true
 brew "tor", restart_service: true
 brew "trash"
 brew "tree"  # visual output of a file tree
-brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "watch"
 brew "yazi"  # blazing fast terminal file manager
 brew "zellij"  # terminal multiplexer and workspace with plugins
@@ -68,39 +55,34 @@ brew "zoxide"
 cask "aldente"  # menu bar tool to limit maximum charging percentage
 cask "antinote"  # simple scratchpad for quick notes
 cask "appcleaner"
-cask "arc"
 cask "betterdisplay"  # fine control of displays and create virtual displays
 cask "bitwarden"  # password manager
 cask "choosy"
 cask "chromedriver"
+cask "cleanshot"
 cask "discord"
 cask "disk-inventory-x"
 cask "dropbox"
-cask "easy-move-plus-reisze"
-cask "f2"  # batch renaming tool
 cask "fantastical"
 cask "firefox"
 cask "font-victor-mono"
 cask "font-victor-mono-nerd-font"  # victor mono with nerd font additions
+cask "ghostty"
 cask "google-chrome"
 cask "gpg-suite"
 cask "granola"  # ai note taking for meetings
 cask "hazel"  # automate actions on files
 cask "hiddenbar"  # menu bar item hiding
 cask "imageoptim"
-cask "keyboardcleantool"  # disable keyboard input for easy cleaning
 cask "keycastr"  # displays key presses for screen presentations
-cask "kitty"
 cask "losslesscut"
+cask "macvim-app"
 cask "mediainfo"
-cask "monodraw"
 cask "mpv"
 cask "obs"
-cask "obs-virtualcam"
 cask "obsidian"
 cask "plex"
 cask "plexamp"
-cask "qlimagesize"
 cask "qlmarkdown"
 cask "qlstephen"
 cask "qlvideo"
@@ -108,9 +90,9 @@ cask "quicklook-json"
 cask "raycast"
 cask "rustdesk"  # virtual/remote desktop
 cask "signal"
-cask "sony-ps-remote-play"
 cask "spotify"
 cask "steam"
 cask "steermouse"
 cask "tailscale"  # private vpn network
 cask "transmit"
+cask "vivaldi"

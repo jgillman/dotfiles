@@ -1,0 +1,14 @@
+tap "heroku/brew"
+
+brew "heroku/brew/heroku"
+brew "rbenv"
+
+# Casks
+cask "1password"
+cask "1password-cli"
+cask "claude"
+cask "granola"
+cask "notion"
+cask "slack"
+cask "superhuman"
+cask "zoom"

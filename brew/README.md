@@ -1,6 +1,6 @@
 # Homebrew (brew)
 
-> The missing package manager for OS X
+> The missing package manager for macOS
 
 ## Install
 
