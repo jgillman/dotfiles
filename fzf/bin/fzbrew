@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+
+# /usr/share/bash-completion/completions/git
+# https://github.com/junegunn/fzf/wiki/examples#git
+
+# declare BOLD=$(tput bold || tput md)
+declare c_reset=$(tput sgr0)
+declare c_green=$(tput setaf 2 || tput AF 2)
+declare c_red=$(tput setaf 1 || tput AF 1)
+
+has() { # {{{
+  command -v "$1" &> /dev/null
+}
+# }}}
+
+ask() { # {{{
+  read -r -n1 -p "$* " ans
+  echo
+  [[ ${ans^} == Y* ]]
+}
+# }}}
+
+err() { # {{{
+    printf "${c_red}%s${c_reset}" "$*" >&2
+}
+# }}}
+
+die() { # {{{
+  [[ -n "$1" ]] && err "$1"
+  exit 1
+}
+# }}}
+
+has fzf || die 'fzf not found'
+# [[ -d "$PWD/.git" ]] || die 'not a git repo'
+
+fzf() { # {{{
+  local prompt
+  if [[ $1 == --prompt=* ]]; then
+    prompt="${1##*=}>"
+    shift
+  fi
+  opts=( +s -e -i --reverse --cycle --prompt="fzbrew>${prompt} " )
+  [[ -v FZMP_FZF_OPTIONS ]] && opts=( $FZMP_FZF_OPTIONS )
+  command fzf "${opts[@]}" \
+    --inline-info \
+    --ansi \
+    --no-clear \
+    "$@"
+}
+# }}}
+
+declare -A brew_cmds_descriptions=( # {{{
+  ['install']='brew install description'
+  ['uninstall']='brew uninstall description'
+  ['upgrade']='brew upgrade description'
+)
+# }}}
+
+declare -A implemented_brew_cmds=(
+  ['install']='brew_install'
+  ['upgrade']='brew_upgrade'
+  ['uninstall']='brew_uninstall'
+)
+
+brew_install() { # {{{
+  local list
+  # list=$(brew outdated) || return 1
+}
+# }}}
+
+brew_upgrade() { # {{{
+  local list response header key selection
+  header='use ctrl-i to get info'
+  list=$(brew outdated) || return 1
+  mapfile -t response < <(fzf --tac --multi --prompt='upgrade' \
+    --header="$header" \
+    --expect=tab,ctrl-i,ctrl-x <<< "$list")
+  key="${response[0]}"
+  selection="${response[1]}"
+  finish
+  echo Key: "$key"
+  echo Selection: "$selection"
+  if [[ "$key" == 'ctrl-i' ]]; then
+    # git add -p "${response[@]}" < /dev/tty
+    echo "brew info" "${response[@]}" || return 1
+  else
+    echo "brew upgrade" "${response[@]}" || return 1
+    # git add "${response[@]}"
+  fi
+}
+# }}}
+
+brew_uninstall() { # {{{
+  local list
+  # list=$(brew list)
+}
+# }}}
+
+pick_cmd() {
+  for c in "${!implemented_brew_cmds[@]}"; do
+    printf '%s%-15s%s -- %s\n' "${c_green}" "$c" "${c_reset}" "${brew_cmds_descriptions[$c]}"
+  done | fzf | awk '{print $1}'
+}
+
+main() {
+  local pick
+  while pick=$(pick_cmd); do
+    if [[ -n $pick ]] && has "${implemented_brew_cmds[${pick%% *}]}"; then
+      ${implemented_brew_cmds[$pick]}
+      break
+    else
+      break
+    fi
+  done
+}
+
+reset_screen() {
+  tput rmcup
+}
+
+finish() {
+  reset_screen
+}
+
+# trap finish EXIT SIGINT SIGTERM
+main

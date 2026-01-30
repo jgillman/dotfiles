@@ -1,4 +1,8 @@
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+fi
+
+source <(fzf --zsh)
 
 # if _has ag; then
 #   export FZF_DEFAULT_COMMAND='ag -g ""'
