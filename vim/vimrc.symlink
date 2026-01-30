@@ -438,6 +438,9 @@ if has("autocmd")
   autocmd FileType css,scss,sass setlocal iskeyword+=-
 
   autocmd BufRead,BufNewFile /usr/local/etc/nginx/* if &ft == '' | setfiletype nginx | endif
+
+  " Add commenting helper for css
+  autocmd FileType css setlocal commentstring=/*\ %s\ */
 endif
 
 set expandtab
