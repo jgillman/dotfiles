@@ -1,0 +1,117 @@
+`,` Sort files
+`f` Filter files
+
+## Navigation
+
+Key | Action
+-----------|-----------------
+`k` / `↑` | Move cursor up |
+`j` / `↓` | Move cursor down |
+`l` / `→` | Enter hovered directory |
+`h` / `←` | Leave current directory (go to parent) |
+`K` | Seek up 5 units in preview |
+`J` | Seek down 5 units in preview |
+`g` `g` | Move cursor to top |
+`G` | Move cursor to bottom |
+`z` | Change directory via zoxide |
+
+## Selection
+
+| Key | Action |
+|-----|--------|
+| `Space` | Toggle selection of hovered file/directory |
+| `v` | Enter visual mode (selection mode) |
+| `V` | Enter visual mode (unset mode) |
+| `Ctrl + a` | Select all files |
+| `Ctrl + r` | Inverse selection |
+| `Esc` | Cancel selection |
+
+## File Operations
+
+| Key | Action |
+|-----|--------|
+| `o` | Open selected files |
+| `O` | Open selected files interactively |
+| `Enter` | Open selected files |
+| `Shift + Enter` | Open selected files interactively |
+| `Tab` | Show file information |
+| `y` | Yank (copy) selected files |
+| `x` | Yank (cut) selected files |
+| `p` | Paste yanked files |
+| `P` | Paste yanked files (overwrite) |
+| `Y` / `X` | Cancel yank status |
+| `d` | Trash selected files |
+| `D` | Permanently delete selected files |
+| `a` | Create file (end with `/` for directories) |
+| `r` | Rename selected file(s) |
+| `.` | Toggle hidden files visibility |
+
+## Shell Commands
+
+| Key | Action |
+|-----|--------|
+| `;` | Run shell command |
+| `:` | Run shell command (block until finishes) |
+
+## Links
+
+| Key | Action |
+|-----|--------|
+| `-` | Symlink absolute path of yanked files |
+| `_` | Symlink relative path of yanked files |
+| `Ctrl + -` | Hardlink yanked files |
+
+## Copy Paths
+
+| Key | Action |
+|-----|--------|
+| `c` `c` | Copy file path |
+| `c` `d` | Copy directory path |
+| `c` `f` | Copy filename |
+| `c` `n` | Copy filename without extension |
+
+## Filter & Find
+
+| Key | Action |
+|-----|--------|
+| `f` | Filter files |
+| `/` | Find next file |
+| `?` | Find previous file |
+| `n` | Go to next found |
+| `N` | Go to previous found |
+
+## Search
+
+| Key | Action |
+|-----|--------|
+| `s` | Search files by name using ripgrep |
+
+## Sorting
+
+| Key | Action |
+|-----|--------|
+| `,` `m` | Sort by modified time |
+| `,` `M` | Sort by modified time (reverse) |
+| `,` `b` | Sort by birth time |
+| `,` `B` | Sort by birth time (reverse) |
+| `,` `e` | Sort by file extension |
+| `,` `E` | Sort by file extension (reverse) |
+| `,` `a` | Sort alphabetically |
+| `,` `A` | Sort alphabetically (reverse) |
+| `,` `n` | Sort naturally |
+| `,` `N` | Sort naturally (reverse) |
+| `,` `s` | Sort by size |
+| `,` `S` | Sort by size (reverse) |
+| `,` `r` | Sort randomly |
+
+## Multi-tab
+
+| Key | Action |
+|-----|--------|
+| `t` | Create new tab with current directory |
+| `1`-`9` | Switch to N-th tab |
+| `[` | Switch to previous tab |
+| `]` | Switch to next tab |
+| `{` | Swap current tab with previous |
+| `}` | Swap current tab with next |
+| `Ctrl + c` | Close current tab |

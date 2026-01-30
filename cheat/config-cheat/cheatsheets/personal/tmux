@@ -8,7 +8,7 @@ Ctrl-b d
 tmux attach
 
 # Detach an already attached session (great if you are moving devices with different screen resolutions)
-tmux attach -d 
+tmux attach -d
 
 # Display session:
 tmux ls
