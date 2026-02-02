@@ -1,5 +1,7 @@
 `,` Sort files
 `f` Filter files
+`z` Search with fzf
+`m` Menu to display secondary info (i.e. permissions)
 
 ## Navigation
 
