@@ -21,6 +21,7 @@ brew "git"
 brew "gitui"  # blazing fast terminal-ui for git
 brew "graphicsmagick"
 brew "hub"
+brew "hyperfine" # command-line benchmarking tool
 brew "ipfs"
 brew "jq"
 brew "logrotate", restart_service: true
