@@ -26,7 +26,7 @@ function fish_greeting
 end
 
 # all of our fish files
-set config_files (find $DOTFILES -name "*.fish" -type f)
+set config_files (find $DOTFILES -name "*.fish" -type f -maxdepth 3)
 
 
 # load the path files as long as we're not in a multiplexer
@@ -44,6 +44,9 @@ abbr --add -g .... 'cd ../../..'
 
 abbr --add -g clock 'tty-clock'
 
+if _has rg
+  abbr --add -g ag 'rg'
+end
 
 # load everything but the path files
 for file in $config_files
