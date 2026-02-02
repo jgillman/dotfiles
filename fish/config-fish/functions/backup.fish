@@ -1,3 +1,3 @@
 function backup
-  cp $argv[1]{,.bak}
+  cp -R $argv[1]{,.bak}
 end
