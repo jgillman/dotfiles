@@ -95,7 +95,7 @@ install_dotfiles() {
         echo "Suggested next steps for macOS:"
         echo ""
         echo "1. Set macOS defaults:"
-        echo "   ./osx/set-defaults.sh"
+        echo "   ./macos/set-defaults.sh"
         echo ""
         echo "2. Install Homebrew (if not already installed):"
         echo "   /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""

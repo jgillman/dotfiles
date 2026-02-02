@@ -19,8 +19,8 @@ bind-key -Tcopy-mode-vi 'y' send -X copy-selection-and-cancel
 
 set -g set-clipboard off
 
-# Source .tmux-osx.conf if running in OS X
-if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
+# Source .tmux-macos.conf if running in macOS
+if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-macos.conf'
 
 # reload config
 unbind r
