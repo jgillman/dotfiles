@@ -3,6 +3,7 @@
 set -e
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export DOTFILES="$DOTFILES_DIR"
 
 print_usage() {
     echo "Usage: $0 [install|uninstall|help]"
@@ -14,11 +15,24 @@ print_usage() {
 }
 
 install_dotfiles() {
-    echo "Installing dotfiles from $DOTFILES_DIR"
+    echo "Installing dotfiles from $DOTFILES_DIR. Okay? [y/N]"
+    read -r confirmation
+
+    case "$confirmation" in
+        y|Y|yes|Yes|YES)
+            # Continue with installation
+            ;;
+        *)
+            echo "Installation cancelled."
+            exit 0
+            ;;
+    esac
 
     # Find all .symlink files
-    local linkables
-    mapfile -t linkables < <(find "$DOTFILES_DIR" -name "*.symlink" -type f)
+    local linkables=()
+    while IFS= read -r -d '' file; do
+        linkables+=("$file")
+    done < <(find "$DOTFILES_DIR" -name "*.symlink" -type f -print0)
 
     if [ ${#linkables[@]} -eq 0 ]; then
         echo "No .symlink files found!"
@@ -74,14 +88,32 @@ install_dotfiles() {
 
     echo ""
     echo "✅ Dotfiles installation complete!"
+    echo ""
+
+    # Show next steps for macOS
+    if [[ "$(uname)" == "Darwin" ]]; then
+        echo "Suggested next steps for macOS:"
+        echo ""
+        echo "1. Set macOS defaults:"
+        echo "   ./osx/set-defaults.sh"
+        echo ""
+        echo "2. Install Homebrew (if not already installed):"
+        echo "   /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+        echo ""
+        echo "3. Install packages with Homebrew:"
+        echo "   brew bundle --file=brew/Brewfile"
+        echo ""
+    fi
 }
 
 uninstall_dotfiles() {
     echo "Uninstalling dotfiles..."
 
     # Find all .symlink files
-    local linkables
-    mapfile -t linkables < <(find "$DOTFILES_DIR" -name "*.symlink" -type f)
+    local linkables=()
+    while IFS= read -r -d '' file; do
+        linkables+=("$file")
+    done < <(find "$DOTFILES_DIR" -name "*.symlink" -type f -print0)
 
     for linkable in "${linkables[@]}"; do
         local filename
