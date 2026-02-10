@@ -30,6 +30,9 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.undofile = true
 
+-- Set spellcheck language
+vim.opt.spelllang = 'en_us'
+
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -96,6 +99,7 @@ vim.diagnostic.config {
 }
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>c', ':bprevious | bdelete #<CR>', { desc = 'Delete current [B]uffer' })
 
 -- Toggle Paste mode
 vim.keymap.set('n', '<leader>tp', ':set invpaste<CR>:set paste?<CR>', { desc = '[T]oggle [P]aste mode' })
@@ -107,12 +111,6 @@ vim.keymap.set('n', '<leader>tp', ':set invpaste<CR>:set paste?<CR>', { desc = '
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -129,8 +127,21 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- Copy, Cut, and Paste from system clipboard
+vim.keymap.set('v', '<D-c>', '"+y', { desc = 'Copy to system clipboard' })
+vim.keymap.set('v', '<D-x>', '"+x', { desc = 'Cut to system clipboard' })
+vim.keymap.set('n', '<D-v>', '"+gP', { desc = 'Paste from system clipboard' })
+vim.keymap.set('i', '<D-v>', '<C-o>"+P', { desc = 'Paste from system clipboard' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
+
+-- Enable spellcheck, wrap, and linebreak for certain filetypes
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Enable spellcheck for certain filetypes',
+  pattern = { 'gitcommit', 'mail', 'markdown' },
+  command = 'setlocal linebreak spell wrap',
+})
 
 -- Restore cursor position
 vim.api.nvim_create_autocmd('BufReadPost', {
@@ -525,6 +536,7 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
+        -- shellcheck = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -536,9 +548,17 @@ require('lazy').setup({
       -- You can press `g?` for help in this menu.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
+        -- Language servers
+        'bash-language-server', -- Bash language server
+        'harper-ls', -- Grammar checker
         'lua-language-server', -- Lua Language server
+
+        -- Linters
+        'shellcheck', -- Bash linter
+
+        -- Formatters
         'stylua', -- Used to format Lua code
-        -- You can add other tools here that you want Mason to install
+        'prettier', -- Used to format Markdown, HTML, CSS, JavaScript, and more
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -576,6 +596,23 @@ require('lazy').setup({
         },
       })
       vim.lsp.enable 'lua_ls'
+
+      vim.lsp.config('harper_ls', {
+        settings = {
+          ['harper-ls'] = {
+            linters = {
+              SentenceCapitalization = false,
+              SpellCheck = false,
+            },
+          },
+        },
+      })
+      vim.lsp.enable 'harper_ls'
+
+      vim.lsp.enable 'bashls'
+
+      -- vim.lsp.config('shellcheck', {})
+      -- vim.lsp.enable 'shellcheck'
     end,
   },
 
@@ -692,7 +729,7 @@ require('lazy').setup({
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets' },
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
 
       snippets = { preset = 'luasnip' },
@@ -728,7 +765,12 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
 
   -- Tim Pope's surround plugin
   { 'tpope/vim-surround' },
@@ -773,7 +815,19 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     config = function()
-      local filetypes = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+      local filetypes = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+      }
       require('nvim-treesitter').install(filetypes)
       vim.api.nvim_create_autocmd('FileType', {
         pattern = filetypes,
