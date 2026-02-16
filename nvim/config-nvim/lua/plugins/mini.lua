@@ -66,8 +66,12 @@ return {
       -- -----------------------------------------------
       -- General workflow
       -- -----------------------------------------------
-      -- NOTE: This looks handy, maybe enable in the future
-      -- require('mini.diff').setup()
+      require('mini.diff').setup {
+        view = {
+          style = 'sign',
+        },
+      }
+      require('mini.git').setup()
 
       -- -----------------------------------------------
       -- Appearance
