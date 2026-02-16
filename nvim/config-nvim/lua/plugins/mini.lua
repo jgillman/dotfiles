@@ -1,16 +1,77 @@
 return {
   {
     'nvim-mini/mini.nvim',
+    version = false,
     config = function()
-      -- Better Around/Inside textobjects
-      --
-      -- Examples:
-      --  - va)  - [V]isually select [A]round [)]paren
-      --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-      --  - ci'  - [C]hange [I]nside [']quote
+      -- -----------------------------------------------
+      -- Text editing
+      -- -----------------------------------------------
       require('mini.ai').setup { n_lines = 500 }
+      require('mini.pairs').setup()
+      require('mini.splitjoin').setup()
+      -- Changes 's' to Nop, use `cl` instead
+      require('mini.surround').setup()
 
-      -- Fancy indentation highlighting
+      local miniclue = require 'mini.clue'
+      require('mini.clue').setup {
+        -- Clue window settings
+        window = {
+          -- Floating window config
+          config = {
+            width = 'auto',
+            border = 'rounded',
+          },
+          -- Delay before showing clue window
+          delay = 400,
+        },
+
+        triggers = {
+          { mode = { 'n', 'x' }, keys = '<Leader>' },
+          { mode = { 'n', 'x' }, keys = 'g' },
+          { mode = { 'n', 'x' }, keys = 's' },
+          { mode = { 'n', 'x' }, keys = 'z' },
+
+          { mode = 'n', keys = '[' },
+          { mode = 'n', keys = ']' },
+
+          -- Completions
+          { mode = 'i', keys = '<C-x>' },
+
+          -- Marks
+          { mode = { 'n', 'x' }, keys = "'" },
+          { mode = { 'n', 'x' }, keys = "g'" },
+          { mode = { 'n', 'x' }, keys = '`' },
+          { mode = { 'n', 'x' }, keys = 'g`' },
+
+          -- Registers
+          { mode = { 'n', 'x' }, keys = '"' },
+          { mode = { 'i', 'c' }, keys = '<C-r>' },
+
+          -- Windows
+          { mode = 'n', keys = '<C-w>' },
+        },
+
+        clues = {
+          -- Enhance this by adding descriptions for <Leader> mapping groups
+          miniclue.gen_clues.square_brackets(),
+          miniclue.gen_clues.builtin_completion(),
+          miniclue.gen_clues.g(),
+          miniclue.gen_clues.marks(),
+          miniclue.gen_clues.registers(),
+          miniclue.gen_clues.windows(),
+          miniclue.gen_clues.z(),
+        },
+      }
+
+      -- -----------------------------------------------
+      -- General workflow
+      -- -----------------------------------------------
+      -- NOTE: This looks handy, maybe enable in the future
+      -- require('mini.diff').setup()
+
+      -- -----------------------------------------------
+      -- Appearance
+      -- -----------------------------------------------
       require('mini.indentscope').setup {
         draw = {
           animation = require('mini.indentscope').gen_animation.linear { duration = 10 },
@@ -18,21 +79,29 @@ return {
         symbol = '│',
       }
 
-      -- Simple and easy statusline.
-      --  You could remove this setup call if you don't like it,
-      --  and try some other statusline plugin
-      local statusline = require 'mini.statusline'
-      -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = vim.g.have_nerd_font }
+      require('mini.notify').setup {}
 
-      -- You can configure sections in the statusline by overriding their
-      -- default behavior. For example, here we set the section for
-      -- cursor location to LINE:COLUMN
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function() return '%2l:%-2v %p%%' end
+      require('mini.starter').setup {
+        -- Generated with figlet -f nvscript
+        header = [[ ,dPYb,              ,dPYb, ,dPYb,
+ IP'`Yb              IP'`Yb IP'`Yb
+ I8  8I              I8  8I I8  8I
+ I8  8'              I8  8' I8  8'
+ I8 dPgg,    ,ggg,   I8 dP  I8 dP    ,ggggg,
+ I8dP" "8I  i8" "8i  I8dP   I8dP    dP"  "Y8ggg
+ I8P    I8  I8, ,8I  I8P    I8P    i8'    ,8I
+,d8     I8, `YbadP' ,d8b,_ ,d8b,_ ,d8,   ,d8'
+88P     `Y8888P"Y8888P'"Y888P'"Y88P"Y8888P"]],
+      }
 
-      -- ... and there is more!
-      --  Check out: https://github.com/nvim-mini/mini.nvim
+      require('mini.statusline').setup {}
+      MiniStatusline.section_location = function(args)
+        -- Use virtual column number to allow update when past last column
+        if MiniStatusline.is_truncated(args.trunc_width) then return '%l:%2v' end
+
+        -- Use `virtcol()` to correctly handle multi-byte characters
+        return '%3l/%L:%2v %2p%%'
+      end
     end,
   },
 }

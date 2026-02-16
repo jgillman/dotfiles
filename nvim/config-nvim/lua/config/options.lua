@@ -3,21 +3,22 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
+vim.o.termguicolors = true
+
 vim.o.number = true
 vim.o.mouse = 'a'
 vim.o.showmode = true
 vim.o.breakindent = true
 vim.o.undofile = true
 
--- Use spaces instead of tabs
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+-- Default to 2 spaces instead of tabs
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 -- Try to be smart about intending
 vim.opt.smartindent = true
-
 vim.opt.colorcolumn = '80'
 
 -- Spell check

@@ -22,7 +22,4 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = true },
   },
-
-  -- Tim Pope's surround plugin
-  { 'tpope/vim-surround' },
 }

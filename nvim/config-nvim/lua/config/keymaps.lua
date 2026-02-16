@@ -1,3 +1,10 @@
+-- Remove 'sleep' keymap
+-- vim.keymap.del('n', 'gs')
+
+-- Sane movement with wrap turned on
+vim.keymap.set({ 'n', 'v' }, 'j', 'gj')
+vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
+
 -- Remove current highlighted search
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>')
 
