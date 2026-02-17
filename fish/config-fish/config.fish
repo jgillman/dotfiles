@@ -7,15 +7,6 @@ end
 # shortcut to this dotfiles path is $DOTFILES
 set -gx DOTFILES $HOME/.dotfiles
 
-# set default editor
-if _has nvim
-  set -gx VISUAL nvim
-  set -gx EDITOR nvim
-else
-  set -gx VISUAL vim
-  set -gx EDITOR vim
-end
-
 function fish_greeting
   # If figlet is installed, print the hostname for new session
   if _has figlet
