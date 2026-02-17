@@ -55,7 +55,8 @@ return {
           -- Enhance this by adding descriptions for <Leader> mapping groups
           miniclue.gen_clues.square_brackets(),
           miniclue.gen_clues.builtin_completion(),
-          miniclue.gen_clues.g(),
+          -- Filter out gs and g? from the g clues
+          vim.tbl_filter(function(clue) return not vim.tbl_contains({ 'gs', 'g?' }, clue.keys) end, miniclue.gen_clues.g()),
           miniclue.gen_clues.marks(),
           miniclue.gen_clues.registers(),
           miniclue.gen_clues.windows(),
@@ -71,6 +72,7 @@ return {
           style = 'sign',
         },
       }
+      require('mini.files').setup()
       require('mini.git').setup()
 
       -- -----------------------------------------------

@@ -1,6 +1,10 @@
 -- Remove 'sleep' keymap
 -- vim.keymap.del('n', 'gs')
 
+-- Why are these even standard?
+vim.keymap.set('', 'g?', '<Nop>')
+vim.keymap.set('', 'gs', '<Nop>')
+
 -- Sane movement with wrap turned on
 vim.keymap.set({ 'n', 'v' }, 'j', 'gj')
 vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
