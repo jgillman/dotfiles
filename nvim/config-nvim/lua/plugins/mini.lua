@@ -22,7 +22,7 @@ return {
             border = 'rounded',
           },
           -- Delay before showing clue window
-          delay = 400,
+          delay = 200,
         },
 
         triggers = {
@@ -52,15 +52,16 @@ return {
         },
 
         clues = {
-          -- Enhance this by adding descriptions for <Leader> mapping groups
           miniclue.gen_clues.square_brackets(),
           miniclue.gen_clues.builtin_completion(),
-          -- Filter out gs and g? from the g clues
-          vim.tbl_filter(function(clue) return not vim.tbl_contains({ 'gs', 'g?' }, clue.keys) end, miniclue.gen_clues.g()),
           miniclue.gen_clues.marks(),
           miniclue.gen_clues.registers(),
           miniclue.gen_clues.windows(),
           miniclue.gen_clues.z(),
+          { mode = 'n', keys = '<Leader>s', desc = '[S]earch…' },
+          { mode = 'n', keys = '<Leader>sc', desc = '[S]earch commands or configs…' },
+          { mode = 'n', keys = '<Leader>t', desc = '[T]oggle…' },
+          { mode = 'n', keys = 'gr', desc = 'LSP actions…' },
         },
       }
 

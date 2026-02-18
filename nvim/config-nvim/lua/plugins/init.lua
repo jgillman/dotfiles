@@ -3,7 +3,13 @@ return {
   { 'Darazaki/indent-o-matic', opts = {} },
 
   -- Toggle background transparency
-  { 'xiyaowong/transparent.nvim' },
+  {
+    'xiyaowong/transparent.nvim',
+    lazy = true,
+    keys = {
+      { '<leader>tt', '<cmd>TransparentToggle<cr>', desc = '[T]oggle [T]ransparency' },
+    },
+  },
 
   -- Highlight todo, notes, etc in comments
   {
