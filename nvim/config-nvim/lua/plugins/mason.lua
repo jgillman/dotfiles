@@ -23,7 +23,37 @@ return {
           },
         },
       },
-      'neovim/nvim-lspconfig',
+      {
+        'neovim/nvim-lspconfig',
+        config = function()
+          ------------------------------------------------------------------
+          -- Capabilities (completion, etc.)
+          ------------------------------------------------------------------
+          local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+          ------------------------------------------------------------------
+          -- LSP server definitions (NEW API)
+          ------------------------------------------------------------------
+          vim.lsp.config('lua_ls', {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = {
+              Lua = {
+                diagnostics = {
+                  -- disable = { "missing-fields" }
+                  globals = { 'vim' },
+                },
+                workspace = {
+                  library = vim.api.nvim_get_runtime_file('', true),
+                  checkThirdParty = false,
+                },
+                format = { enable = false },
+                telemetry = { enable = false },
+              },
+            },
+          })
+        end,
+      },
     },
   },
 }
