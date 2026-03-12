@@ -16,6 +16,7 @@ brew "ffmpeg"
 brew "figlet"
 brew "findutils"
 brew "fish"  # fish shell
+brew "fpp"  # Facebook PathPicker
 brew "fzf"
 brew "git"
 brew "gitui"  # blazing fast terminal-ui for git
@@ -33,7 +34,6 @@ brew "ncdu"
 brew "ncmpcpp"
 brew "pipes-sh"
 brew "ranger"
-brew "reattach-to-user-namespace"
 brew "rename"
 brew "resvg"  # svg rendering for yazi
 brew "ripgrep"  # grep replacement
@@ -46,9 +46,9 @@ brew "syncthing", restart_service: true
 brew "tor", restart_service: true
 brew "trash"
 brew "tree"  # visual output of a file tree
+brew "urlscan"  # extract urls from text
 brew "watch"
 brew "yazi"  # blazing fast terminal file manager
-brew "zellij"  # terminal multiplexer and workspace with plugins
 brew "zoxide"
 
 
