@@ -30,8 +30,6 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
@@ -43,3 +41,5 @@ vim.keymap.set('v', '<D-c>', '"+y', { desc = 'Copy to system clipboard' })
 vim.keymap.set('v', '<D-x>', '"+x', { desc = 'Cut to system clipboard' })
 vim.keymap.set('n', '<D-v>', '"+gP', { desc = 'Paste from system clipboard' })
 vim.keymap.set('i', '<D-v>', '<C-o>"+P', { desc = 'Paste from system clipboard' })
+
+vim.keymap.set('n', '<leader>b', '<cmd>lua MiniFiles.open()<cr>', { desc = '[B]rowse files' })

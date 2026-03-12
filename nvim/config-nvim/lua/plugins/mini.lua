@@ -49,6 +49,9 @@ return {
 
           -- Windows
           { mode = 'n', keys = '<C-w>' },
+
+          -- Obsidian
+          { mode = { 'n', 'x' }, keys = 'o' },
         },
 
         clues = {
@@ -88,7 +91,8 @@ return {
 
       require('mini.notify').setup {}
 
-      require('mini.starter').setup {
+      local starter = require 'mini.starter'
+      starter.setup {
         -- Generated with figlet -f nvscript
         header = [[ ,dPYb,              ,dPYb, ,dPYb,
  IP'`Yb              IP'`Yb IP'`Yb
@@ -99,6 +103,39 @@ return {
  I8P    I8  I8, ,8I  I8P    I8P    i8'    ,8I
 ,d8     I8, `YbadP' ,d8b,_ ,d8b,_ ,d8,   ,d8'
 88P     `Y8888P"Y8888P'"Y888P'"Y88P"Y8888P"]],
+
+        items = {
+          -- Show Obsidian menu if in Obsidian vault
+          function()
+            local folder = io.open('./.obsidian', 'r')
+            if folder ~= nil then
+              -- In root Obsidian vault
+              io.close(folder)
+              return { name = "Today's Note", action = 'Obsidian today', section = 'Obsidian' }
+            else
+              -- NOT in root Obsidian vault
+              return nil
+            end
+          end,
+
+          starter.sections.recent_files(5, false),
+
+          { name = 'Project file fuzzy search', action = 'Telescope find_files', section = 'Files' },
+          { name = 'Recent file fuzzy search', action = 'Telescope oldfiles', section = 'Files' },
+          { name = 'Browse files', action = 'lua MiniFiles.open()', section = 'Files' },
+
+          { name = 'Update plugins', action = 'Lazy update', section = 'Lazy' },
+
+          starter.sections.builtin_actions(),
+        },
+        content_hooks = {
+          starter.gen_hook.adding_bullet(),
+          starter.gen_hook.indexing('all', { 'Builtin actions', 'Files', 'Lazy' }),
+          starter.gen_hook.padding(3, 2),
+          starter.gen_hook.aligning('center', 'center'),
+        },
+
+        -- TODO: Add to starter: key to update Lazy plugins
       }
 
       require('mini.statusline').setup {}
@@ -109,6 +146,8 @@ return {
         -- Use `virtcol()` to correctly handle multi-byte characters
         return '%3l/%L:%2v %2p%%'
       end
+
+      require('mini.test').setup()
     end,
   },
 }

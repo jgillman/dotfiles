@@ -8,6 +8,7 @@ return {
         'lua_ls',
         'stylua',
         'terraformls',
+        'yamlls',
       },
     },
     dependencies = {
@@ -49,6 +50,22 @@ return {
                 },
                 format = { enable = false },
                 telemetry = { enable = false },
+              },
+            },
+          })
+
+          vim.lsp.config('yamlls', {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = {
+              editor = { tabSize = 2 },
+              yaml = {
+                format = {
+                  enable = true,
+                },
+                schemas = {
+                  ['https://json.schemastore.org/github-action.json'] = '/.github/action.yml',
+                },
               },
             },
           })

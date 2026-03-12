@@ -42,6 +42,9 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- Allow some characters to be hidden
+vim.opt.conceallevel = 1
+
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
