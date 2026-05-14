@@ -22,5 +22,10 @@ return {
       workdays_only = false,
     },
     frontmatter = { enabled = false },
+    unique_note = {
+      format = 'YYYY.MM.DD.HHmm -',
+      folder = 'capture',
+      template = 'templates/new-capture-note',
+    },
   },
 }

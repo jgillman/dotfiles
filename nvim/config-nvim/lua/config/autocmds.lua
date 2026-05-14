@@ -30,3 +30,12 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'gitcommit', 'mail', 'markdown' },
   command = 'setlocal linebreak spell wrap',
 })
+
+-- TODO: Change active directory to closest git root if available
+-- vim.api.nvim_create_augroup('BufRead', {
+--   desc = 'Change active directory to closest git root when available',
+--   callback = function ()
+--   vim.notify( 'asdf', vim.log.levels.INFO)
+--     vim.cmd.lcd <current path via `git root` shell command>
+--   end
+-- })

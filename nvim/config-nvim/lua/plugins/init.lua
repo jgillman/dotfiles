@@ -1,6 +1,14 @@
 return {
   -- Auto detect indentation
-  { 'Darazaki/indent-o-matic', opts = {} },
+  {
+    'Darazaki/indent-o-matic',
+    opts = {
+      standard_widths = { 2, 4 },
+      filetype_yaml = {
+        standard_widths = { 2 },
+      },
+    },
+  },
 
   -- Toggle background transparency
   {
@@ -21,6 +29,7 @@ return {
     opts = { signs = true },
   },
 
+  -- Highlight color codes for easier reference
   {
     'catgoose/nvim-colorizer.lua',
     event = 'BufReadPre',

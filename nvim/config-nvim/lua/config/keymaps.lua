@@ -1,6 +1,3 @@
--- Remove 'sleep' keymap
--- vim.keymap.del('n', 'gs')
-
 -- Why are these even standard?
 vim.keymap.set('', 'g?', '<Nop>')
 vim.keymap.set('', 'gs', '<Nop>')
@@ -20,6 +17,9 @@ vim.keymap.set('n', '<leader>c', '<Cmd>bprevious | bdelete #<CR>', { desc = 'Del
 -- Toggle Paste mode
 vim.keymap.set('n', '<leader>tp', '<Cmd>set invpaste | set paste?<CR>', { desc = '[T]oggle [P]aste mode' })
 
+-- Toggle wrap
+vim.keymap.set('n', '<leader>tw', '<Cmd>set wrap! | set wrap?<CR>', { desc = '[T]oggle [W]rap mode' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -35,11 +35,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Copy, Cut, and Paste from system clipboard
--- NOTE: This seems to be needed for Neovide
-vim.keymap.set('v', '<D-c>', '"+y', { desc = 'Copy to system clipboard' })
-vim.keymap.set('v', '<D-x>', '"+x', { desc = 'Cut to system clipboard' })
-vim.keymap.set('n', '<D-v>', '"+gP', { desc = 'Paste from system clipboard' })
-vim.keymap.set('i', '<D-v>', '<C-o>"+P', { desc = 'Paste from system clipboard' })
-
 vim.keymap.set('n', '<leader>b', '<cmd>lua MiniFiles.open()<cr>', { desc = '[B]rowse files' })
+
+vim.keymap.set('i', '<M-BS>', '<C-w>', { desc = 'Delete word backwards' })

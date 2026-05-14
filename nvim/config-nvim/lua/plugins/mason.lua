@@ -6,6 +6,7 @@ return {
       ensure_installed = {
         'helm_ls',
         'lua_ls',
+        'ruby_lsp',
         'stylua',
         'terraformls',
         'yamlls',
@@ -54,6 +55,11 @@ return {
             },
           })
 
+          -- vim.lsp.config('ruby_lsp', {
+          --   capabilities = capabilities,
+          --   on_attach = on_attach,
+          -- })
+
           vim.lsp.config('yamlls', {
             capabilities = capabilities,
             on_attach = on_attach,
@@ -68,6 +74,11 @@ return {
                 },
               },
             },
+          })
+
+          vim.lsp.config('bashls', {
+            capabilities = capabilities,
+            on_attach = on_attach,
           })
         end,
       },

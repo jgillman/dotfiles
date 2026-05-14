@@ -1,12 +1,19 @@
 return {
   { -- Autocompletion
     'saghen/blink.cmp',
+    dependencies = {
+      'mgalliou/blink-cmp-tmux',
+    },
     version = '1.*',
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
     opts = {
       keymap = {
         preset = 'super-tab',
+      },
+      cmdline = {
+        keymap = { preset = 'inherit' },
+        completion = { menu = { auto_show = true } },
       },
 
       appearance = {
@@ -20,7 +27,13 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'tmux' },
+        providers = {
+          tmux = {
+            module = 'blink-cmp-tmux',
+            name = 'tmux',
+          },
+        },
       },
 
       fuzzy = { implementation = 'prefer_rust_with_warning' },

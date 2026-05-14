@@ -1,6 +1,7 @@
-require("config.options")
-require("config.keymaps")
+require 'config.options'
+require 'config.keymaps'
+require 'config.neovide'
 
-require("config.lazy")
+require 'config.lazy'
 
-require("config.autocmds")
+require 'config.autocmds'
