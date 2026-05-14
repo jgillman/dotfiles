@@ -23,8 +23,8 @@ brew "gitui"  # blazing fast terminal-ui for git
 brew "graphicsmagick"
 brew "hub"
 brew "hyperfine" # command-line benchmarking tool
-brew "ipfs"
 brew "jq"
+brew "kubo"  # previously named "ipfs"
 brew "logrotate", restart_service: true
 brew "massren"
 brew "mosh"
@@ -76,6 +76,7 @@ cask "hazel"  # automate actions on files
 cask "hiddenbar"  # menu bar item hiding
 cask "imageoptim"
 cask "keycastr"  # displays key presses for screen presentations
+cask "kid3"  # id3 tag editor for audio files
 cask "losslesscut"
 cask "macvim-app"
 cask "mediainfo"
