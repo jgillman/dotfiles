@@ -86,15 +86,32 @@ install_dotfiles() {
         ln -s "$linkable" "$target"
     done
 
-    # Run topic link.sh scripts (handle ~/.config/ and other custom links)
+    # Convention-based: auto-link <topic>/config-<topic>/ → ~/.config/<topic>
+    # Topics with their own link.sh are skipped here and handled below instead.
     echo ""
-    echo "Running topic link.sh scripts..."
-    local link_scripts=()
-    while IFS= read -r -d '' file; do
-        link_scripts+=("$file")
-    done < <(find "$DOTFILES_DIR" -name "link.sh" -not -path "*/.git/*" -print0)
+    echo "Linking config directories..."
+    for topic_dir in "$DOTFILES_DIR"/*/; do
+        local topic
+        topic=$(basename "$topic_dir")
+        local source="${topic_dir}config-${topic}"
+        local target="${HOME}/.config/${topic}"
 
-    for script in "${link_scripts[@]}"; do
+        [ -d "$source" ] || continue
+        [ -f "${topic_dir}link.sh" ] && continue
+
+        if [ -e "$target" ]; then
+            echo "$target already exists."
+        else
+            ln -s "$source" "$target"
+            echo "Linked $source to $target"
+        fi
+    done
+
+    # Run link.sh only for topics that need custom/exception handling
+    echo ""
+    echo "Running custom link.sh scripts..."
+    for script in "$DOTFILES_DIR"/*/link.sh; do
+        [ -f "$script" ] || continue
         echo "Running $script"
         bash "$script"
     done
@@ -147,6 +164,26 @@ uninstall_dotfiles() {
         if [[ -f "$target.backup" ]]; then
             echo "Restoring backup: $target.backup -> $target"
             mv "$target.backup" "$target"
+        fi
+    done
+
+    # Remove convention-based config symlinks
+    for topic_dir in "$DOTFILES_DIR"/*/; do
+        local topic
+        topic=$(basename "$topic_dir")
+        local source="${topic_dir}config-${topic}"
+        local target="${HOME}/.config/${topic}"
+
+        [ -d "$source" ] || continue
+        [ -f "${topic_dir}link.sh" ] && continue
+
+        if [[ -L "$target" ]]; then
+            local link_target
+            link_target="$(readlink "$target")"
+            if [[ "$link_target" == "$source" ]]; then
+                echo "Removing symlink: $target"
+                rm "$target"
+            fi
         fi
     done
 
