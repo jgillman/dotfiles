@@ -46,8 +46,8 @@ palette = 15=#ffffff
 
 split-divider-color = #9580ff
 
-keybind = shift+enter=text:\n
 keybind = ctrl+shift+h=goto_split:left
 keybind = ctrl+shift+l=goto_split:right
 keybind = ctrl+shift+j=goto_split:down
 keybind = ctrl+shift+k=goto_split:up
+keybind = alt+backspace=text:\x1b\x7f
