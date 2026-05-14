@@ -1,0 +1,14 @@
+# Enable color
+--color dark
+
+# Include extended info like modified time
+--extended
+
+# Ask before quitting
+--confirm-quit
+
+--exclude .git
+
+# UI
+--show-percent
+--graph-style eighth-block

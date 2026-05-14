@@ -1,0 +1,116 @@
+{
+  "palettes": {
+    "default": [
+      [
+        "header",
+        "white",
+        "dark blue",
+        "standout",
+        "#f8f8f2",
+        "#7766cc"
+      ],
+      [
+        "footer",
+        "white",
+        "dark red",
+        "standout",
+        "#f8f8f2",
+        "#cc7766"
+      ],
+      [
+        "search",
+        "white",
+        "dark green",
+        "standout",
+        "#f8f8f2",
+        "#6ecc66"
+      ],
+      [
+        "msgtext",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "msgtext:ellipses",
+        "light gray",
+        "",
+        "",
+        "#aaaaaa",
+        ""
+      ],
+      [
+        "urlref:number:braces",
+        "light gray",
+        "",
+        "",
+        "#c6c6c2",
+        ""
+      ],
+      [
+        "urlref:number",
+        "light green",
+        "",
+        "standout",
+        "#8aff80",
+        ""
+      ],
+      [
+        "urlref:url",
+        "white",
+        "black",
+        "standout",
+        "#f8f8f2",
+        ""
+      ],
+      [
+        "url:sel",
+        "white",
+        "light gray",
+        "bold",
+        "#f8f8f2",
+        "#454158"
+      ]
+    ]
+  },
+  "keys": {
+    "/": "search_key",
+    "0": "digits",
+    "1": "digits",
+    "2": "digits",
+    "3": "digits",
+    "4": "digits",
+    "5": "digits",
+    "6": "digits",
+    "7": "digits",
+    "8": "digits",
+    "9": "digits",
+    "a": "add_url",
+    "C": "clipboard",
+    "c": "context",
+    "ctrl l": "clear_screen",
+    "ctrl f": "page_down",
+    "ctrl b": "page_up",
+    "d": "del_url",
+    "f1": "help_menu",
+    "G": "bottom",
+    "g": "top",
+    "j": "down",
+    "k": "up",
+    "J": "next",
+    "K": "previous",
+    "P": "clipboard_pri",
+    "l": "link_handler",
+    "o": "open_queue",
+    "O": "open_queue_win",
+    "p": "palette",
+    "Q": "quit",
+    "q": "quit",
+    "R": "reverse",
+    "S": "all_shorten",
+    "s": "shorten",
+    "u": "all_escape"
+  }
+}
