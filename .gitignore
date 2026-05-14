@@ -1,1 +1,2 @@
 *.profraw
+.claude/settings.local.json
