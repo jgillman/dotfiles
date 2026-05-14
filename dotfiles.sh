@@ -86,6 +86,19 @@ install_dotfiles() {
         ln -s "$linkable" "$target"
     done
 
+    # Run topic link.sh scripts (handle ~/.config/ and other custom links)
+    echo ""
+    echo "Running topic link.sh scripts..."
+    local link_scripts=()
+    while IFS= read -r -d '' file; do
+        link_scripts+=("$file")
+    done < <(find "$DOTFILES_DIR" -name "link.sh" -not -path "*/.git/*" -print0)
+
+    for script in "${link_scripts[@]}"; do
+        echo "Running $script"
+        bash "$script"
+    done
+
     echo ""
     echo "✅ Dotfiles installation complete!"
     echo ""
