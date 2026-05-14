@@ -1,0 +1,54 @@
+#!/bin/bash
+# md2pdf — Convert Markdown to PDF using Pandoc + WeasyPrint
+#
+# Usage:
+#   md2pdf input.md              → creates input.pdf in same directory
+#   md2pdf input.md output.pdf   → explicit output path
+#
+# Install:
+#   1. Copy this script somewhere on your PATH (e.g. /usr/local/bin/md2pdf)
+#   2. chmod +x /usr/local/bin/md2pdf
+#   3. Copy style.css to ~/.config/md2pdf/style.css
+
+set -e
+
+CSS_PATH="/Users/joelgillman/.dotfiles/bin/md2pdf-style.css"
+STYLE_TEMPLATE_PATH="md2pdf-styles.html"
+
+# ── Argument handling ─────────────────────────────────────────
+
+if [ -z "$1" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  echo "Usage: md2pdf <input.md> [output.pdf]"
+  echo ""
+  echo "  Stylesheet: $CSS_PATH"
+  echo "  To customize, edit that file."
+  exit 0
+fi
+
+INPUT="$1"
+OUTPUT="${2:-${INPUT%.md}.pdf}"
+
+if [ ! -f "$INPUT" ]; then
+  echo "Error: file not found: $INPUT" >&2
+  exit 1
+fi
+
+if [ ! -f "$CSS_PATH" ]; then
+  echo "Error: stylesheet not found at $CSS_PATH" >&2
+  echo "Copy style.css to that location and try again."
+  exit 1
+fi
+
+# ── Convert ───────────────────────────────────────────────────
+
+pandoc "$INPUT" \
+  --from=markdown+smart+emoji+mark \
+  --to=html \
+  --standalone \
+  --lua-filter ~/.dotfiles/bin/pagebreak.lua \
+  --metadata title=" " \
+  --css="$CSS_PATH" |
+  # tee output.html |
+  weasyprint - "$OUTPUT" --presentational-hints --quiet
+
+echo "✓  $OUTPUT"

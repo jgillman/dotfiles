@@ -4,9 +4,8 @@
 SOURCE_DIR="${HOME}/Library/Containers/engineering.teenage.fieldkit/Data/Documents/TP-7 MTP Device-F1RUI15V/"
 DEST_DIR="${HOME}/recordings/TP-7"
 # CHANGE THESE for where your models are located
-MODEL_PATH="${HOME}/Code/whisper.cpp/models/ggml-large-v3-q5_0.bin"
-VAD_MODEL_PATH="${HOME}/Code/whisper.cpp/models/ggml-silero-v5.1.2.bin"
-
+MODEL_PATH="${HOME}/Code/whisper.cpp/models/ggml-medium.en.bin"
+VAD_MODEL_PATH="${HOME}/Code/whisper.cpp/models/ggml-silero-v6.2.0.bin"
 
 # Don't allow unset variables
 set -o nounset
@@ -28,7 +27,6 @@ set -o pipefail
 # http://www.dwheeler.com/essays/filenames-in-shell.html
 IFS=$'\n\t'
 
-
 ###############################################################################
 # Check dependencies
 ###############################################################################
@@ -48,8 +46,21 @@ check_dependencies() {
   fi
 }
 
+check_transcription_dependencies() {
+  if [ ! -f "$MODEL_PATH" ]; then
+    echo "Whisper transcription model not found at: $MODEL_PATH"
+    exit 1
+  fi
+
+  if [ ! -f "$VAD_MODEL_PATH" ]; then
+    echo "Whisper VAD model not found at: $VAD_MODEL_PATH"
+    exit 1
+  fi
+}
+
 # Check dependencies and exit with error if any are missing
 check_dependencies
+check_transcription_dependencies
 
 ###############################################################################
 # Main
@@ -58,8 +69,8 @@ check_dependencies
 _main() {
   local synced_files
   echo "Syncing missing files from ${SOURCE_DIR} to ${DEST_DIR}..."
-  synced_files=$(rsync -avhz --itemize-changes "${SOURCE_DIR}" "${DEST_DIR}" | \
-    grep -E '^>f' | \
+  synced_files=$(rsync -avhz --itemize-changes --exclude '/library/' "${SOURCE_DIR}" "${DEST_DIR}" |
+    grep -E '^>f' |
     sed 's/^>f[^\s]* //')
 
   # Process only the synced files
@@ -105,4 +116,3 @@ _transcribe() {
 
 # Call `_main` after everything has been defined.
 _main "$@"
-

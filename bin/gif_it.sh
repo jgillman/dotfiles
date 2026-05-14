@@ -22,4 +22,4 @@ readonly palette="/tmp/palette-$(uuidgen).png"
 readonly filters="fps=${framerate},scale=${width}:-1:flags=lanczos"
 
 ffmpeg -y -v warning -i "${input}" -vf "${filters},palettegen=stats_mode=diff" "${palette}" &&
-ffmpeg -y -v warning -i "${input}" -i "${palette}" -lavfi "${filters} [x]; [x][1:v] paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" "${output}"
+  ffmpeg -y -v warning -i "${input}" -i "${palette}" -lavfi "${filters} [x]; [x][1:v] paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" "${output}"

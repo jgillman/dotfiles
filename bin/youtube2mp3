@@ -10,11 +10,10 @@ function main() {
     exit 1
   fi
 
-  youtube-dl \
+  yt-dlp \
     --extract-audio \
     --ignore-errors \
     --embed-thumbnail \
-    --youtube-skip-dash-manifest \
     --add-metadata \
     --audio-format mp3 \
     --output "$output_template" \
