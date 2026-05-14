@@ -1,3 +1,20 @@
-Key    | Action
+Playback controls
+-------|--------------------------------------
+.      | Step forward
+,      | Step backward
+j or J | Cycle through the available subtitles
+< or > | Go backward/forward in the playlist.
+s      | Take screenshot
+q      | Quit
+Q      | Quit and save current playback position
+
+UI controls
 -------|--------------------------------------
 c      | Change visualization (audio only)
+T      | Toggle stay-on-top
+
+Looping controls
+-------|--------------------------------------
+l      | Set/clear A-B loop points
+L      | Toggle infinite looping
+
