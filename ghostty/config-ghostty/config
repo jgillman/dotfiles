@@ -16,6 +16,9 @@ font-thicken-strength = 128
 mouse-hide-while-typing = true
 
 macos-titlebar-style = hidden
+macos-option-as-alt = true
+macos-auto-secure-input = true
+macos-secure-input-indication = true
 
 theme = Dracula
 background = #282a36
