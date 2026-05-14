@@ -38,6 +38,8 @@
 
 [pull]
   rebase = true
+[merge]
+  ff = only
 [push]
   default = current
 [grep]
