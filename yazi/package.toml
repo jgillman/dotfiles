@@ -1,19 +1,24 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "63f9650"
-hash = "d0ad0c1946b46a30c8489735fe8de41c"
+rev = "5d5c480"
+hash = "f0c8c378184d5f8abd1b095a443d336d"
 
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
-rev = "90a1652"
-hash = "7a83bfab51d1d2ba6558cc56bd52539a"
+rev = "49f5ab7"
+hash = "6e3b5e58f985cc2d625e0030dc35b1b2"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "cfb9140"
-hash = "b5067143415bd2d46c0dfa57319ddcef"
+rev = "406ce6c"
+hash = "f5afc904d5106ee368c8aa2ded43bd74"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "5d5c480"
+hash = "7b625412411be411153886894d9acaf"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:dracula"
-rev = "4a1802a"
-hash = "7a870f143a4026a893ea3123be711e7a"
+rev = "0670801"
+hash = "20624fcdfcf7e4e912de05e348065e5e"
