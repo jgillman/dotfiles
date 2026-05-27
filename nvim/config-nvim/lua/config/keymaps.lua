@@ -6,6 +6,9 @@ vim.keymap.set('', 'gs', '<Nop>')
 vim.keymap.set({ 'n', 'v' }, 'j', 'gj')
 vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
 
+-- Default to searching with very magic mode
+vim.keymap.set({ 'n', 'v' }, '/', '/\\v')
+
 -- Remove current highlighted search
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>')
 
