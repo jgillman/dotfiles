@@ -31,6 +31,7 @@ import argparse
 import logging
 import os
 import re
+import shutil
 import subprocess
 import sys
 import threading
@@ -169,6 +170,10 @@ def main():
         print("No text provided. Pass text as an argument, pipe via stdin, or copy to clipboard.", file=sys.stderr)
         sys.exit(1)
     text = preprocess(text)
+
+    if args.voice[0] in "ab" and not shutil.which("espeak"):
+        print("speak requires espeak for English voices: brew install espeak", file=sys.stderr)
+        sys.exit(1)
 
     pipeline = KPipeline(lang_code=args.voice[0], repo_id="hexgrad/Kokoro-82M")
 
