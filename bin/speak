@@ -77,8 +77,31 @@ except OSError:
     print("sounddevice requires portaudio: brew install portaudio", file=sys.stderr)
     sys.exit(1)
 
-VOICE = "af_heart"
 SAMPLE_RATE = 24000
+
+VOICES = [
+    "af_alloy", "af_aoede", "af_bella", "af_heart", "af_jessica", "af_kore",
+    "af_nicole", "af_nova", "af_river", "af_sarah", "af_sky",
+    "am_adam", "am_echo", "am_eric", "am_fenrir", "am_liam", "am_michael",
+    "am_onyx", "am_puck", "am_santa",
+    "bf_alice", "bf_emma", "bf_isabella", "bf_lily",
+    "bm_daniel", "bm_fable", "bm_george", "bm_lewis",
+    "ef_dora", "em_alex", "em_santa",
+    "ff_siwis",
+    "hf_alpha", "hf_beta", "hm_omega", "hm_psi",
+    "if_sara", "im_nicola",
+    "jf_alpha", "jf_gongitsune", "jf_nezumi", "jf_tebukuro", "jm_kumo",
+    "pf_dora", "pm_alex", "pm_santa",
+    "zf_xiaobei", "zf_xiaoni", "zf_xiaoxiao", "zf_xiaoyi",
+    "zm_yunjian", "zm_yunxi", "zm_yunxia", "zm_yunyang",
+]
+
+LANG_NAMES = {
+    "a": "American English", "b": "British English", "e": "Spanish",
+    "f": "French", "h": "Hindi", "i": "Italian", "p": "Portuguese",
+    "j": "Japanese (requires: pip install misaki[ja])",
+    "z": "Mandarin Chinese (requires: pip install misaki[zh])",
+}
 
 
 def preprocess(text):
@@ -120,10 +143,20 @@ def main():
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--play", action="store_true", default=True, help="Play audio immediately (default)")
     group.add_argument("-o", "--file", metavar="PATH", help="Write audio to file instead of playing")
+    parser.add_argument("--voice", default="af_heart", metavar="VOICE", help="Voice to use (default: af_heart, see --list-voices)")
+    parser.add_argument("--list-voices", action="store_true", help="List available voices and exit")
     parser.add_argument("--debug", action="store_true", help="Print text and phoneme chunks without generating audio")
     parser.add_argument("--speed", type=float, default=1.0, metavar="N", help="Speech speed multiplier (default: 1.0)")
     parser.add_argument("words", nargs="*", metavar="TEXT", help="Text to speak (default: clipboard)")
     args = parser.parse_args()
+
+    if args.list_voices:
+        from itertools import groupby
+        for lang, group in groupby(VOICES, key=lambda v: v[0]):
+            print(f"\n{LANG_NAMES.get(lang, lang)}:")
+            for v in group:
+                print(f"  {v}{' (default)' if v == 'af_heart' else ''}")
+        sys.exit(0)
 
     if args.words:
         text = " ".join(args.words)
@@ -137,22 +170,22 @@ def main():
         sys.exit(1)
     text = preprocess(text)
 
-    pipeline = KPipeline(lang_code="a", repo_id="hexgrad/Kokoro-82M")
+    pipeline = KPipeline(lang_code=args.voice[0], repo_id="hexgrad/Kokoro-82M")
 
     if args.debug:
-        for i, (gs, ps, _) in enumerate(pipeline(text, voice=VOICE, speed=args.speed), 1):
+        for i, (gs, ps, _) in enumerate(pipeline(text, voice=args.voice, speed=args.speed), 1):
             print(f"[{i}] {gs!r}")
             print(f"     {ps}")
         return
 
     if args.file:
-        chunks = [audio for _, _, audio in pipeline(text, voice=VOICE, speed=args.speed)]
+        chunks = [audio for _, _, audio in pipeline(text, voice=args.voice, speed=args.speed)]
         out_path = Path(args.file)
         sf.write(str(out_path), np.concatenate(chunks), SAMPLE_RATE)
         print(f"Written to {out_path}")
     else:
         with sd.OutputStream(samplerate=SAMPLE_RATE, channels=1, dtype="float32") as stream:
-            for _, _, audio in pipeline(text, voice=VOICE, speed=args.speed):
+            for _, _, audio in pipeline(text, voice=args.voice, speed=args.speed):
                 stream.write(audio.reshape(-1, 1))
 
 
