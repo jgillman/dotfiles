@@ -1,0 +1,161 @@
+#!/usr/bin/env bash
+
+CACHE="$HOME/.cache/kokoro-speak"
+VENV="$CACHE/venv"
+WHEELS="$CACHE/wheels"
+SPACY_WHL="en_core_web_sm-3.8.0-py3-none-any.whl"
+SPACY_URL="https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/$SPACY_WHL"
+
+if [[ ! -d "$VENV" ]]; then
+    echo "First run: setting up Kokoro environment..." >&2
+    mkdir -p "$WHEELS"
+    if [[ ! -f "$WHEELS/$SPACY_WHL" ]]; then
+        echo "Downloading spaCy English model..." >&2
+        curl -sSL -o "$WHEELS/$SPACY_WHL" "$SPACY_URL"
+    fi
+    uv venv --python 3.12 "$VENV"
+    uv pip install --python "$VENV/bin/python" kokoro soundfile numpy sounddevice
+    uv pip install --python "$VENV/bin/python" "$WHEELS/$SPACY_WHL"
+fi
+
+# Capture piped stdin before the heredoc consumes it.
+# Python runs as `python -` so its stdin is always the heredoc pipe, not the terminal.
+SPEAK_STDIN=""
+if [[ ! -t 0 ]]; then
+    SPEAK_STDIN=$(cat)
+fi
+export SPEAK_STDIN
+
+"$VENV/bin/python" - "$@" <<'PYTHON'
+import argparse
+import logging
+import os
+import re
+import subprocess
+import sys
+import threading
+import warnings
+from pathlib import Path
+
+
+def _setup_stderr_filter():
+    # The HF hub warning is written directly to fd 2 (not via warnings or logging),
+    # so we intercept at the OS level and forward everything except that line.
+    SUPPRESSED = frozenset({"unauthenticated requests to the HF Hub"})
+    r_fd, w_fd = os.pipe()
+    real_fd = os.dup(2)
+    os.dup2(w_fd, 2)
+    os.close(w_fd)
+
+    def forward():
+        with os.fdopen(r_fd, "r", errors="replace") as pipe:
+            for line in pipe:
+                if not any(s in line for s in SUPPRESSED):
+                    try:
+                        os.write(real_fd, line.encode(errors="replace"))
+                    except OSError:
+                        break
+        try:
+            os.close(real_fd)
+        except OSError:
+            pass
+
+    threading.Thread(target=forward, daemon=True).start()
+
+
+_setup_stderr_filter()
+warnings.filterwarnings("ignore")
+logging.getLogger("huggingface_hub").setLevel(logging.ERROR)
+
+import numpy as np
+import soundfile as sf
+from kokoro import KPipeline
+
+try:
+    import sounddevice as sd
+except OSError:
+    print("sounddevice requires portaudio: brew install portaudio", file=sys.stderr)
+    sys.exit(1)
+
+VOICE = "af_heart"
+SAMPLE_RATE = 24000
+
+
+def preprocess(text):
+    # Fenced code blocks
+    text = re.sub(r"```[\s\S]*?```", "", text)
+    text = re.sub(r"~~~[\s\S]*?~~~", "", text)
+    # Inline code: strip backticks, keep text
+    text = re.sub(r"`([^`]+)`", r"\1", text)
+    # Markdown images: strip entirely
+    text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)
+    # Markdown links: keep link text, drop URL
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    # Standalone URLs
+    text = re.sub(r"https?://\S+", "link", text)
+    # Headings
+    text = re.sub(r"^#{1,6}\s+", "", text, flags=re.MULTILINE)
+    # Bold / italic
+    text = re.sub(r"\*{1,3}([^*]+)\*{1,3}", r"\1", text)
+    text = re.sub(r"_{1,3}([^_]+)_{1,3}", r"\1", text)
+    # Strikethrough
+    text = re.sub(r"~~([^~]+)~~", r"\1", text)
+    # Blockquotes
+    text = re.sub(r"^>\s*", "", text, flags=re.MULTILINE)
+    # Bullet / numbered list markers
+    text = re.sub(r"^\s*[-*•]\s+", "", text, flags=re.MULTILINE)
+    text = re.sub(r"^\s*\d+\.\s+", "", text, flags=re.MULTILINE)
+    # Em-dash → comma, en-dash → "to"
+    text = re.sub(r"\s*—\s*", ", ", text)
+    text = re.sub(r"\s*–\s*", " to ", text)
+    # word/word → word or word
+    text = re.sub(r"(?<=\w)/(?=\w)", " or ", text)
+    # Collapse excess blank lines
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
+def main():
+    parser = argparse.ArgumentParser(prog="speak", description="Read clipboard text aloud using Kokoro TTS")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--play", action="store_true", default=True, help="Play audio immediately (default)")
+    group.add_argument("-o", "--file", metavar="PATH", help="Write audio to file instead of playing")
+    parser.add_argument("--debug", action="store_true", help="Print text and phoneme chunks without generating audio")
+    parser.add_argument("--speed", type=float, default=1.0, metavar="N", help="Speech speed multiplier (default: 1.0)")
+    parser.add_argument("words", nargs="*", metavar="TEXT", help="Text to speak (default: clipboard)")
+    args = parser.parse_args()
+
+    if args.words:
+        text = " ".join(args.words)
+    elif os.environ.get("SPEAK_STDIN"):
+        text = os.environ["SPEAK_STDIN"].strip()
+    else:
+        text = subprocess.check_output(["pbpaste"]).decode("utf-8").strip()
+
+    if not text:
+        print("No text provided. Pass text as an argument, pipe via stdin, or copy to clipboard.", file=sys.stderr)
+        sys.exit(1)
+    text = preprocess(text)
+
+    pipeline = KPipeline(lang_code="a", repo_id="hexgrad/Kokoro-82M")
+
+    if args.debug:
+        for i, (gs, ps, _) in enumerate(pipeline(text, voice=VOICE, speed=args.speed), 1):
+            print(f"[{i}] {gs!r}")
+            print(f"     {ps}")
+        return
+
+    if args.file:
+        chunks = [audio for _, _, audio in pipeline(text, voice=VOICE, speed=args.speed)]
+        out_path = Path(args.file)
+        sf.write(str(out_path), np.concatenate(chunks), SAMPLE_RATE)
+        print(f"Written to {out_path}")
+    else:
+        with sd.OutputStream(samplerate=SAMPLE_RATE, channels=1, dtype="float32") as stream:
+            for _, _, audio in pipeline(text, voice=VOICE, speed=args.speed):
+                stream.write(audio.reshape(-1, 1))
+
+
+if __name__ == "__main__":
+    main()
+PYTHON
