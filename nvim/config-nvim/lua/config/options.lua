@@ -11,6 +11,10 @@ vim.o.showmode = true
 vim.o.breakindent = true
 vim.o.undofile = true
 
+-- Overwrite files in place on save instead of write-new-and-rename, so
+-- owner/group/mode survive on network mounts (SMB, sshfs to the tower)
+vim.o.backupcopy = 'yes'
+
 -- Default to 2 spaces instead of tabs
 -- NOTE: The plugin indent-o-matic resets these
 vim.opt.tabstop = 2

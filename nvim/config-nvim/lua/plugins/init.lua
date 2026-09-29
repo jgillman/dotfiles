@@ -7,6 +7,9 @@ return {
       filetype_yaml = {
         standard_widths = { 2 },
       },
+      filetype_fish = {
+        standard_widths = { 2 },
+      },
     },
   },
 

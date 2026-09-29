@@ -16,12 +16,9 @@ if vim.g.neovide then
   vim.keymap.set('v', '<D-x>', cut, { silent = true, desc = 'Cut' })
   vim.keymap.set({ 'n', 'i', 'v', 'c', 't' }, '<D-v>', paste, { silent = true, desc = 'Paste' })
 
-  -- New Tab
-  -- local function newtab()
-  --   -- TODO: check to see if current buffer is the "start page" and close it if it is
-  --   vim.cmd.tabnew()
-  -- end
-  -- vim.keymap.set('', '<D-t>', newtab, { desc = 'New Tab' })
+  -- New Buffer
+  local function newbuffer() vim.cmd.enew() end
+  vim.keymap.set('', '<D-t>', vim.cmd.enew(), { desc = 'New Buffer' })
 
   -- Allow for scaling up and down with Cmd + minus or plus (equals)
   -- Reset size with Cmd + 0
