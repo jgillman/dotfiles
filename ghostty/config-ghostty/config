@@ -6,6 +6,21 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
+# Cursor animations
+custom-shader = ./shaders/neovide-cursor-warp.glsl
+
+# Basic starfield
+custom-shader = ./shaders/starfield.glsl
+
+# CRT Terminal
+#custom-shader = ./shaders/tft.glsl
+#custom-shader = ./shaders/bettercrt.glsl
+
+# Retro Terminal
+#custom-shader = ./shaders/tft.glsl
+#custom-shader = ./shaders/retro-terminal.glsl
+#custom-shader = ./shaders/bloom.glsl
+
 font-size = 14
 font-family = Victor Mono
 
@@ -21,7 +36,7 @@ macos-auto-secure-input = true
 macos-secure-input-indication = true
 
 theme = Dracula
-background = #282a36
+background = #22212c
 foreground = #f8f8f2
 selection-background = #44475a
 selection-foreground = #ffffff
