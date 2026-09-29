@@ -1,4 +1,5 @@
 tap "saulpw/vd"
+tap "macos-fuse-t/homebrew-cask"
 
 
 brew "bat"
@@ -9,6 +10,7 @@ brew "coreutils"
 brew "diff-so-fancy"
 brew "direnv"
 brew "dua-cli"  # fast and interactive du
+brew "dug"  # DNS checker like dig but pretty
 brew "eza"  # modern alternative to ls
 brew "f2"  # batch renaming tool
 brew "fd"  # friendlier find
@@ -18,10 +20,13 @@ brew "findutils"
 brew "fish"  # fish shell
 brew "fpp"  # Facebook PathPicker
 brew "fzf"
+brew "gh"  # GitHub command-line tool
 brew "git"
 brew "gitui"  # blazing fast terminal-ui for git
 brew "graphicsmagick"
-brew "hub"
+brew "grep"  # GNU's version of grep, ggrep
+brew "herdr"
+brew "hub"  # GitHub support to git on the command-line 
 brew "hyperfine" # command-line benchmarking tool
 brew "jq"
 brew "kubo"  # previously named "ipfs"
@@ -58,16 +63,18 @@ cask "antinote"  # simple scratchpad for quick notes
 cask "appcleaner"
 cask "betterdisplay"  # fine control of displays and create virtual displays
 cask "bitwarden"  # password manager
-cask "choosy"
+cask "choosy"  # open links in any browser
 cask "chromedriver"
-cask "cleanshot"
+cask "cleanshot"  # screenshot tool
 cask "discord"
 cask "disk-inventory-x"
 cask "dropbox"
-cask "fantastical"
+cask "equinox"  # create dynamic wallpapers
+cask "fantastical"  # calendar software of choice
+cask "freecad"
+cask "fuse-t"  # kext-less FUSE, for sshfs mounts
+cask "fuse-t-sshfs"  # `tower` fish function mounts the Unraid box
 cask "firefox"
-cask "font-victor-mono"
-cask "font-victor-mono-nerd-font"  # victor mono with nerd font additions
 cask "ghostty"
 cask "google-chrome"
 cask "gpg-suite"
@@ -76,11 +83,13 @@ cask "hazel"  # automate actions on files
 cask "hiddenbar"  # menu bar item hiding
 cask "imageoptim"
 cask "keycastr"  # displays key presses for screen presentations
+cask "keyboard-maestro"
+cask "karabiner-elements"  # keyboard customizer
 cask "kid3"  # id3 tag editor for audio files
-cask "losslesscut"
-cask "macvim-app"
+cask "losslesscut"  # trims video and audio files losslessly
 cask "mediainfo"
 cask "mpv"
+cask "neovide-app"  # desk neovim client
 cask "obs"
 cask "obsidian"
 cask "plex"
@@ -94,7 +103,12 @@ cask "rustdesk"  # virtual/remote desktop
 cask "signal"
 cask "spotify"
 cask "steam"
-cask "steermouse"
+cask "steermouse"  # customise mouse buttons, wheels and cursor speed
 cask "tailscale"  # private vpn network
 cask "transmit"
 cask "vivaldi"
+
+# Fonts
+cask "font-newsreader"
+cask "font-victor-mono"
+cask "font-victor-mono-nerd-font"  # victor mono with nerd font additions
